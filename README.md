@@ -55,11 +55,14 @@
   4. 신체정보(BodyInfoViewController)
 
   5. 홈(ViewController)
+
      5-1. 음식정보(FoodInfoViewController)
 
-     5-2. 정보편집(EditInfoViewController)
+     5-2. 음식검색(SearchInfoViewController)
 
      5-3. 수기등록(ManualAddInfoViewController)
+
+     5-4. 날짜선택(DateSelectViewController)
 
   6. 음식추천(RecommendViewController)
 
@@ -67,21 +70,25 @@
 
      7-1. 정보입력(WriteInfoViewController)
 
+     7-2. 음식검색(SearchInfoViewController)
+
+     7-3. 날짜선택(DateSelectViewController)
+
   8. 기록(HistoryViewController)
 
      8-1. 음식정보(FoodInfoViewController)
 
-     8-2. 정보편집(EditInfoViewController)
-
   9. 마이페이지(MypageViewController)
 
-     9-1. 신체정보(BodyInfoViewController)
+     9-1. 신체정보수정(EditBodyInfoViewController)
 
      9-2. 알림설정(SetNotificationViewController)
 
+     9-3. 시간선택(TimeSelectViewController)
+
 * TodayExtension
 
-  1. WidgetViewController
+  1. 위젯(WidgetViewController)
 
 ---
 
@@ -90,7 +97,7 @@
 * 비로그인 시 기능 사용 불가(YAIZO 레퍼런스)
 * 이메일 로그인, 카카오톡 로그인 제공
 * 최초 로그인 시 성별, 연령, 키, 체중 입력
-* 최초 로그인 시 튜토리얼 모달뷰 제공
+* 최초 로그인 시 튜토리얼 모달뷰 제공(추후)
 * 탭1: 금일 섭취한 음식 정보 표시, 과부족 영양소 및 칼로리 시각적으로 표시
 * 탭2: 균형잡힌 영양소를 섭취하기 위한 추천 음식정보 제공
 * 탭3: 카메라 촬영(모달뷰로 띄우기, 앱델리게이트 수정)
