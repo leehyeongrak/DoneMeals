@@ -11,6 +11,10 @@
 		390A1DB022588511008537DD /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DAF22588511008537DD /* AddViewController.swift */; };
 		390A1DB22258851A008537DD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DB12258851A008537DD /* HistoryViewController.swift */; };
 		390A1DB42258858B008537DD /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DB32258858B008537DD /* MoreViewController.swift */; };
+		39A94ACC22588A62007D6DFE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A94ACB22588A62007D6DFE /* WelcomeViewController.swift */; };
+		39A94ACE22589D0D007D6DFE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A94ACD22589D0D007D6DFE /* LoginViewController.swift */; };
+		39A94AD022589E0A007D6DFE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A94ACF22589E0A007D6DFE /* SignUpViewController.swift */; };
+		39A94AD222589EB4007D6DFE /* BodyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A94AD122589EB4007D6DFE /* BodyInfoViewController.swift */; };
 		39D53AB722522ACE00D2C4E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */; };
 		39D53AB922522ACE00D2C4E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D53AB822522ACE00D2C4E0 /* ViewController.swift */; };
 		39D53ABC22522ACE00D2C4E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D53ABA22522ACE00D2C4E0 /* Main.storyboard */; };
@@ -23,6 +27,10 @@
 		390A1DAF22588511008537DD /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		390A1DB12258851A008537DD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		390A1DB32258858B008537DD /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		39A94ACB22588A62007D6DFE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		39A94ACD22589D0D007D6DFE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		39A94ACF22589E0A007D6DFE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		39A94AD122589EB4007D6DFE /* BodyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyInfoViewController.swift; sourceTree = "<group>"; };
 		39D53AB322522ACE00D2C4E0 /* FOODOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOODOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39D53AB822522ACE00D2C4E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +54,11 @@
 		390A1DB522588591008537DD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				39A94ACB22588A62007D6DFE /* WelcomeViewController.swift */,
+				39A94ACD22589D0D007D6DFE /* LoginViewController.swift */,
+				39A94ACF22589E0A007D6DFE /* SignUpViewController.swift */,
 				39D53AB822522ACE00D2C4E0 /* ViewController.swift */,
+				39A94AD122589EB4007D6DFE /* BodyInfoViewController.swift */,
 				390A1DB32258858B008537DD /* MoreViewController.swift */,
 				390A1DAD225884F5008537DD /* RecommendViewController.swift */,
 				390A1DAF22588511008537DD /* AddViewController.swift */,
@@ -157,10 +169,14 @@
 			files = (
 				39D53AB922522ACE00D2C4E0 /* ViewController.swift in Sources */,
 				39D53AB722522ACE00D2C4E0 /* AppDelegate.swift in Sources */,
+				39A94AD222589EB4007D6DFE /* BodyInfoViewController.swift in Sources */,
 				390A1DB022588511008537DD /* AddViewController.swift in Sources */,
 				390A1DB42258858B008537DD /* MoreViewController.swift in Sources */,
+				39A94ACE22589D0D007D6DFE /* LoginViewController.swift in Sources */,
 				390A1DB22258851A008537DD /* HistoryViewController.swift in Sources */,
+				39A94AD022589E0A007D6DFE /* SignUpViewController.swift in Sources */,
 				390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */,
+				39A94ACC22588A62007D6DFE /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
