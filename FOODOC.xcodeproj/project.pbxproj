@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DAD225884F5008537DD /* RecommendViewController.swift */; };
+		390A1DB022588511008537DD /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DAF22588511008537DD /* AddViewController.swift */; };
+		390A1DB22258851A008537DD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DB12258851A008537DD /* HistoryViewController.swift */; };
+		390A1DB42258858B008537DD /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DB32258858B008537DD /* MoreViewController.swift */; };
 		39D53AB722522ACE00D2C4E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */; };
 		39D53AB922522ACE00D2C4E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D53AB822522ACE00D2C4E0 /* ViewController.swift */; };
 		39D53ABC22522ACE00D2C4E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D53ABA22522ACE00D2C4E0 /* Main.storyboard */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		390A1DAD225884F5008537DD /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		390A1DAF22588511008537DD /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		390A1DB12258851A008537DD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		390A1DB32258858B008537DD /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		39D53AB322522ACE00D2C4E0 /* FOODOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOODOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39D53AB822522ACE00D2C4E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +43,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		390A1DB522588591008537DD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				39D53AB822522ACE00D2C4E0 /* ViewController.swift */,
+				390A1DB32258858B008537DD /* MoreViewController.swift */,
+				390A1DAD225884F5008537DD /* RecommendViewController.swift */,
+				390A1DAF22588511008537DD /* AddViewController.swift */,
+				390A1DB12258851A008537DD /* HistoryViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		39D53AAA22522ACE00D2C4E0 = {
 			isa = PBXGroup;
 			children = (
@@ -55,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */,
-				39D53AB822522ACE00D2C4E0 /* ViewController.swift */,
+				390A1DB522588591008537DD /* ViewControllers */,
 				39D53ABA22522ACE00D2C4E0 /* Main.storyboard */,
 				39D53ABD22522ACF00D2C4E0 /* Assets.xcassets */,
 				39D53ABF22522ACF00D2C4E0 /* LaunchScreen.storyboard */,
@@ -137,6 +157,10 @@
 			files = (
 				39D53AB922522ACE00D2C4E0 /* ViewController.swift in Sources */,
 				39D53AB722522ACE00D2C4E0 /* AppDelegate.swift in Sources */,
+				390A1DB022588511008537DD /* AddViewController.swift in Sources */,
+				390A1DB42258858B008537DD /* MoreViewController.swift in Sources */,
+				390A1DB22258851A008537DD /* HistoryViewController.swift in Sources */,
+				390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
