@@ -38,6 +38,18 @@ class LoginViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
             return
+        } else {
+            Auth.auth().signIn(withEmail: emailText, password: passwordText) { (user, error) in
+                if error != nil {
+                    print(error!)
+                    let alert = UIAlertController(title: "로그인 실패", message: "이메일과 패스워드를 다시 확인해주세요", preferredStyle: .alert)
+                    self.present(alert, animated: true) {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    return
+                }
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
