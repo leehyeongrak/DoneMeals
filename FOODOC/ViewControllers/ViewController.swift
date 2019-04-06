@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     
     func presentBodyInfoViewController() {
         if let bodyInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "BodyInfoViewController") as? BodyInfoViewController {
+            bodyInfoViewController.userLoggedOutDelegate = self
             present(bodyInfoViewController, animated: true, completion: nil)
         }
     }
@@ -59,8 +60,16 @@ protocol UserLoggedInDelegate {
     func userLoggedIn()
 }
 
-extension ViewController: UserLoggedInDelegate {
+protocol UserLoggedOutDelegate {
+    func userLoggedOut()
+}
+
+extension ViewController: UserLoggedInDelegate, UserLoggedOutDelegate {
     func userLoggedIn() {
         checkUserInfo()
+    }
+    
+    func userLoggedOut() {
+        checkUserAuth()
     }
 }

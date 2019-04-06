@@ -50,9 +50,7 @@ class LoginViewController: UIViewController {
                 if let welcomeViewController = self.navigationController?.viewControllers[0] as? WelcomeViewController {
                     welcomeViewController.userLoggedInDelegate?.userLoggedIn()
                 }
-                self.dismiss(animated: true, completion: {
-                    
-                })
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }

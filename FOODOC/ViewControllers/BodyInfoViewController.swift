@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class BodyInfoViewController: UIViewController {
-
+    
+    var userLoggedOutDelegate: UserLoggedOutDelegate?
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBAction func tappedMaleButton(_ sender: UIButton) {
     }
@@ -24,6 +27,14 @@ class BodyInfoViewController: UIViewController {
     }
     
     @IBAction func tappedLogoutButton(_ sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+            self.dismiss(animated: true) {
+                self.userLoggedOutDelegate?.userLoggedOut()
+            }
+        } catch {
+            print(error)
+        }
     }
     @IBAction func tappedStartButton(_ sender: UIButton) {
     }
