@@ -183,6 +183,9 @@
                                         <state key="normal" title="로그인">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedLoginButton:" destination="uqN-5C-TA0" eventType="touchUpInside" id="EcO-Qj-UId"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -198,6 +201,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J3C-1U-hbh"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="G16-7a-cv7" id="64p-lq-U84"/>
+                        <outlet property="passwordTextField" destination="IEG-iJ-C6t" id="0YD-7l-26H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZ7-1M-zvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -276,6 +283,9 @@
                                 <state key="normal" title="회원가입">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedSignUpButton:" destination="3Gb-D7-bP3" eventType="touchUpInside" id="kdU-v9-BbN"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="GSh-sY-Ife">
                                 <rect key="frame" x="32" y="285.33333333333331" width="311" height="122"/>
@@ -312,6 +322,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NlJ-6P-DVz"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="h0S-rK-3wL" id="lX5-fj-dna"/>
+                        <outlet property="passwordConfirmTextField" destination="cKO-wG-DQ7" id="zjd-a5-PHc"/>
+                        <outlet property="passwordTextField" destination="3aJ-5v-JzA" id="11q-VG-JTm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jF0-D8-sro" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -320,7 +335,7 @@
         <!--Body Info View Controller-->
         <scene sceneID="En8-i4-bnL">
             <objects>
-                <viewController id="LTL-ib-akH" customClass="BodyInfoViewController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BodyInfoViewController" id="LTL-ib-akH" customClass="BodyInfoViewController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MdV-6T-Fdw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
