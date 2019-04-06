@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        checkUserAuth()
+    }
+    
+    func checkUserAuth() {
+        if Auth.auth().currentUser?.uid == nil {
+            perform(#selector(presentLoginViewController), with: nil, afterDelay: 0)
+        }
+    }
+    
+    @objc func presentLoginViewController() {
+        if let welcomeViewController = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") {
+            let navigationController = UINavigationController(rootViewController: welcomeViewController)
+            present(navigationController, animated: true, completion: nil)
+        }
     }
 
 
