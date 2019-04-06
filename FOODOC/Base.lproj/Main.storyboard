@@ -340,16 +340,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="in4-AW-lBI">
-                                <rect key="frame" x="32" y="714" width="311" height="48"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="kJJ-sD-rGg"/>
-                                </constraints>
-                                <state key="normal" title="시작하기">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Ct-4S-20h">
+                                <rect key="frame" x="32" y="658" width="311" height="104"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="in4-AW-lBI">
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="48"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="kJJ-sD-rGg"/>
+                                        </constraints>
+                                        <state key="normal" title="시작하기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedStartButton:" destination="LTL-ib-akH" eventType="touchUpInside" id="u79-nV-qlY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvt-Qm-zjy">
+                                        <rect key="frame" x="0.0" y="56" width="311" height="48"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="qph-qa-T2D"/>
+                                        </constraints>
+                                        <state key="normal" title="로그아웃">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedLogoutButton:" destination="LTL-ib-akH" eventType="touchUpInside" id="2Yb-dA-6cz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="o79-Tw-pAo">
                                 <rect key="frame" x="32" y="221.66666666666663" width="311" height="214"/>
                                 <subviews>
@@ -403,6 +424,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6B-Un-yAM">
                                                         <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="30"/>
                                                         <state key="normal" title="남자"/>
+                                                        <connections>
+                                                            <action selector="tappedMaleButton:" destination="LTL-ib-akH" eventType="touchUpInside" id="kFd-dX-fOD"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn5-x2-bJq">
                                                         <rect key="frame" x="81.333333333333329" y="5" width="80.999999999999986" height="20.333333333333332"/>
@@ -413,20 +437,32 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfh-M3-hPf">
                                                         <rect key="frame" x="162.33333333333337" y="0.0" width="81.333333333333314" height="30"/>
                                                         <state key="normal" title="여자"/>
+                                                        <connections>
+                                                            <action selector="tappedFemaleButton:" destination="LTL-ib-akH" eventType="touchUpInside" id="sei-0i-20C"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="St1-Wj-MzQ">
                                                 <rect key="frame" x="0.0" y="92.000000000000028" width="243.66666666666666" height="30"/>
                                                 <state key="normal" title="나이를 선택해주세요"/>
+                                                <connections>
+                                                    <action selector="tappedAgeButton:" destination="LTL-ib-akH" eventType="touchUpInside" id="FwE-En-qpy"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ0-HZ-Wrh">
                                                 <rect key="frame" x="0.0" y="138.00000000000003" width="243.66666666666666" height="30"/>
                                                 <state key="normal" title="키를 선택해주세요"/>
+                                                <connections>
+                                                    <action selector="tappedHeightButton:" destination="LTL-ib-akH" eventType="touchUpInside" id="Yqu-Ix-iBO"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jav-Jp-tuk">
                                                 <rect key="frame" x="0.0" y="184.00000000000003" width="243.66666666666666" height="30"/>
                                                 <state key="normal" title="체중을 선택해주세요"/>
+                                                <connections>
+                                                    <action selector="tappedWeightButton:" destination="LTL-ib-akH" eventType="touchUpInside" id="cRF-g9-UDT"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -435,15 +471,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="vTX-cU-fQT" firstAttribute="bottom" secondItem="6Ct-4S-20h" secondAttribute="bottom" constant="16" id="0ql-GR-cG9"/>
+                            <constraint firstItem="6Ct-4S-20h" firstAttribute="leading" secondItem="vTX-cU-fQT" secondAttribute="leading" constant="32" id="1Lp-th-SEB"/>
                             <constraint firstItem="o79-Tw-pAo" firstAttribute="leading" secondItem="vTX-cU-fQT" secondAttribute="leading" constant="32" id="2TI-4p-LgV"/>
                             <constraint firstItem="vTX-cU-fQT" firstAttribute="trailing" secondItem="o79-Tw-pAo" secondAttribute="trailing" constant="32" id="Lvx-1c-DCf"/>
                             <constraint firstItem="o79-Tw-pAo" firstAttribute="centerY" secondItem="vTX-cU-fQT" secondAttribute="centerY" multiplier="0.8" id="VZK-tJ-UoE"/>
-                            <constraint firstItem="vTX-cU-fQT" firstAttribute="bottom" secondItem="in4-AW-lBI" secondAttribute="bottom" constant="16" id="b02-Rt-cNE"/>
-                            <constraint firstItem="in4-AW-lBI" firstAttribute="leading" secondItem="vTX-cU-fQT" secondAttribute="leading" constant="32" id="uaZ-KJ-B5Q"/>
-                            <constraint firstItem="vTX-cU-fQT" firstAttribute="trailing" secondItem="in4-AW-lBI" secondAttribute="trailing" constant="32" id="xwP-H3-w67"/>
+                            <constraint firstItem="vTX-cU-fQT" firstAttribute="trailing" secondItem="6Ct-4S-20h" secondAttribute="trailing" constant="32" id="fth-et-wHs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vTX-cU-fQT"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="d6E-Yj-c1K" id="bET-SI-6HR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gm5-3p-ZUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

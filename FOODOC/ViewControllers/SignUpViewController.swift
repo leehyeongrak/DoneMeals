@@ -35,15 +35,13 @@ class SignUpViewController: UIViewController {
             }
             return
         } else {
-            // signUp
             if passwordText == passwordConfirmText {
                 Auth.auth().createUser(withEmail: emailText, password: passwordText) { (user, error) in
                     if error != nil {
                         print(error!)
                         return
                     }
-                    
-                    let value: [String: Any] = ["email": emailText, "name": "", "gender": true, "age": 0, "height": 0.0, "wieght": 0.0]
+                    let value: [String: Any] = ["email": emailText, "name": "", "gender": true, "age": 0, "height": 0.0, "weight": 0.0]
                     if let uid = user?.user.uid {
                         self.updateUserInfoIntoDatabase(uid: uid, value: value)
                     }

@@ -11,13 +11,12 @@ import Firebase
 
 class LoginViewController: UIViewController {
 
+    var userLoggedInDelegate: UserLoggedInDelegate?
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func tappedLoginButton(_ sender: UIButton) {
-//        if let bodyInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "BodyInfoViewController") as? BodyInfoViewController {
-//            self.navigationController?.pushViewController(bodyInfoViewController, animated: true)
-//        }
         loginFirebaseAuth()
     }
     
@@ -48,20 +47,14 @@ class LoginViewController: UIViewController {
                     }
                     return
                 }
-                self.dismiss(animated: true, completion: nil)
+                if let welcomeViewController = self.navigationController?.viewControllers[0] as? WelcomeViewController {
+                    welcomeViewController.userLoggedInDelegate?.userLoggedIn()
+                }
+                self.dismiss(animated: true, completion: {
+                    
+                })
             }
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

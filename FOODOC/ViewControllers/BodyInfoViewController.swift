@@ -10,21 +10,29 @@ import UIKit
 
 class BodyInfoViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBAction func tappedMaleButton(_ sender: UIButton) {
+    }
+    @IBAction func tappedFemaleButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func tappedAgeButton(_ sender: UIButton) {
+    }
+    @IBAction func tappedHeightButton(_ sender: UIButton) {
+    }
+    @IBAction func tappedWeightButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func tappedLogoutButton(_ sender: UIButton) {
+    }
+    @IBAction func tappedStartButton(_ sender: UIButton) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
