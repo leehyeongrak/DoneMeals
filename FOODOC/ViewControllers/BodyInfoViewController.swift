@@ -14,9 +14,16 @@ class BodyInfoViewController: UIViewController {
     var userLoggedOutDelegate: UserLoggedOutDelegate?
     
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var femaleButton: UIButton!
+    
     @IBAction func tappedMaleButton(_ sender: UIButton) {
+        maleButton.isSelected = !maleButton.isSelected
+        femaleButton.isSelected = !femaleButton.isSelected
     }
     @IBAction func tappedFemaleButton(_ sender: UIButton) {
+        maleButton.isSelected = !maleButton.isSelected
+        femaleButton.isSelected = !femaleButton.isSelected
     }
     
     @IBAction func tappedAgeButton(_ sender: UIButton) {
