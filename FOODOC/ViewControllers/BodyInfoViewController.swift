@@ -52,5 +52,22 @@ class BodyInfoViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let pickerViewController = segue.destination as? PickerViewController
+        pickerViewController?.segueIdentifier = segue.identifier
+        var values: Array<Int> = []
+        switch segue.identifier {
+        case "SelectAgeSegue":
+            values = Array(1...100)
+        case "SelectHeightSegue":
+            values = Array(50...300)
+        case "SelectWeightSegue":
+            values = Array(30...200)
+        default:
+            return
+        }
+        pickerViewController?.values = values
+    }
 
 }
