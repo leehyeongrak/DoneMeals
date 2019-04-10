@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 
 class BodyInfoViewController: UIViewController {
     
@@ -41,6 +41,27 @@ class BodyInfoViewController: UIViewController {
         }
     }
     @IBAction func tappedStartButton(_ sender: UIButton) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        if nameTextField.text == "" || ageButton.titleLabel?.text == "나이를 선택해주세요" || heightButton.titleLabel?.text == "키를 선택해주세요" || weightButton.titleLabel?.text == "체중을 선택해주세요" {
+            let alert = UIAlertController(title: "시작하기 실패", message: "항목을 전부 입력해주세요", preferredStyle: .alert)
+            present(alert, animated: true) {
+                self.dismiss(animated: true, completion: nil)
+            }
+            return
+        }
+        
+        guard let name = nameTextField.text, let age = ageButton.titleLabel?.text, let height = heightButton.titleLabel?.text, let weight = weightButton.titleLabel?.text else { return }
+        let bodyInfo: [String: Any] = ["name": name, "gender": maleButton.isSelected, "age": age, "height": height, "weight": weight]
+        let ref = Database.database().reference()
+        
+        ref.child("users").child(uid).updateChildValues(bodyInfo) { (error, ref) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     let coverView = UIView()
@@ -92,7 +113,6 @@ extension BodyInfoViewController: ValueSelectedDelegate {
     func valueSelected(segueIdentifier: String, value: String) {
         switch segueIdentifier {
         case "SelectAgeSegue":
-            print(value)
             self.ageButton.setTitle(value, for: .normal)
         case "SelectHeightSegue":
             self.heightButton.setTitle(value, for: .normal)
