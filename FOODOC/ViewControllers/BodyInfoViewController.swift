@@ -17,6 +17,10 @@ class BodyInfoViewController: UIViewController {
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
     
+    @IBOutlet weak var ageButton: UIButton!
+    @IBOutlet weak var heightButton: UIButton!
+    @IBOutlet weak var weightButton: UIButton!
+    
     @IBAction func tappedMaleButton(_ sender: UIButton) {
         maleButton.isSelected = !maleButton.isSelected
         femaleButton.isSelected = !femaleButton.isSelected
@@ -24,13 +28,6 @@ class BodyInfoViewController: UIViewController {
     @IBAction func tappedFemaleButton(_ sender: UIButton) {
         maleButton.isSelected = !maleButton.isSelected
         femaleButton.isSelected = !femaleButton.isSelected
-    }
-    
-    @IBAction func tappedAgeButton(_ sender: UIButton) {
-    }
-    @IBAction func tappedHeightButton(_ sender: UIButton) {
-    }
-    @IBAction func tappedWeightButton(_ sender: UIButton) {
     }
     
     @IBAction func tappedLogoutButton(_ sender: UIButton) {
@@ -56,6 +53,7 @@ class BodyInfoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let pickerViewController = segue.destination as? PickerViewController
         pickerViewController?.segueIdentifier = segue.identifier
+        pickerViewController?.valueSelectedDelegate = self
         var values: Array<Int> = []
         switch segue.identifier {
         case "SelectAgeSegue":
@@ -70,4 +68,24 @@ class BodyInfoViewController: UIViewController {
         pickerViewController?.values = values
     }
 
+}
+
+protocol ValueSelectedDelegate {
+    func valueSelected(segueIdentifier: String, value: String)
+}
+
+extension BodyInfoViewController: ValueSelectedDelegate {
+    func valueSelected(segueIdentifier: String, value: String) {
+        switch segueIdentifier {
+        case "SelectAgeSegue":
+            print(value)
+            self.ageButton.setTitle(value, for: .normal)
+        case "SelectHeightSegue":
+            self.heightButton.setTitle(value, for: .normal)
+        case "SelectWeightSegue":
+            self.weightButton.setTitle(value, for: .normal)
+        default:
+            return
+        }
+    }
 }

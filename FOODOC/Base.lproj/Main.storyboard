@@ -447,7 +447,6 @@
                                                 <rect key="frame" x="0.0" y="92.000000000000028" width="243.66666666666666" height="30"/>
                                                 <state key="normal" title="나이를 선택해주세요"/>
                                                 <connections>
-                                                    <action selector="tappedAgeButton:" destination="LTL-ib-akH" eventType="touchUpInside" id="FwE-En-qpy"/>
                                                     <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectAgeSegue" modalPresentationStyle="overCurrentContext" id="LJd-ea-rXg"/>
                                                 </connections>
                                             </button>
@@ -455,7 +454,6 @@
                                                 <rect key="frame" x="0.0" y="138.00000000000003" width="243.66666666666666" height="30"/>
                                                 <state key="normal" title="키를 선택해주세요"/>
                                                 <connections>
-                                                    <action selector="tappedHeightButton:" destination="LTL-ib-akH" eventType="touchUpInside" id="Yqu-Ix-iBO"/>
                                                     <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectHeightSegue" modalPresentationStyle="overCurrentContext" id="DrV-jQ-HJE"/>
                                                 </connections>
                                             </button>
@@ -463,7 +461,6 @@
                                                 <rect key="frame" x="0.0" y="184.00000000000003" width="243.66666666666666" height="30"/>
                                                 <state key="normal" title="체중을 선택해주세요"/>
                                                 <connections>
-                                                    <action selector="tappedWeightButton:" destination="LTL-ib-akH" eventType="touchUpInside" id="cRF-g9-UDT"/>
                                                     <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectWeightSegue" modalPresentationStyle="overCurrentContext" id="gaB-75-Ykn"/>
                                                 </connections>
                                             </button>
@@ -484,9 +481,12 @@
                         <viewLayoutGuide key="safeArea" id="vTX-cU-fQT"/>
                     </view>
                     <connections>
+                        <outlet property="ageButton" destination="St1-Wj-MzQ" id="ckc-mm-8g6"/>
                         <outlet property="femaleButton" destination="Vfh-M3-hPf" id="zwe-Vj-G4d"/>
+                        <outlet property="heightButton" destination="UQ0-HZ-Wrh" id="WzQ-g4-MzO"/>
                         <outlet property="maleButton" destination="A6B-Un-yAM" id="nsi-Lw-kka"/>
                         <outlet property="nameTextField" destination="d6E-Yj-c1K" id="bET-SI-6HR"/>
+                        <outlet property="weightButton" destination="jav-Jp-tuk" id="pUk-3F-K7B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gm5-3p-ZUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -505,7 +505,7 @@
                                 <rect key="frame" x="0.0" y="453.33333333333326" width="375" height="324.66666666666674"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psM-4g-de9">
-                                        <rect key="frame" x="93.666666666666671" y="133.66666666666669" width="187.66666666666663" height="159"/>
+                                        <rect key="frame" x="112.66666666666669" y="133.66666666666669" width="150" height="159"/>
                                     </pickerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-BK-ZSK">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -549,7 +549,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UnitLabel " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4Z-KW-IXm">
-                                        <rect key="frame" x="281.33333333333331" y="200.33333333333331" width="77.666666666666686" height="25.333333333333343"/>
+                                        <rect key="frame" x="262.66666666666669" y="200.33333333333331" width="92.333333333333314" height="25.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -571,7 +571,7 @@
                                     <constraint firstItem="psM-4g-de9" firstAttribute="top" secondItem="9AK-Zg-W84" secondAttribute="bottom" constant="32" id="dhm-3v-eyW"/>
                                     <constraint firstItem="f89-IM-Cbh" firstAttribute="top" secondItem="rMW-BK-ZSK" secondAttribute="bottom" id="gbI-ze-qK0"/>
                                     <constraint firstItem="f89-IM-Cbh" firstAttribute="leading" secondItem="On9-GM-Yll" secondAttribute="leading" id="q9T-Gt-lDr"/>
-                                    <constraint firstItem="psM-4g-de9" firstAttribute="width" secondItem="On9-GM-Yll" secondAttribute="width" multiplier="0.5" id="yTy-Bh-Tf4"/>
+                                    <constraint firstItem="psM-4g-de9" firstAttribute="width" secondItem="On9-GM-Yll" secondAttribute="width" multiplier="0.4" id="yTy-Bh-Tf4"/>
                                 </constraints>
                             </view>
                         </subviews>
