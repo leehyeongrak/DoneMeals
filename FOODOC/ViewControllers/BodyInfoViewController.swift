@@ -43,10 +43,16 @@ class BodyInfoViewController: UIViewController {
     @IBAction func tappedStartButton(_ sender: UIButton) {
     }
     
+    let coverView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        coverView.backgroundColor = .black
+        coverView.alpha = 0
+        coverView.frame = view.bounds
+        coverView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
         // Do any additional setup after loading the view.
     }
     
@@ -66,12 +72,20 @@ class BodyInfoViewController: UIViewController {
             return
         }
         pickerViewController?.values = values
+        
+        pickerViewController?.dismissViewControllerDelegate = self
+        self.view.addSubview(coverView)
+        UIView.animate(withDuration: 0.3) { self.coverView.alpha = 0.6 }
     }
 
 }
 
 protocol ValueSelectedDelegate {
     func valueSelected(segueIdentifier: String, value: String)
+}
+
+protocol DismissViewControllerDelegate {
+    func removeCoverView()
 }
 
 extension BodyInfoViewController: ValueSelectedDelegate {
@@ -89,3 +103,14 @@ extension BodyInfoViewController: ValueSelectedDelegate {
         }
     }
 }
+
+extension BodyInfoViewController: DismissViewControllerDelegate {
+    func removeCoverView() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.coverView.alpha = 0
+        }) { (bool) in
+            self.coverView.removeFromSuperview()
+        }
+    }
+}
+

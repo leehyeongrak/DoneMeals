@@ -11,6 +11,7 @@ import UIKit
 class PickerViewController: UIViewController {
 
     var valueSelectedDelegate: ValueSelectedDelegate?
+    var dismissViewControllerDelegate: DismissViewControllerDelegate?
     
     var segueIdentifier: String?
     var values: Array<Int> = []
@@ -32,10 +33,12 @@ class PickerViewController: UIViewController {
             value = "\(selectedValue).\(selectedDecimalPointValue)"
         }
         valueSelectedDelegate?.valueSelected(segueIdentifier: segueIdentifier!, value: value)
+        self.dismissViewControllerDelegate?.removeCoverView()
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func tappedCancelButton(_ sender: UIButton) {
+        self.dismissViewControllerDelegate?.removeCoverView()
         self.dismiss(animated: true, completion: nil)
     }
     

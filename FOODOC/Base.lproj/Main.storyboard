@@ -574,11 +574,19 @@
                                     <constraint firstItem="psM-4g-de9" firstAttribute="width" secondItem="On9-GM-Yll" secondAttribute="width" multiplier="0.4" id="yTy-Bh-Tf4"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYi-AM-rMz">
+                                <rect key="frame" x="0.0" y="778" width="375" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="On9-GM-Yll" firstAttribute="height" secondItem="ZWh-oC-JnP" secondAttribute="height" multiplier="0.4" id="AS9-f6-K9Y"/>
+                            <constraint firstItem="SYi-AM-rMz" firstAttribute="top" secondItem="On9-GM-Yll" secondAttribute="bottom" id="BmE-Xe-9UV"/>
+                            <constraint firstItem="SYi-AM-rMz" firstAttribute="leading" secondItem="4Kz-Uy-PgR" secondAttribute="leading" id="Cpo-VT-M59"/>
                             <constraint firstItem="On9-GM-Yll" firstAttribute="leading" secondItem="4Kz-Uy-PgR" secondAttribute="leading" id="G1N-4r-7GG"/>
+                            <constraint firstItem="4Kz-Uy-PgR" firstAttribute="trailing" secondItem="SYi-AM-rMz" secondAttribute="trailing" id="OEd-h3-pbs"/>
                             <constraint firstItem="4Kz-Uy-PgR" firstAttribute="trailing" secondItem="On9-GM-Yll" secondAttribute="trailing" id="XOI-92-WkI"/>
+                            <constraint firstItem="SYi-AM-rMz" firstAttribute="bottom" secondItem="ZWh-oC-JnP" secondAttribute="bottom" id="csm-KF-6cd"/>
                             <constraint firstItem="4Kz-Uy-PgR" firstAttribute="bottom" secondItem="On9-GM-Yll" secondAttribute="bottom" id="leF-p7-3KG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Kz-Uy-PgR"/>
