@@ -94,6 +94,9 @@
                                                 <constraint firstItem="Yvo-Bg-IAH" firstAttribute="leading" secondItem="PXh-DN-uD4" secondAttribute="leading" constant="16" id="qOL-q9-aLr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="FjZ-6C-t1O" kind="push" id="ClY-4B-1vP"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Dq6-W7-hsh">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -545,21 +548,21 @@
                                                 <rect key="frame" x="0.0" y="92.000000000000028" width="243.66666666666666" height="30"/>
                                                 <state key="normal" title="나이를 선택해주세요"/>
                                                 <connections>
-                                                    <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectAgeSegue" modalPresentationStyle="overCurrentContext" id="LJd-ea-rXg"/>
+                                                    <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectAgeSegue" id="LJd-ea-rXg"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQ0-HZ-Wrh">
                                                 <rect key="frame" x="0.0" y="138.00000000000003" width="243.66666666666666" height="30"/>
                                                 <state key="normal" title="키를 선택해주세요"/>
                                                 <connections>
-                                                    <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectHeightSegue" modalPresentationStyle="overCurrentContext" id="DrV-jQ-HJE"/>
+                                                    <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectHeightSegue" id="DrV-jQ-HJE"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jav-Jp-tuk">
                                                 <rect key="frame" x="0.0" y="184.00000000000003" width="243.66666666666666" height="30"/>
                                                 <state key="normal" title="체중을 선택해주세요"/>
                                                 <connections>
-                                                    <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectWeightSegue" modalPresentationStyle="overCurrentContext" id="gaB-75-Ykn"/>
+                                                    <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectWeightSegue" id="gaB-75-Ykn"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -594,7 +597,7 @@
         <!--Picker View Controller-->
         <scene sceneID="bGU-hs-4c6">
             <objects>
-                <viewController id="gzx-aS-P8h" customClass="PickerViewController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="gzx-aS-P8h" customClass="PickerViewController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZWh-oC-JnP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -718,8 +721,155 @@
             </objects>
             <point key="canvasLocation" x="1076" y="2859.6059113300494"/>
         </scene>
+        <!--내정보-->
+        <scene sceneID="5lu-Gx-TXw">
+            <objects>
+                <viewController id="FjZ-6C-t1O" customClass="EditBodyInfoViewController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VUp-Gm-VQD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hEK-SQ-Pch">
+                                <rect key="frame" x="32" y="237.66666666666663" width="311" height="260"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Nph-oQ-QoA">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="260"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjn-1k-8UN">
+                                                <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWm-4y-4ae">
+                                                <rect key="frame" x="0.0" y="46.000000000000028" width="71" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성별" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3V-qu-lyW">
+                                                <rect key="frame" x="0.0" y="92.000000000000028" width="71" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나이" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9K-KM-SrD">
+                                                <rect key="frame" x="0.0" y="138.00000000000003" width="71" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1y-ur-lbr">
+                                                <rect key="frame" x="0.0" y="184.00000000000003" width="71" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="체중" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njr-k8-saW">
+                                                <rect key="frame" x="0.0" y="230.00000000000003" width="71" height="29.999999999999972"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="paQ-5J-Gk4">
+                                        <rect key="frame" x="87" y="0.0" width="224" height="260"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EmailLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dF-Qc-OZw">
+                                                <rect key="frame" x="0.0" y="0.0" width="224" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G95-2V-ZuE">
+                                                <rect key="frame" x="0.0" y="46.000000000000028" width="224" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FUq-aJ-IzO">
+                                                <rect key="frame" x="0.0" y="92.000000000000028" width="224" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbq-dr-KpF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="30"/>
+                                                        <state key="normal" title="남자"/>
+                                                        <connections>
+                                                            <action selector="tappedMaleButton:" destination="FjZ-6C-t1O" eventType="touchUpInside" id="dzd-Nq-42L"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubw-fT-LHi">
+                                                        <rect key="frame" x="74.666666666666657" y="4.6666666666666288" width="74.666666666666657" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-tD-eeK">
+                                                        <rect key="frame" x="149.33333333333331" y="0.0" width="74.666666666666686" height="30"/>
+                                                        <state key="normal" title="여자"/>
+                                                        <connections>
+                                                            <action selector="tappedFemaleButton:" destination="FjZ-6C-t1O" eventType="touchUpInside" id="ecL-ef-D68"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pta-EJ-KLL">
+                                                <rect key="frame" x="0.0" y="138.00000000000003" width="224" height="30"/>
+                                                <state key="normal" title="나이를 선택해주세요"/>
+                                                <connections>
+                                                    <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectAgeSegue" id="ba4-S5-S2J"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPt-XU-AdY">
+                                                <rect key="frame" x="0.0" y="184.00000000000003" width="224" height="30"/>
+                                                <state key="normal" title="키를 선택해주세요"/>
+                                                <connections>
+                                                    <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectHeightSegue" id="eHc-TS-pEP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoU-FX-pgZ">
+                                                <rect key="frame" x="0.0" y="230.00000000000003" width="224" height="29.999999999999972"/>
+                                                <state key="normal" title="체중을 선택해주세요"/>
+                                                <connections>
+                                                    <segue destination="gzx-aS-P8h" kind="presentation" identifier="SelectWeightSegue" id="F0G-dQ-0Pp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VU7-s5-rQt" firstAttribute="trailing" secondItem="hEK-SQ-Pch" secondAttribute="trailing" constant="32" id="UAi-ZP-zvg"/>
+                            <constraint firstItem="hEK-SQ-Pch" firstAttribute="leading" secondItem="VU7-s5-rQt" secondAttribute="leading" constant="32" id="yV2-Nj-uIH"/>
+                            <constraint firstItem="hEK-SQ-Pch" firstAttribute="centerY" secondItem="VU7-s5-rQt" secondAttribute="centerY" multiplier="0.9" id="zSN-zr-tlw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VU7-s5-rQt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="내정보" id="9gY-SP-M45">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="NjA-04-yrj">
+                            <connections>
+                                <action selector="tappedDoneButton:" destination="FjZ-6C-t1O" id="BS4-Bz-bYU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ageButton" destination="pta-EJ-KLL" id="cgt-ME-PA3"/>
+                        <outlet property="emailLabel" destination="5dF-Qc-OZw" id="zqu-mJ-35B"/>
+                        <outlet property="femaleButton" destination="VIc-tD-eeK" id="Rzy-bR-3J1"/>
+                        <outlet property="heightButton" destination="UPt-XU-AdY" id="Ocs-9k-hKv"/>
+                        <outlet property="maleButton" destination="kbq-dr-KpF" id="PUu-2o-OUJ"/>
+                        <outlet property="nameTextField" destination="G95-2V-ZuE" id="yci-HY-tBk"/>
+                        <outlet property="weightButton" destination="aoU-FX-pgZ" id="HlH-Q0-iDO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ayT-74-WDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2956" y="2860"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gaB-75-Ykn"/>
+        <segue reference="ba4-S5-S2J"/>
     </inferredMetricsTieBreakers>
 </document>

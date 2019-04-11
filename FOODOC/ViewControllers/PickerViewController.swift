@@ -20,6 +20,8 @@ class PickerViewController: UIViewController {
     var selectedValue: Int = 0
     var selectedDecimalPointValue: Int = 0
     
+    var existingValue: String?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var unitLabel: UILabel!
