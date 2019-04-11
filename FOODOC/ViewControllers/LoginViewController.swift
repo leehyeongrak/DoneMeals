@@ -22,8 +22,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     func loginFirebaseAuth() {
@@ -55,4 +56,11 @@ class LoginViewController: UIViewController {
         }
     }
     
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }

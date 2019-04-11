@@ -8,8 +8,9 @@
 
 import UIKit
 import FirebaseAuth
+import MessageUI
 
-class MoreViewController: UITableViewController {
+class MoreViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,15 @@ class MoreViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
+        case 2:
+            let mailComposeViewController = configuredMailComposeViewController()
+            if MFMailComposeViewController.canSendMail() {
+                present(mailComposeViewController, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "메일 전송에 실패하였습니다.", message: "이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
+            }
         case 3:
             let alert = UIAlertController(title: nil, message: "로그아웃 하시겠습니까?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "네", style: .default, handler: { (action) in
@@ -46,6 +56,21 @@ class MoreViewController: UITableViewController {
             print(indexPath.row)
         }
     }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposeViewController = MFMailComposeViewController()
+        mailComposeViewController.mailComposeDelegate = self
+        mailComposeViewController.setToRecipients(["leehrak@gmail.com"])
+        mailComposeViewController.setSubject("FOODOC 문의하기")
+        mailComposeViewController.setMessageBody("소중한 의견을 주셔서 감사합니다.", isHTML: false)
+        
+        return mailComposeViewController
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     
     func signOutFirebaseAuth() {
         do {
