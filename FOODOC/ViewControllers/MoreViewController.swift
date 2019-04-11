@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MoreViewController: UITableViewController {
 
@@ -31,7 +32,33 @@ class MoreViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 4
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 3:
+            let alert = UIAlertController(title: nil, message: "로그아웃 하시겠습니까?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "네", style: .default, handler: { (action) in
+                self.signOutFirebaseAuth()
+            }))
+            alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        default:
+            print(indexPath.row)
+        }
+    }
+    
+    func signOutFirebaseAuth() {
+        do {
+            if let vc = self.tabBarController?.viewControllers![0] as? ViewController {
+                try Auth.auth().signOut()
+                self.tabBarController?.selectedIndex = 0
+                vc.checkUserAuth()
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
