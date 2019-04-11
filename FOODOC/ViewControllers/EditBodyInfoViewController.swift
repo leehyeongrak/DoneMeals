@@ -97,7 +97,7 @@ class EditBodyInfoViewController: UIViewController {
         pickerViewController?.values = values
         
         pickerViewController?.dismissViewControllerDelegate = self
-        self.view.addSubview(coverView)
+        self.navigationController?.view.addSubview(coverView)
         UIView.animate(withDuration: 0.3) { self.coverView.alpha = 0.6 }
     }
 
