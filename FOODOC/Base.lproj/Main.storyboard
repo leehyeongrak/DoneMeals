@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="2170"/>
         </scene>
-        <!--More View Controller-->
+        <!--더보기-->
         <scene sceneID="ZlX-ge-YXv">
             <objects>
                 <tableViewController id="oUx-GK-o77" customClass="MoreViewController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,7 +108,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsT-kE-RGT">
                                                     <rect key="frame" x="16" y="11.333333333333336" width="59" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -169,7 +169,7 @@
                             <outlet property="delegate" destination="oUx-GK-o77" id="MLJ-6L-s6x"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="hG5-Kl-xfn"/>
+                    <navigationItem key="navigationItem" title="더보기" id="hG5-Kl-xfn"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TM-Bk-Z5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
