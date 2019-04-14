@@ -10,6 +10,7 @@
 		390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DAD225884F5008537DD /* RecommendViewController.swift */; };
 		390A1DB022588511008537DD /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DAF22588511008537DD /* AddViewController.swift */; };
 		390A1DB22258851A008537DD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DB12258851A008537DD /* HistoryViewController.swift */; };
+		397408CB226375FB0057A478 /* SetNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397408CA226375FB0057A478 /* SetNotificationViewController.swift */; };
 		39A94ACC22588A62007D6DFE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A94ACB22588A62007D6DFE /* WelcomeViewController.swift */; };
 		39A94ACE22589D0D007D6DFE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A94ACD22589D0D007D6DFE /* LoginViewController.swift */; };
 		39A94AD022589E0A007D6DFE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A94ACF22589E0A007D6DFE /* SignUpViewController.swift */; };
@@ -30,6 +31,7 @@
 		390A1DAD225884F5008537DD /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		390A1DAF22588511008537DD /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		390A1DB12258851A008537DD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		397408CA226375FB0057A478 /* SetNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationViewController.swift; sourceTree = "<group>"; };
 		39A94ACB22588A62007D6DFE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		39A94ACD22589D0D007D6DFE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		39A94ACF22589E0A007D6DFE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				39CFFA75225DB88E000572F8 /* MoreViewController.swift */,
 				390A1DB12258851A008537DD /* HistoryViewController.swift */,
 				39D0899B225B319D008AC99A /* PickerViewController.swift */,
+				397408CA226375FB0057A478 /* SetNotificationViewController.swift */,
 				39CFFA77225DBD2A000572F8 /* EditBodyInfoViewController.swift */,
 			);
 			path = ViewControllers;
@@ -264,6 +267,7 @@
 				39A94ACE22589D0D007D6DFE /* LoginViewController.swift in Sources */,
 				390A1DB22258851A008537DD /* HistoryViewController.swift in Sources */,
 				39D0899C225B319D008AC99A /* PickerViewController.swift in Sources */,
+				397408CB226375FB0057A478 /* SetNotificationViewController.swift in Sources */,
 				39CFFA78225DBD2A000572F8 /* EditBodyInfoViewController.swift in Sources */,
 				39A94AD022589E0A007D6DFE /* SignUpViewController.swift in Sources */,
 				390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */,
