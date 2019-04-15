@@ -24,6 +24,7 @@
 		39D53ABC22522ACE00D2C4E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D53ABA22522ACE00D2C4E0 /* Main.storyboard */; };
 		39D53ABE22522ACF00D2C4E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39D53ABD22522ACF00D2C4E0 /* Assets.xcassets */; };
 		39D53AC122522ACF00D2C4E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D53ABF22522ACF00D2C4E0 /* LaunchScreen.storyboard */; };
+		39E502E62264B0D100F5F5EA /* TimeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */; };
 		AB4488C4D3E1D36B63ED6D0C /* Pods_FOODOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438DF178CE21A77A9CE2BE9 /* Pods_FOODOC.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		39D53ABD22522ACF00D2C4E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39D53AC022522ACF00D2C4E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39D53AC222522ACF00D2C4E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectViewController.swift; sourceTree = "<group>"; };
 		9438DF178CE21A77A9CE2BE9 /* Pods_FOODOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOODOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6CE25A9166F95A830E1AFD /* Pods-FOODOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOODOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOODOC/Pods-FOODOC.release.xcconfig"; sourceTree = "<group>"; };
 		BE732957E75CC850D5E66845 /* Pods-FOODOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOODOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOODOC/Pods-FOODOC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				39D0899B225B319D008AC99A /* PickerViewController.swift */,
 				397408CA226375FB0057A478 /* SetNotificationViewController.swift */,
 				39CFFA77225DBD2A000572F8 /* EditBodyInfoViewController.swift */,
+				39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				39D53AB922522ACE00D2C4E0 /* ViewController.swift in Sources */,
 				39D53AB722522ACE00D2C4E0 /* AppDelegate.swift in Sources */,
 				39A94AD222589EB4007D6DFE /* BodyInfoViewController.swift in Sources */,
+				39E502E62264B0D100F5F5EA /* TimeSelectViewController.swift in Sources */,
 				390A1DB022588511008537DD /* AddViewController.swift in Sources */,
 				39CFFA76225DB88E000572F8 /* MoreViewController.swift in Sources */,
 				39A94ACE22589D0D007D6DFE /* LoginViewController.swift in Sources */,
