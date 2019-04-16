@@ -1,18 +1,17 @@
 //
-//  BodyInfoViewController.swift
+//  EditBodyInfoViewController.swift
 //  FOODOC
 //
-//  Created by RAK on 06/04/2019.
+//  Created by RAK on 10/04/2019.
 //  Copyright © 2019 RAK. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class BodyInfoViewController: UIViewController {
-    
-    var userLoggedOutDelegate: UserLoggedOutDelegate?
-    
+class EditBodyInfoViewController: UIViewController {
+
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
@@ -29,27 +28,8 @@ class BodyInfoViewController: UIViewController {
         maleButton.isSelected = !maleButton.isSelected
         femaleButton.isSelected = !femaleButton.isSelected
     }
-    
-    @IBAction func tappedLogoutButton(_ sender: UIButton) {
-        do {
-            try Auth.auth().signOut()
-            self.dismiss(animated: true) {
-                self.userLoggedOutDelegate?.userLoggedOut()
-            }
-        } catch {
-            print(error)
-        }
-    }
-    @IBAction func tappedStartButton(_ sender: UIButton) {
+    @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        
-        if nameTextField.text == "" || ageButton.titleLabel?.text == "나이를 선택해주세요" || heightButton.titleLabel?.text == "키를 선택해주세요" || weightButton.titleLabel?.text == "체중을 선택해주세요" {
-            let alert = UIAlertController(title: "시작하기 실패", message: "항목을 전부 입력해주세요", preferredStyle: .alert)
-            present(alert, animated: true) {
-                self.dismiss(animated: true, completion: nil)
-            }
-            return
-        }
         
         guard let name = nameTextField.text, let age = ageButton.titleLabel?.text, let height = heightButton.titleLabel?.text, let weight = weightButton.titleLabel?.text else { return }
         let bodyInfo: [String: Any] = ["name": name, "gender": maleButton.isSelected, "age": age, "height": height, "weight": weight]
@@ -60,7 +40,7 @@ class BodyInfoViewController: UIViewController {
                 print(error!)
                 return
             }
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -68,13 +48,35 @@ class BodyInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         coverView.backgroundColor = .black
         coverView.alpha = 0
         coverView.frame = view.bounds
         coverView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchUserInfoWithSetupViews()
+    }
+    
+    func fetchUserInfoWithSetupViews() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference()
+        ref.child("users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
+            if let dictionary = snapshot.value as? [String: Any] {
+                self.emailLabel.text = dictionary["email"] as? String
+                self.nameTextField.text = dictionary["name"] as? String
+                self.maleButton.isSelected = dictionary["gender"] as! Bool
+                self.femaleButton.isSelected = !(dictionary["gender"] as! Bool)
+                self.ageButton.setTitle(dictionary["age"] as? String, for: .normal)
+                self.heightButton.setTitle(dictionary["height"] as? String, for: .normal)
+                self.weightButton.setTitle(dictionary["weight"] as? String, for: .normal)
+            }
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -95,36 +97,31 @@ class BodyInfoViewController: UIViewController {
         pickerViewController?.values = values
         
         pickerViewController?.dismissViewControllerDelegate = self
-        self.view.addSubview(coverView)
+        self.navigationController?.view.addSubview(coverView)
         UIView.animate(withDuration: 0.3) { self.coverView.alpha = 0.6 }
     }
 
 }
 
-protocol ValueSelectedDelegate {
-    func valueSelected(segueIdentifier: String, value: String)
-}
 
-protocol DismissViewControllerDelegate {
-    func removeCoverView()
-}
-
-extension BodyInfoViewController: ValueSelectedDelegate {
-    func valueSelected(segueIdentifier: String, value: String) {
-        switch segueIdentifier {
-        case "SelectAgeSegue":
-            self.ageButton.setTitle(value, for: .normal)
-        case "SelectHeightSegue":
-            self.heightButton.setTitle(value, for: .normal)
-        case "SelectWeightSegue":
-            self.weightButton.setTitle(value, for: .normal)
-        default:
-            return
+extension EditBodyInfoViewController: ValueSelectedDelegate {
+    func valueSelected(segueIdentifier: String, value: Any?) {
+        if let value = value as? String {
+            switch segueIdentifier {
+            case "SelectAgeSegue":
+                self.ageButton.setTitle(value, for: .normal)
+            case "SelectHeightSegue":
+                self.heightButton.setTitle(value, for: .normal)
+            case "SelectWeightSegue":
+                self.weightButton.setTitle(value, for: .normal)
+            default:
+                return
+            }
         }
     }
 }
-
-extension BodyInfoViewController: DismissViewControllerDelegate {
+    
+extension EditBodyInfoViewController: DismissViewControllerDelegate {
     func removeCoverView() {
         UIView.animate(withDuration: 0.3, animations: {
             self.coverView.alpha = 0
@@ -133,4 +130,3 @@ extension BodyInfoViewController: DismissViewControllerDelegate {
         }
     }
 }
-

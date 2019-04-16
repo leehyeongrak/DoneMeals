@@ -52,6 +52,10 @@ class PickerViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setupViews()
+    }
+    
+    private func setupViews() {
         switch segueIdentifier {
         case "SelectAgeSegue":
             titleLabel.text = "나이"
@@ -69,8 +73,7 @@ class PickerViewController: UIViewController {
             pickerView.selectRow(40, inComponent: 0, animated: false)
             selectedValue = 70
         default:
-            titleLabel.text = ""
-            unitLabel.text = ""
+            return
         }
     }
 }

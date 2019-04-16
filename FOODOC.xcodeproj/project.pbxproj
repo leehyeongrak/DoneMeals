@@ -78,19 +78,12 @@
 		390A1DB522588591008537DD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				39A94ACB22588A62007D6DFE /* WelcomeViewController.swift */,
-				39A94ACD22589D0D007D6DFE /* LoginViewController.swift */,
-				39A94ACF22589E0A007D6DFE /* SignUpViewController.swift */,
+				39E502E82264B45400F5F5EA /* UserViewControllers */,
 				39D53AB822522ACE00D2C4E0 /* ViewController.swift */,
-				39A94AD122589EB4007D6DFE /* BodyInfoViewController.swift */,
 				390A1DAD225884F5008537DD /* RecommendViewController.swift */,
 				390A1DAF22588511008537DD /* AddViewController.swift */,
-				39CFFA75225DB88E000572F8 /* MoreViewController.swift */,
+				39E502E72264B41700F5F5EA /* MoreViewControllers */,
 				390A1DB12258851A008537DD /* HistoryViewController.swift */,
-				39D0899B225B319D008AC99A /* PickerViewController.swift */,
-				397408CA226375FB0057A478 /* SetNotificationViewController.swift */,
-				39CFFA77225DBD2A000572F8 /* EditBodyInfoViewController.swift */,
-				39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -125,6 +118,29 @@
 				39A94AD32258AAC3007D6DFE /* GoogleService-Info.plist */,
 			);
 			path = FOODOC;
+			sourceTree = "<group>";
+		};
+		39E502E72264B41700F5F5EA /* MoreViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				39CFFA75225DB88E000572F8 /* MoreViewController.swift */,
+				39CFFA77225DBD2A000572F8 /* EditBodyInfoViewController.swift */,
+				397408CA226375FB0057A478 /* SetNotificationViewController.swift */,
+				39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */,
+			);
+			path = MoreViewControllers;
+			sourceTree = "<group>";
+		};
+		39E502E82264B45400F5F5EA /* UserViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				39A94ACB22588A62007D6DFE /* WelcomeViewController.swift */,
+				39A94ACD22589D0D007D6DFE /* LoginViewController.swift */,
+				39A94ACF22589E0A007D6DFE /* SignUpViewController.swift */,
+				39A94AD122589EB4007D6DFE /* BodyInfoViewController.swift */,
+				39D0899B225B319D008AC99A /* PickerViewController.swift */,
+			);
+			path = UserViewControllers;
 			sourceTree = "<group>";
 		};
 		E6ED3487F68B7D8B7D5BFBB5 /* Frameworks */ = {
