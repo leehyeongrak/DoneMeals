@@ -13,17 +13,27 @@ struct UserInfo {
     var email: String
     var name: String
     var gender: Bool
-    var age: Int
-    var height: Double
-    var weight: Double
+    var age: String
+    var height: String
+    var weight: String
+    
+    var dictionary: [String: Any] {
+        return ["email": email,
+                "name": name,
+                "gender": gender,
+                "age": age,
+                "height": height,
+                "weight": weight]
+    }
+    
     
     init(uid: String, dictionary: [String: Any]) {
         self.uid = uid
         self.email = dictionary["email"] as! String
         self.name = dictionary["name"] as! String
         self.gender = dictionary["gender"] as! Bool
-        self.age = Int(dictionary["age"] as! String)!
-        self.height = Double(dictionary["height"] as! String)!
-        self.weight = Double(dictionary["weight"] as! String)!
+        self.age = dictionary["age"] as! String
+        self.height = dictionary["height"] as! String
+        self.weight = dictionary["weight"] as! String
     }
 }

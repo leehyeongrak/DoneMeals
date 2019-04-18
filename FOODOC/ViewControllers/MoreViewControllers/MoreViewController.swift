@@ -37,8 +37,7 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 2:
+        if indexPath.row == 2 {
             let mailComposeViewController = configuredMailComposeViewController()
             if MFMailComposeViewController.canSendMail() {
                 present(mailComposeViewController, animated: true, completion: nil)
@@ -47,15 +46,13 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
                 alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
                 present(alert, animated: true, completion: nil)
             }
-        case 3:
+        } else if indexPath.row == 3 {
             let alert = UIAlertController(title: nil, message: "로그아웃 하시겠습니까?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "네", style: .default, handler: { (action) in
                 self.signOutFirebaseAuth()
             }))
             alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
-        default:
-            print(indexPath.row)
         }
     }
     
@@ -149,32 +146,8 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
         if let vc = segue.destination as? EditBodyInfoViewController {
             if let info = self.userInfo {
                 vc.userInfo = info
-                print(info)
-            }
-        }
-        
-    }
-
-}
-
-protocol APIServiceProtocol {
-    func fetchUserInformation(completion: @escaping (UserInfo?, Error?) -> Void)
-}
-
-class APIService: APIServiceProtocol {
-    func fetchUserInformation(completion: @escaping (UserInfo?, Error?) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference()
-        ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let dictionary = snapshot.value as? [String: Any] {
-                let userInfo = UserInfo(uid: uid, dictionary: dictionary)
-                completion(userInfo, nil)
-            }
-        }) { (error) in
-            if error != nil {
-                completion(nil, error)
-                return
             }
         }
     }
+
 }

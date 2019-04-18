@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class EditBodyInfoViewController: UIViewController {
     
@@ -31,13 +30,11 @@ class EditBodyInfoViewController: UIViewController {
         femaleButton.isSelected = !femaleButton.isSelected
     }
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        
         guard let name = nameTextField.text, let age = ageButton.titleLabel?.text, let height = heightButton.titleLabel?.text, let weight = weightButton.titleLabel?.text else { return }
-        let bodyInfo: [String: Any] = ["name": name, "gender": maleButton.isSelected, "age": age, "height": height, "weight": weight]
-        let ref = Database.database().reference()
-        
-        ref.child("users").child(uid).updateChildValues(bodyInfo) { (error, ref) in
+        let updateInfo: [String: Any] = ["name": name, "gender": maleButton.isSelected, "age": age, "height": height, "weight": weight]
+        let uid = self.userInfo!.uid
+        let service = APIService()
+        service.updateUserInformation(uid: uid, information: updateInfo) { (error) in
             if error != nil {
                 print(error!)
                 return
