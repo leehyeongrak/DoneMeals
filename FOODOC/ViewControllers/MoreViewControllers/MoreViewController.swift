@@ -11,7 +11,9 @@ import Firebase
 import MessageUI
 
 class MoreViewController: UITableViewController, MFMailComposeViewControllerDelegate {
-
+    
+    var userInfo: UserInfo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -128,6 +130,30 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
         return true
     }
     */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let service = APIService()
+        service.fetchUserInformation { (userInfo, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            if let info = userInfo {
+                self.userInfo = info
+            }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? EditBodyInfoViewController {
+            if let info = self.userInfo {
+                vc.userInfo = info
+                print(info)
+            }
+        }
+        
+    }
 
 }
 

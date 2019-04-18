@@ -11,7 +11,7 @@ import Firebase
 
 class EditBodyInfoViewController: UIViewController {
     
-    var user: UserInfo?
+    var userInfo: UserInfo?
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -61,25 +61,19 @@ class EditBodyInfoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchUserInfoWithSetupViews()
-        print(user)
+        setupViews()
     }
     
-    func fetchUserInfoWithSetupViews() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference()
-        ref.child("users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
-            if let dictionary = snapshot.value as? [String: Any] {
-                self.emailLabel.text = dictionary["email"] as? String
-                self.nameTextField.text = dictionary["name"] as? String
-                self.maleButton.isSelected = dictionary["gender"] as! Bool
-                self.femaleButton.isSelected = !(dictionary["gender"] as! Bool)
-                self.ageButton.setTitle(dictionary["age"] as? String, for: .normal)
-                self.heightButton.setTitle(dictionary["height"] as? String, for: .normal)
-                self.weightButton.setTitle(dictionary["weight"] as? String, for: .normal)
-            }
+    func setupViews() {
+        if let info = userInfo {
+            self.emailLabel.text = info.email
+            self.nameTextField.text = info.name
+            self.maleButton.isSelected = info.gender
+            self.femaleButton.isSelected = !info.gender
+            self.ageButton.setTitle(String(info.age), for: .normal)
+            self.heightButton.setTitle(String(info.height), for: .normal)
+            self.weightButton.setTitle(String(info.weight), for: .normal)
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
