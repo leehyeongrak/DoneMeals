@@ -10,7 +10,9 @@ import UIKit
 import Firebase
 
 class EditBodyInfoViewController: UIViewController {
-
+    
+    var user: UserInfo?
+    
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var maleButton: UIButton!
@@ -60,6 +62,7 @@ class EditBodyInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchUserInfoWithSetupViews()
+        print(user)
     }
     
     func fetchUserInfoWithSetupViews() {

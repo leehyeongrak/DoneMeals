@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 import MessageUI
 
 class MoreViewController: UITableViewController, MFMailComposeViewControllerDelegate {
@@ -129,14 +129,26 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
     }
     */
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+protocol APIServiceProtocol {
+    func fetchUserInformation(completion: @escaping (UserInfo?, Error?) -> Void)
+}
+
+class APIService: APIServiceProtocol {
+    func fetchUserInformation(completion: @escaping (UserInfo?, Error?) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference()
+        ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: Any] {
+                let userInfo = UserInfo(uid: uid, dictionary: dictionary)
+                completion(userInfo, nil)
+            }
+        }) { (error) in
+            if error != nil {
+                completion(nil, error)
+                return
+            }
+        }
     }
-    */
-
 }
