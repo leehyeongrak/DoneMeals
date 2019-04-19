@@ -87,11 +87,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YdZ-ml-xpF">
+                                                    <rect key="frame" x="69" y="12" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="YdZ-ml-xpF" firstAttribute="centerY" secondItem="Yvo-Bg-IAH" secondAttribute="centerY" id="OEH-fA-mpt"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yvo-Bg-IAH" secondAttribute="trailing" constant="16" id="U26-Ww-KJK"/>
                                                 <constraint firstItem="Yvo-Bg-IAH" firstAttribute="centerY" secondItem="PXh-DN-uD4" secondAttribute="centerY" id="kJO-9d-vHj"/>
                                                 <constraint firstItem="Yvo-Bg-IAH" firstAttribute="leading" secondItem="PXh-DN-uD4" secondAttribute="leading" constant="16" id="qOL-q9-aLr"/>
+                                                <constraint firstItem="YdZ-ml-xpF" firstAttribute="leading" secondItem="Yvo-Bg-IAH" secondAttribute="trailing" constant="8" id="tXh-TL-jXO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -173,6 +178,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="더보기" id="hG5-Kl-xfn"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="YdZ-ml-xpF" id="CeY-bb-a9w"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TM-Bk-Z5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

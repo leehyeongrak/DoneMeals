@@ -88,7 +88,6 @@
 				390A1DAF22588511008537DD /* AddViewController.swift */,
 				390A1DB12258851A008537DD /* HistoryViewController.swift */,
 				39E502E72264B41700F5F5EA /* MoreViewControllers */,
-				39A8D2B62268838C00FF3654 /* APIService.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -123,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */,
+				39A8D2B62268838C00FF3654 /* APIService.swift */,
 				39A8D2B3226880C400FF3654 /* Models */,
 				390A1DB522588591008537DD /* ViewControllers */,
 				39D53ABA22522ACE00D2C4E0 /* Main.storyboard */,

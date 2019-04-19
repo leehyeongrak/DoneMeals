@@ -12,6 +12,8 @@ class EditBodyInfoViewController: UIViewController {
     
     var userInfo: UserInfo?
     
+    var updateDataDelegate: UpdateDataDelegate?
+    
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var maleButton: UIButton!
@@ -39,6 +41,7 @@ class EditBodyInfoViewController: UIViewController {
                 print(error!)
                 return
             }
+            self.updateDataDelegate?.updateData()
             self.navigationController?.popViewController(animated: true)
         }
     }
