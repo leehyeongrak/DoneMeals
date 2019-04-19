@@ -21,7 +21,13 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
         
         fetchData()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if Auth.auth().currentUser?.uid != userInfo?.uid {
+            fetchData()
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,6 +39,7 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == 2 {
             let mailComposeViewController = configuredMailComposeViewController()
             if MFMailComposeViewController.canSendMail() {
@@ -78,10 +85,12 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
     
     func signOutFirebaseAuth() {
         do {
-            if let vc = self.tabBarController?.viewControllers![0] as? ViewController {
-                try Auth.auth().signOut()
-                self.tabBarController?.selectedIndex = 0
-                vc.checkUserAuth()
+            if let navigationController = self.tabBarController?.viewControllers![0] as? UINavigationController {
+                if let vc = navigationController.viewControllers[0] as? ViewController {
+                    try Auth.auth().signOut()
+                    self.tabBarController?.selectedIndex = 0
+                    vc.checkUserAuth()
+                }
             }
         } catch {
             print(error)

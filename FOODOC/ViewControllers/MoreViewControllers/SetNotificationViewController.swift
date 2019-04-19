@@ -67,9 +67,6 @@ class SetNotificationViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let breakfastTime = UserDefaults.standard.object(forKey: "breakfastTime") as? Date {
-            print(breakfastTime)
-        }
     }
     
     /*
