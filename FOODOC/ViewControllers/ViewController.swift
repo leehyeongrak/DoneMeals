@@ -11,11 +11,16 @@ import Firebase
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mealTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.shadowImage = UIImage()
         checkUserAuth()
+        
+        mealTableView.delegate = self
+        mealTableView.dataSource = self
     }
     
     func checkUserAuth() {
@@ -75,3 +80,21 @@ extension ViewController: UserLoggedInDelegate, UserLoggedOutDelegate {
         checkUserAuth()
     }
 }
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableViewCell", for: indexPath) as? MealTableViewCell else { return UITableViewCell() }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 208
+    }
+    
+}
+
