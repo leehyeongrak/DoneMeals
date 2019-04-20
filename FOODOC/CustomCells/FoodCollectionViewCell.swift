@@ -9,5 +9,12 @@
 import UIKit
 
 class FoodCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var foodNameLabel: UILabel!
+    @IBOutlet weak var calorieLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.layer.cornerRadius = 10
+    }
 }

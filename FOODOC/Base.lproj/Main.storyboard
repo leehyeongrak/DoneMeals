@@ -660,7 +660,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Knb-Vy-lmH">
-                                                    <rect key="frame" x="0.0" y="37" width="375" height="162.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="37" width="375" height="163"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="k4D-bM-EWe">
                                                         <size key="itemSize" width="270" height="150"/>
@@ -670,13 +670,50 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FoodCollectionViewCell" id="KGc-Kw-5T1" customClass="FoodCollectionViewCell" customModule="FOODOC" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="6.333333333333333" width="270" height="150"/>
+                                                            <rect key="frame" x="0.0" y="6.666666666666667" width="270" height="150"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="270" height="150"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFv-pW-uJh">
+                                                                        <rect key="frame" x="8" y="118" width="254" height="24"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음식이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKi-2x-NlU">
+                                                                                <rect key="frame" x="8" y="3.6666666666666714" width="49" height="17"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09L-eB-Vrn">
+                                                                                <rect key="frame" x="215" y="5.6666666666666714" width="31" height="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="09L-eB-Vrn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gKi-2x-NlU" secondAttribute="trailing" constant="16" id="Lkg-Qb-9Cd"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="09L-eB-Vrn" secondAttribute="trailing" constant="8" id="UcB-Fa-zT8"/>
+                                                                            <constraint firstItem="gKi-2x-NlU" firstAttribute="leading" secondItem="CFv-pW-uJh" secondAttribute="leading" constant="8" id="V37-9b-wcj"/>
+                                                                            <constraint firstAttribute="height" constant="24" id="VoP-WF-V1j"/>
+                                                                            <constraint firstItem="gKi-2x-NlU" firstAttribute="centerY" secondItem="CFv-pW-uJh" secondAttribute="centerY" id="h6F-hX-ccL"/>
+                                                                            <constraint firstItem="09L-eB-Vrn" firstAttribute="bottom" secondItem="gKi-2x-NlU" secondAttribute="bottom" id="ttZ-Bm-d29"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
                                                             </view>
                                                             <color key="backgroundColor" red="0.5" green="1" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="CFv-pW-uJh" secondAttribute="trailing" constant="8" id="LgK-Pt-EML"/>
+                                                                <constraint firstAttribute="bottom" secondItem="CFv-pW-uJh" secondAttribute="bottom" constant="8" id="WhT-M8-RwY"/>
+                                                                <constraint firstItem="CFv-pW-uJh" firstAttribute="leading" secondItem="KGc-Kw-5T1" secondAttribute="leading" constant="8" id="mVg-PS-e14"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="calorieLabel" destination="09L-eB-Vrn" id="GXF-C6-qOH"/>
+                                                                <outlet property="foodNameLabel" destination="gKi-2x-NlU" id="BaV-1V-S06"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
