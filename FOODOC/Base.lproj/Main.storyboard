@@ -717,25 +717,46 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYk-yc-Yjc">
+                                                    <rect key="frame" x="0.0" y="37" width="375" height="163"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식사 정보를 추가해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jml-Vx-tim">
+                                                            <rect key="frame" x="68" y="67.666666666666671" width="239" height="27.666666666666671"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                            <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Jml-Vx-tim" firstAttribute="centerY" secondItem="aYk-yc-Yjc" secondAttribute="centerY" id="QKz-TX-7uH"/>
+                                                        <constraint firstItem="Jml-Vx-tim" firstAttribute="centerX" secondItem="aYk-yc-Yjc" secondAttribute="centerX" id="haE-NL-Tt6"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XNo-hP-dmR" firstAttribute="top" secondItem="RJk-Pg-XMR" secondAttribute="bottom" constant="8" id="4rk-WY-hvd"/>
+                                                <constraint firstItem="aYk-yc-Yjc" firstAttribute="leading" secondItem="eLe-yg-f2P" secondAttribute="leading" id="5n5-d4-DlY"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="j94-qc-Xfl" secondAttribute="trailing" constant="16" id="9MZ-8P-k2M"/>
                                                 <constraint firstItem="RJk-Pg-XMR" firstAttribute="leading" secondItem="eLe-yg-f2P" secondAttribute="leading" id="Ab5-eX-NQD"/>
+                                                <constraint firstItem="aYk-yc-Yjc" firstAttribute="top" secondItem="XNo-hP-dmR" secondAttribute="bottom" constant="4" id="Iur-aA-baw"/>
                                                 <constraint firstItem="RJk-Pg-XMR" firstAttribute="top" secondItem="eLe-yg-f2P" secondAttribute="top" id="SUe-Vu-KUJ"/>
                                                 <constraint firstItem="j94-qc-Xfl" firstAttribute="leading" secondItem="XNo-hP-dmR" secondAttribute="trailing" constant="4" id="SuR-qK-4tl"/>
                                                 <constraint firstItem="Knb-Vy-lmH" firstAttribute="leading" secondItem="eLe-yg-f2P" secondAttribute="leading" id="fyU-yR-EW1"/>
                                                 <constraint firstItem="j94-qc-Xfl" firstAttribute="bottom" secondItem="XNo-hP-dmR" secondAttribute="bottom" id="gUm-GH-Oq6"/>
                                                 <constraint firstAttribute="trailing" secondItem="Knb-Vy-lmH" secondAttribute="trailing" id="gbv-6y-wAm"/>
                                                 <constraint firstItem="Knb-Vy-lmH" firstAttribute="top" secondItem="XNo-hP-dmR" secondAttribute="bottom" constant="4" id="j3T-19-Zu5"/>
+                                                <constraint firstAttribute="trailing" secondItem="aYk-yc-Yjc" secondAttribute="trailing" id="jHU-A8-LZG"/>
                                                 <constraint firstAttribute="trailing" secondItem="RJk-Pg-XMR" secondAttribute="trailing" id="nUz-hB-aNj"/>
                                                 <constraint firstItem="XNo-hP-dmR" firstAttribute="leading" secondItem="eLe-yg-f2P" secondAttribute="leading" constant="16" id="vKf-l9-G5n"/>
+                                                <constraint firstAttribute="bottom" secondItem="aYk-yc-Yjc" secondAttribute="bottom" constant="8" id="z51-bc-Tnh"/>
                                                 <constraint firstAttribute="bottom" secondItem="Knb-Vy-lmH" secondAttribute="bottom" constant="8" id="zXT-h8-Qnp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="foodCollectionView" destination="Knb-Vy-lmH" id="eY0-ly-zqu"/>
                                             <outlet property="mealTimeLabel" destination="XNo-hP-dmR" id="ezD-vK-XW3"/>
+                                            <outlet property="nilCoverView" destination="aYk-yc-Yjc" id="LYL-pC-wk7"/>
                                             <outlet property="recommendedAmountLabel" destination="j94-qc-Xfl" id="HEr-7O-5uq"/>
                                         </connections>
                                     </tableViewCell>

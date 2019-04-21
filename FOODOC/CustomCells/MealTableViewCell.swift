@@ -14,6 +14,8 @@ class MealTableViewCell: UITableViewCell {
     @IBOutlet weak var recommendedAmountLabel: UILabel!
     @IBOutlet weak var foodCollectionView: UICollectionView!
     
+    @IBOutlet weak var nilCoverView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
