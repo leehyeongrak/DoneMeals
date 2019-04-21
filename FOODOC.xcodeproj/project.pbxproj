@@ -91,10 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				39E502E82264B45400F5F5EA /* UserViewControllers */,
-				39D53AB822522ACE00D2C4E0 /* ViewController.swift */,
+				39A644F2226C54A70005FB73 /* HomeViewControllers */,
 				390A1DAD225884F5008537DD /* RecommendViewController.swift */,
 				390A1DAF22588511008537DD /* AddViewController.swift */,
-				39A644EC226C48C30005FB73 /* FoodInfoViewController.swift */,
 				390A1DB12258851A008537DD /* HistoryViewController.swift */,
 				39E502E72264B41700F5F5EA /* MoreViewControllers */,
 			);
@@ -109,6 +108,15 @@
 				39C34649226AEDED00057751 /* FoodCollectionViewCell.swift */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		39A644F2226C54A70005FB73 /* HomeViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				39D53AB822522ACE00D2C4E0 /* ViewController.swift */,
+				39A644EC226C48C30005FB73 /* FoodInfoViewController.swift */,
+			);
+			path = HomeViewControllers;
 			sourceTree = "<group>";
 		};
 		39A8D2B3226880C400FF3654 /* Models */ = {

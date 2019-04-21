@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         
         mealTableView.delegate = self
         mealTableView.dataSource = self
+        mealTableView.allowsSelection = false
     }
     
     func checkUserAuth() {

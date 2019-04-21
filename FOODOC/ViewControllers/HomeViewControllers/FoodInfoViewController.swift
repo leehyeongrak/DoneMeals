@@ -22,6 +22,7 @@ class FoodInfoViewController: UIViewController {
         
         nutrientTableView.delegate = self
         nutrientTableView.dataSource = self
+        nutrientTableView.allowsSelection = false
     }
 }
 
