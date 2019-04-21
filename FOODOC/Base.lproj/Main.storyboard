@@ -777,7 +777,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="오늘의 식사" id="ldx-dt-udG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="T2j-N2-noW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="T2j-N2-noW">
+                            <connections>
+                                <segue destination="TtS-I2-hxX" kind="show" id="o48-JH-EtX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mealTableView" destination="Hr7-F5-Ocm" id="8w3-bz-GqE"/>
@@ -934,6 +938,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3E-Eo-fwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2956" y="121"/>
+        </scene>
+        <!--음식검색-->
+        <scene sceneID="xmr-AB-hcN">
+            <objects>
+                <viewController title="음식검색" id="TtS-I2-hxX" customClass="SearchFoodViewController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tqe-1j-cdA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="찾으시는 음식을 입력해주세요" translatesAutoresizingMaskIntoConstraints="NO" id="XpJ-Id-ZVG">
+                                <rect key="frame" x="16" y="88" width="343" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="GSS-bT-E6W"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVR-sS-bG3">
+                                <rect key="frame" x="0.0" y="144" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="eqp-R9-l0a"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4mc-J1-ULg">
+                                <rect key="frame" x="0.0" y="145" width="375" height="584"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ResultTableViewCell" textLabel="IAp-hE-Hqi" style="IBUITableViewCellStyleDefault" id="0uy-be-QWp">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0uy-be-QWp" id="ggk-NW-quz">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="음식명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IAp-hE-Hqi">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QRb-dT-Cqq" firstAttribute="trailing" secondItem="yVR-sS-bG3" secondAttribute="trailing" id="3Up-UH-jBb"/>
+                            <constraint firstItem="QRb-dT-Cqq" firstAttribute="trailing" secondItem="XpJ-Id-ZVG" secondAttribute="trailing" constant="16" id="CsT-bv-9H6"/>
+                            <constraint firstItem="yVR-sS-bG3" firstAttribute="top" secondItem="XpJ-Id-ZVG" secondAttribute="bottom" id="L7W-fx-exa"/>
+                            <constraint firstItem="yVR-sS-bG3" firstAttribute="leading" secondItem="QRb-dT-Cqq" secondAttribute="leading" id="LzL-lQ-kgV"/>
+                            <constraint firstItem="4mc-J1-ULg" firstAttribute="leading" secondItem="QRb-dT-Cqq" secondAttribute="leading" id="Z20-Gl-Zwp"/>
+                            <constraint firstItem="4mc-J1-ULg" firstAttribute="top" secondItem="yVR-sS-bG3" secondAttribute="bottom" id="bn5-xr-fct"/>
+                            <constraint firstItem="XpJ-Id-ZVG" firstAttribute="top" secondItem="QRb-dT-Cqq" secondAttribute="top" id="gCH-kd-49P"/>
+                            <constraint firstItem="XpJ-Id-ZVG" firstAttribute="leading" secondItem="QRb-dT-Cqq" secondAttribute="leading" constant="16" id="jC9-xY-Urr"/>
+                            <constraint firstItem="QRb-dT-Cqq" firstAttribute="bottom" secondItem="4mc-J1-ULg" secondAttribute="bottom" id="nLH-Iv-PcK"/>
+                            <constraint firstItem="QRb-dT-Cqq" firstAttribute="trailing" secondItem="4mc-J1-ULg" secondAttribute="trailing" id="xyu-yy-6Pt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QRb-dT-Cqq"/>
+                    </view>
+                    <connections>
+                        <outlet property="resultsTableView" destination="4mc-J1-ULg" id="RSh-Wa-YyL"/>
+                        <outlet property="searchBar" destination="XpJ-Id-ZVG" id="9Ze-R0-BoL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eBn-zQ-X4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3852" y="120"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2fX-s1-85l">
