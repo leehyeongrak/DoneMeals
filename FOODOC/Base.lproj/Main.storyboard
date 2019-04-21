@@ -713,6 +713,7 @@
                                                             <connections>
                                                                 <outlet property="calorieLabel" destination="09L-eB-Vrn" id="GXF-C6-qOH"/>
                                                                 <outlet property="foodNameLabel" destination="gKi-2x-NlU" id="BaV-1V-S06"/>
+                                                                <segue destination="5zH-IT-z4i" kind="show" id="Lz4-GK-qjs"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -785,6 +786,154 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2018.4000000000001" y="121.18226600985223"/>
+        </scene>
+        <!--식사정보-->
+        <scene sceneID="xGZ-Jh-fD3">
+            <objects>
+                <viewController id="5zH-IT-z4i" customClass="FoodInfoViewController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="et7-hx-xuE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H56-kn-x6g">
+                                <rect key="frame" x="0.0" y="88" width="375" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="96B-Ab-84y"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음식명Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRe-An-YKk">
+                                <rect key="frame" x="16" y="351" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYo-T3-TyG">
+                                <rect key="frame" x="0.0" y="380" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Ste-8r-ks1"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="섭취량Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7b-x3-d5G">
+                                <rect key="frame" x="111" y="351" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="섭취일자Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsY-Pn-ew3">
+                                <rect key="frame" x="258" y="351" width="101" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영양성분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHu-fl-ZAL">
+                                <rect key="frame" x="15.999999999999998" y="389" width="31.333333333333329" height="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BwM-4a-069">
+                                <rect key="frame" x="0.0" y="400" width="375" height="329"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NutrientTableViewCell" rowHeight="33" id="BX4-SA-qUl" customClass="NutrientTableViewCell" customModule="FOODOC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="33"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BX4-SA-qUl" id="b9r-8n-V7K">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="33"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영양성분종류Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAx-hp-mss">
+                                                    <rect key="frame" x="16" y="8" width="109" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영양수치Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="put-sj-vok">
+                                                    <rect key="frame" x="275" y="8" width="84" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="put-sj-vok" firstAttribute="centerY" secondItem="b9r-8n-V7K" secondAttribute="centerY" id="AfZ-hX-btJ"/>
+                                                <constraint firstItem="WAx-hp-mss" firstAttribute="leading" secondItem="b9r-8n-V7K" secondAttribute="leading" constant="16" id="Cov-Db-KFH"/>
+                                                <constraint firstItem="put-sj-vok" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WAx-hp-mss" secondAttribute="trailing" constant="16" id="Vja-it-IeK"/>
+                                                <constraint firstAttribute="trailing" secondItem="put-sj-vok" secondAttribute="trailing" constant="16" id="Ygx-lx-Z9z"/>
+                                                <constraint firstItem="WAx-hp-mss" firstAttribute="centerY" secondItem="b9r-8n-V7K" secondAttribute="centerY" id="xn8-9T-TUH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음식명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfB-VG-Svx">
+                                <rect key="frame" x="16" y="336" width="87" height="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="섭취량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaP-0F-vOV">
+                                <rect key="frame" x="111" y="336" width="86" height="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="섭취일자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iR9-Ex-lMA">
+                                <rect key="frame" x="258" y="336" width="101" height="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tQs-HL-ujQ" firstAttribute="trailing" secondItem="OYo-T3-TyG" secondAttribute="trailing" id="1Ee-GT-WDY"/>
+                            <constraint firstItem="H56-kn-x6g" firstAttribute="leading" secondItem="tQs-HL-ujQ" secondAttribute="leading" id="C69-jb-L4R"/>
+                            <constraint firstItem="OYo-T3-TyG" firstAttribute="leading" secondItem="tQs-HL-ujQ" secondAttribute="leading" id="E7C-zu-Flr"/>
+                            <constraint firstItem="SfB-VG-Svx" firstAttribute="leading" secondItem="wRe-An-YKk" secondAttribute="leading" id="FcO-Zs-gu3"/>
+                            <constraint firstItem="tQs-HL-ujQ" firstAttribute="bottom" secondItem="BwM-4a-069" secondAttribute="bottom" id="Fv7-iA-PEa"/>
+                            <constraint firstItem="F7b-x3-d5G" firstAttribute="centerY" secondItem="wRe-An-YKk" secondAttribute="centerY" id="GN5-1h-7vo"/>
+                            <constraint firstItem="wRe-An-YKk" firstAttribute="leading" secondItem="tQs-HL-ujQ" secondAttribute="leading" constant="16" id="H6h-eA-uyd"/>
+                            <constraint firstItem="SfB-VG-Svx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wRe-An-YKk" secondAttribute="trailing" id="HZH-jl-4IL"/>
+                            <constraint firstItem="iR9-Ex-lMA" firstAttribute="leading" secondItem="IsY-Pn-ew3" secondAttribute="leading" id="R0h-s1-5xg"/>
+                            <constraint firstItem="OYo-T3-TyG" firstAttribute="top" secondItem="wRe-An-YKk" secondAttribute="bottom" constant="8" id="RKy-KG-XnS"/>
+                            <constraint firstItem="IsY-Pn-ew3" firstAttribute="centerY" secondItem="F7b-x3-d5G" secondAttribute="centerY" id="Reb-EW-RhP"/>
+                            <constraint firstItem="UaP-0F-vOV" firstAttribute="leading" secondItem="F7b-x3-d5G" secondAttribute="leading" id="XOl-xH-Vtd"/>
+                            <constraint firstItem="iR9-Ex-lMA" firstAttribute="centerY" secondItem="UaP-0F-vOV" secondAttribute="centerY" id="Ytw-NE-T57"/>
+                            <constraint firstItem="BwM-4a-069" firstAttribute="top" secondItem="JHu-fl-ZAL" secondAttribute="bottom" id="bdo-R3-4gF"/>
+                            <constraint firstItem="F7b-x3-d5G" firstAttribute="leading" secondItem="wRe-An-YKk" secondAttribute="trailing" constant="8" id="cDp-D5-ANb"/>
+                            <constraint firstItem="JHu-fl-ZAL" firstAttribute="top" secondItem="OYo-T3-TyG" secondAttribute="bottom" constant="8" id="eR2-py-fO9"/>
+                            <constraint firstItem="UaP-0F-vOV" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="F7b-x3-d5G" secondAttribute="trailing" id="ewS-vl-sKt"/>
+                            <constraint firstItem="wRe-An-YKk" firstAttribute="top" secondItem="SfB-VG-Svx" secondAttribute="bottom" constant="4" id="fu3-OM-5GL"/>
+                            <constraint firstItem="UaP-0F-vOV" firstAttribute="centerY" secondItem="SfB-VG-Svx" secondAttribute="centerY" id="i37-4d-5s1"/>
+                            <constraint firstItem="tQs-HL-ujQ" firstAttribute="trailing" secondItem="BwM-4a-069" secondAttribute="trailing" id="kYk-JQ-zTf"/>
+                            <constraint firstItem="IsY-Pn-ew3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F7b-x3-d5G" secondAttribute="trailing" constant="16" id="kwa-xW-XXA"/>
+                            <constraint firstItem="JHu-fl-ZAL" firstAttribute="leading" secondItem="tQs-HL-ujQ" secondAttribute="leading" constant="16" id="mSb-wS-rcc"/>
+                            <constraint firstItem="tQs-HL-ujQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JHu-fl-ZAL" secondAttribute="trailing" constant="16" id="nus-6n-HkS"/>
+                            <constraint firstItem="tQs-HL-ujQ" firstAttribute="trailing" secondItem="H56-kn-x6g" secondAttribute="trailing" id="sss-U2-iE3"/>
+                            <constraint firstItem="BwM-4a-069" firstAttribute="leading" secondItem="tQs-HL-ujQ" secondAttribute="leading" id="tPz-40-fp5"/>
+                            <constraint firstItem="tQs-HL-ujQ" firstAttribute="trailing" secondItem="IsY-Pn-ew3" secondAttribute="trailing" constant="16" id="uVU-jX-8uo"/>
+                            <constraint firstItem="SfB-VG-Svx" firstAttribute="top" secondItem="H56-kn-x6g" secondAttribute="bottom" constant="8" id="yQy-YQ-7dt"/>
+                            <constraint firstItem="iR9-Ex-lMA" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IsY-Pn-ew3" secondAttribute="trailing" id="yaz-Lj-Lcy"/>
+                            <constraint firstItem="H56-kn-x6g" firstAttribute="top" secondItem="tQs-HL-ujQ" secondAttribute="top" id="ypm-eA-cgp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tQs-HL-ujQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="식사정보" id="04Y-In-05H">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="8oL-ru-GSo"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="foodImageView" destination="H56-kn-x6g" id="XdI-mL-iHG"/>
+                        <outlet property="foodIntakeLabel" destination="F7b-x3-d5G" id="1aI-ZT-xia"/>
+                        <outlet property="foodNameLabel" destination="wRe-An-YKk" id="BIn-08-cpt"/>
+                        <outlet property="intakeDateLabel" destination="IsY-Pn-ew3" id="DSf-6K-7T8"/>
+                        <outlet property="nutrientTableView" destination="BwM-4a-069" id="Efa-rm-4EJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n3E-Eo-fwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2956" y="121"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2fX-s1-85l">
