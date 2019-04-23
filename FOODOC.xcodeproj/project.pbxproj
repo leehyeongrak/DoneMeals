@@ -12,6 +12,7 @@
 		390A1DB22258851A008537DD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DB12258851A008537DD /* HistoryViewController.swift */; };
 		392EADA12265A38F000841F3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EADA02265A38F000841F3 /* UserInfo.swift */; };
 		394CEDB0226EB4DB00C23D66 /* ManualAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394CEDAF226EB4DB00C23D66 /* ManualAddViewController.swift */; };
+		394CEDB2226EBCD000C23D66 /* DateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394CEDB1226EBCD000C23D66 /* DateSelectViewController.swift */; };
 		396E4416226C9D4A002D936D /* SearchFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396E4415226C9D4A002D936D /* SearchFoodViewController.swift */; };
 		397408CB226375FB0057A478 /* SetNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397408CA226375FB0057A478 /* SetNotificationViewController.swift */; };
 		39A644ED226C48C30005FB73 /* FoodInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A644EC226C48C30005FB73 /* FoodInfoViewController.swift */; };
@@ -42,6 +43,7 @@
 		390A1DB12258851A008537DD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		392EADA02265A38F000841F3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		394CEDAF226EB4DB00C23D66 /* ManualAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAddViewController.swift; sourceTree = "<group>"; };
+		394CEDB1226EBCD000C23D66 /* DateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectViewController.swift; sourceTree = "<group>"; };
 		396E4415226C9D4A002D936D /* SearchFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodViewController.swift; sourceTree = "<group>"; };
 		397408CA226375FB0057A478 /* SetNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationViewController.swift; sourceTree = "<group>"; };
 		39A644EC226C48C30005FB73 /* FoodInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfoViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				39A644EC226C48C30005FB73 /* FoodInfoViewController.swift */,
 				396E4415226C9D4A002D936D /* SearchFoodViewController.swift */,
 				394CEDAF226EB4DB00C23D66 /* ManualAddViewController.swift */,
+				394CEDB1226EBCD000C23D66 /* DateSelectViewController.swift */,
 			);
 			path = HomeViewControllers;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				39A644F1226C53850005FB73 /* NutrientTableViewCell.swift in Sources */,
 				390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */,
 				39C34648226AE71200057751 /* MealTableViewCell.swift in Sources */,
+				394CEDB2226EBCD000C23D66 /* DateSelectViewController.swift in Sources */,
 				396E4416226C9D4A002D936D /* SearchFoodViewController.swift in Sources */,
 				392EADA12265A38F000841F3 /* UserInfo.swift in Sources */,
 				39C3464A226AEDED00057751 /* FoodCollectionViewCell.swift in Sources */,
