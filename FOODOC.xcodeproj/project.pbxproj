@@ -15,6 +15,8 @@
 		394CEDB2226EBCD000C23D66 /* DateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394CEDB1226EBCD000C23D66 /* DateSelectViewController.swift */; };
 		396E4416226C9D4A002D936D /* SearchFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396E4415226C9D4A002D936D /* SearchFoodViewController.swift */; };
 		397408CB226375FB0057A478 /* SetNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397408CA226375FB0057A478 /* SetNotificationViewController.swift */; };
+		39874E3822707D28007732D2 /* FoodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39874E3722707D28007732D2 /* FoodInfo.swift */; };
+		39874E3A22707E45007732D2 /* NutrientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39874E3922707E45007732D2 /* NutrientInfo.swift */; };
 		39A644ED226C48C30005FB73 /* FoodInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A644EC226C48C30005FB73 /* FoodInfoViewController.swift */; };
 		39A644F1226C53850005FB73 /* NutrientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A644F0226C53850005FB73 /* NutrientTableViewCell.swift */; };
 		39A8D2B72268838C00FF3654 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8D2B62268838C00FF3654 /* APIService.swift */; };
@@ -46,6 +48,8 @@
 		394CEDB1226EBCD000C23D66 /* DateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectViewController.swift; sourceTree = "<group>"; };
 		396E4415226C9D4A002D936D /* SearchFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodViewController.swift; sourceTree = "<group>"; };
 		397408CA226375FB0057A478 /* SetNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationViewController.swift; sourceTree = "<group>"; };
+		39874E3722707D28007732D2 /* FoodInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfo.swift; sourceTree = "<group>"; };
+		39874E3922707E45007732D2 /* NutrientInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientInfo.swift; sourceTree = "<group>"; };
 		39A644EC226C48C30005FB73 /* FoodInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfoViewController.swift; sourceTree = "<group>"; };
 		39A644F0226C53850005FB73 /* NutrientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientTableViewCell.swift; sourceTree = "<group>"; };
 		39A8D2B62268838C00FF3654 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIService.swift; path = FOODOC/APIService.swift; sourceTree = SOURCE_ROOT; };
@@ -132,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				392EADA02265A38F000841F3 /* UserInfo.swift */,
+				39874E3722707D28007732D2 /* FoodInfo.swift */,
+				39874E3922707E45007732D2 /* NutrientInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,11 +343,13 @@
 				39E502E62264B0D100F5F5EA /* TimeSelectViewController.swift in Sources */,
 				390A1DB022588511008537DD /* AddViewController.swift in Sources */,
 				39CFFA76225DB88E000572F8 /* MoreViewController.swift in Sources */,
+				39874E3A22707E45007732D2 /* NutrientInfo.swift in Sources */,
 				39A8D2B72268838C00FF3654 /* APIService.swift in Sources */,
 				39A94ACE22589D0D007D6DFE /* LoginViewController.swift in Sources */,
 				390A1DB22258851A008537DD /* HistoryViewController.swift in Sources */,
 				39D0899C225B319D008AC99A /* PickerViewController.swift in Sources */,
 				397408CB226375FB0057A478 /* SetNotificationViewController.swift in Sources */,
+				39874E3822707D28007732D2 /* FoodInfo.swift in Sources */,
 				39CFFA78225DBD2A000572F8 /* EditBodyInfoViewController.swift in Sources */,
 				39A94AD022589E0A007D6DFE /* SignUpViewController.swift in Sources */,
 				39A644F1226C53850005FB73 /* NutrientTableViewCell.swift in Sources */,
