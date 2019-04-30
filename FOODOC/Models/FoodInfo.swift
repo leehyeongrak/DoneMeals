@@ -13,6 +13,17 @@ struct FoodInfo {
     var name: String
     var amount: Double
     var createdTime: Date
-    var imageURL: String?
+    var imageURL: String
     var nutrientInfo: NutrientInfo
+    
+    init(fid: String, dictionary: [String: Any]) {
+        self.fid = fid
+        self.name = dictionary["name"] as! String
+        self.amount = dictionary["amount"] as! Double
+        self.createdTime = dictionary["createdTime"] as! Date
+        self.imageURL = dictionary["imageURL"] as! String
+        self.nutrientInfo = dictionary["nutrientInfo"] as! NutrientInfo
+    }
 }
+
+
