@@ -9,7 +9,9 @@
 import UIKit
 
 class NutrientTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var nutrientNameLabel: UILabel!
+    
+    @IBOutlet weak var nutrientValueLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

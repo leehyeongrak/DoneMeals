@@ -10,7 +10,9 @@ import UIKit
 
 class SearchFoodViewController: UIViewController {
 
+//    var results: Array<FoodInfo> = []
     let samples: Array<String> = ["김치찌개", "된장찌개", "육개장"]
+
     var results: Array<String> = []
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -34,6 +36,22 @@ class SearchFoodViewController: UIViewController {
         }
         return results
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let manualAddViewController = segue.destination as? ManualAddViewController else {
+            return
+        }
+        guard let cell = sender as? UITableViewCell else {
+            return
+        }
+        
+        let nutrient = NutrientInfo(dictionary: ["carbo": 12.3, "prot": 23.1, "fat": 11.5 ,"sugars": 12.4, "sodium": 7.2, "cholesterol": 3.2, "satFat": 15.2, "transFat": 5.4])
+        
+        let result: [String: Any] = ["name": "김치찌개", "defaultIntake": 200.0, "nutrient": nutrient]
+        
+        manualAddViewController.result = result
+    }
+    
 }
 
 extension SearchFoodViewController: UITableViewDelegate, UITableViewDataSource {
