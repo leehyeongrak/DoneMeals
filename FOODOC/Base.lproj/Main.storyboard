@@ -1921,6 +1921,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="아침"/>
+                                                <connections>
+                                                    <action selector="tappedBreakfastButton:" destination="Pgx-0F-rdN" eventType="touchUpInside" id="Bg4-nP-Isb"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3g-LT-bae">
                                                 <rect key="frame" x="46.000000000000014" y="0.0" width="5.3333333333333357" height="33"/>
@@ -1932,6 +1935,9 @@
                                                 <rect key="frame" x="67.333333333333329" y="0.0" width="30" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="점심"/>
+                                                <connections>
+                                                    <action selector="tappedLunchButton:" destination="Pgx-0F-rdN" eventType="touchUpInside" id="hk6-mx-cpN"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvN-cM-o6D">
                                                 <rect key="frame" x="113.33333333333333" y="0.0" width="5.3333333333333286" height="33"/>
@@ -1943,6 +1949,9 @@
                                                 <rect key="frame" x="134.66666666666669" y="0.0" width="30" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="저녁"/>
+                                                <connections>
+                                                    <action selector="tappedDinnerButton:" destination="Pgx-0F-rdN" eventType="touchUpInside" id="sTz-1R-JRU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

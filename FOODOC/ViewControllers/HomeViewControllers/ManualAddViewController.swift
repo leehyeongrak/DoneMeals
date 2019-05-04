@@ -45,27 +45,31 @@ class ManualAddViewController: UIViewController {
             foodNameLabel.text = selectedFood["name"] as? String
             foodIntakeTextField.text = "\((selectedFood["defaultIntake"] as? Double) ?? 0)"
         }
-        setupIntakeDate(date: Date())
+        setupIntakeDate(date: Date(), bld: nil)
     }
     
-    private func setupIntakeDate(date: Date) {
+    private func setupIntakeDate(date: Date, bld: Bld?) {
         let dateFormatter = DateFormatter()
         let calender = Calendar.current
         let components = calender.dateComponents([.hour], from: date)
         
         // bld means breakfast or lunch or dinner
-        var bld = ""
-        if let hour = components.hour {
-            if hour < 11 {
-                bld = "아침"
-            } else if hour >= 11 && hour < 17 {
-                bld = "점심"
-            } else {
-                bld = "저녁"
+        if let bldValue = bld {
+            dateFormatter.dateFormat = "M월 d일 \(bldValue.rawValue)"
+        } else {
+            var defaultBld = ""
+            if let hour = components.hour {
+                if hour < 11 {
+                    defaultBld = "아침"
+                } else if hour >= 11 && hour < 17 {
+                    defaultBld = "점심"
+                } else {
+                    defaultBld = "저녁"
+                }
             }
+            dateFormatter.dateFormat = "M월 d일 \(defaultBld)"
         }
         
-        dateFormatter.dateFormat = "M월 d일 \(bld)"
         let dateText = dateFormatter.string(from: date)
         intakeDateButton.setTitle(dateText, for: .normal)
     }
@@ -74,6 +78,7 @@ class ManualAddViewController: UIViewController {
         let dateSelectViewController = segue.destination as? DateSelectViewController
         
         dateSelectViewController?.dismissViewControllerDelegate = self
+        dateSelectViewController?.dateSelectedDelegate = self
         
         self.navigationController?.view.addSubview(coverView)
         UIView.animate(withDuration: 0.3) { self.coverView.alpha = 0.6 }
@@ -180,5 +185,15 @@ extension ManualAddViewController: UITextFieldDelegate {
     @objc func doneButtonAction(){
         foodIntakeTextField.resignFirstResponder()
         self.nutrientTableView.reloadData()
+    }
+}
+
+protocol DateSelectedDelegate {
+    func dateSelected(date: Date, bld: Bld)
+}
+
+extension ManualAddViewController: DateSelectedDelegate {
+    func dateSelected(date: Date, bld: Bld) {
+        setupIntakeDate(date: date, bld: bld)
     }
 }
