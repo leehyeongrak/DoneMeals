@@ -15,6 +15,7 @@ struct FoodInfo {
     var createdTime: Date
     var imageURL: String
     var nutrientInfo: NutrientInfo
+    var bld: Bld
     
     init(fid: String, dictionary: [String: Any]) {
         self.fid = fid
@@ -23,7 +24,12 @@ struct FoodInfo {
         self.createdTime = dictionary["createdTime"] as! Date
         self.imageURL = dictionary["imageURL"] as! String
         self.nutrientInfo = dictionary["nutrientInfo"] as! NutrientInfo
+        self.bld = dictionary["bld"] as! Bld
     }
 }
 
-
+enum Bld: String {
+    case Breakfast = "아침"
+    case Lunch = "점심"
+    case Dinner = "저녁"
+}

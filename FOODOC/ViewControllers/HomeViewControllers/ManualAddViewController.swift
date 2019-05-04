@@ -45,6 +45,29 @@ class ManualAddViewController: UIViewController {
             foodNameLabel.text = selectedFood["name"] as? String
             foodIntakeTextField.text = "\((selectedFood["defaultIntake"] as? Double) ?? 0)"
         }
+        setupIntakeDate(date: Date())
+    }
+    
+    private func setupIntakeDate(date: Date) {
+        let dateFormatter = DateFormatter()
+        let calender = Calendar.current
+        let components = calender.dateComponents([.hour], from: date)
+        
+        // bld means breakfast or lunch or dinner
+        var bld = ""
+        if let hour = components.hour {
+            if hour < 11 {
+                bld = "아침"
+            } else if hour >= 11 && hour < 17 {
+                bld = "점심"
+            } else {
+                bld = "저녁"
+            }
+        }
+        
+        dateFormatter.dateFormat = "M월 d일 \(bld)"
+        let dateText = dateFormatter.string(from: date)
+        intakeDateButton.setTitle(dateText, for: .normal)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
