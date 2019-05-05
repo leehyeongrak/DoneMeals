@@ -10,9 +10,10 @@ import UIKit
 
 class ManualAddViewController: UIViewController {
     
-    var food: FoodInfo?
     var result: [String: Any]?
     var date: Date?
+    var nutrient: NutrientInfo?
+    var bld: Bld?
     
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
@@ -22,6 +23,14 @@ class ManualAddViewController: UIViewController {
     @IBOutlet weak var nutrientTableView: UITableView!
     
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
+        let service = APIService()
+        
+        let timestamp = Int(self.date!.timeIntervalSince1970)
+        let values: [String: Any] = ["name": foodNameLabel.text!, "amount": foodIntakeTextField.text!, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
+        
+        service.addFoodInformation(values: values, timestamp: timestamp) { (error) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     let coverView = UIView()
@@ -44,11 +53,13 @@ class ManualAddViewController: UIViewController {
         if let selectedFood = result {
             foodNameLabel.text = selectedFood["name"] as? String
             foodIntakeTextField.text = "\((selectedFood["defaultIntake"] as? Double) ?? 0)"
+            self.nutrient = selectedFood["nutrient"] as? NutrientInfo
         }
         setupIntakeDate(date: Date(), bld: nil)
     }
     
     private func setupIntakeDate(date: Date, bld: Bld?) {
+        self.date = date
         let dateFormatter = DateFormatter()
         let calender = Calendar.current
         let components = calender.dateComponents([.hour], from: date)
@@ -56,18 +67,20 @@ class ManualAddViewController: UIViewController {
         // bld means breakfast or lunch or dinner
         if let bldValue = bld {
             dateFormatter.dateFormat = "M월 d일 \(bldValue.rawValue)"
+            self.bld = bld
         } else {
-            var defaultBld = ""
+            var defaultBld = Bld.Breakfast
             if let hour = components.hour {
                 if hour < 11 {
-                    defaultBld = "아침"
+                    defaultBld = .Breakfast
                 } else if hour >= 11 && hour < 17 {
-                    defaultBld = "점심"
+                    defaultBld = .Lunch
                 } else {
-                    defaultBld = "저녁"
+                    defaultBld = .Dinner
                 }
             }
-            dateFormatter.dateFormat = "M월 d일 \(defaultBld)"
+            self.bld = defaultBld
+            dateFormatter.dateFormat = "M월 d일 \(defaultBld.rawValue)"
         }
         
         let dateText = dateFormatter.string(from: date)

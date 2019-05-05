@@ -39,9 +39,25 @@ class APIService: APIServiceProtocol {
             completion(nil)
         }
     }
+    
+    func addFoodInformation(values: [String : Any], timestamp: Int, completion: @escaping (Error?) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("users").child(uid).child("foods")
+        let childRef = ref.childByAutoId()
+        
+        childRef.updateChildValues(values) { (error, ref) in
+            if error != nil {
+                print(error!)
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
 }
 
 protocol APIServiceProtocol {
     func fetchUserInformation(completion: @escaping (UserInfo?, Error?) -> Void)
     func updateUserInformation(uid: String, information: [String: Any], completion: @escaping (Error?) -> Void)
+    func addFoodInformation(values: [String: Any], timestamp: Int, completion: @escaping (Error?) -> Void)
 }
