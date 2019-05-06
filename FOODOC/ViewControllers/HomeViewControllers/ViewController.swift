@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         })
     }
     
-    private func fetchMealsOfToday() {
+    func fetchMealsOfToday() {
         self.breakfastList.removeAll()
         self.lunchList.removeAll()
         self.dinnerList.removeAll()

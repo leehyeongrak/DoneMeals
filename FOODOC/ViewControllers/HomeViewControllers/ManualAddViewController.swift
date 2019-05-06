@@ -29,6 +29,9 @@ class ManualAddViewController: UIViewController {
         let values: [String: Any] = ["name": foodNameLabel.text!, "amount": Double(foodIntakeTextField.text!) ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
         
         service.addMealInformation(values: values, timestamp: timestamp) { (error) in
+            if let rootViewController = self.navigationController?.viewControllers[0] as? ViewController {
+                rootViewController.fetchMealsOfToday()
+            }
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
