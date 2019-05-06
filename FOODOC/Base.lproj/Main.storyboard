@@ -713,7 +713,7 @@
                                                             <connections>
                                                                 <outlet property="calorieLabel" destination="09L-eB-Vrn" id="GXF-C6-qOH"/>
                                                                 <outlet property="foodNameLabel" destination="gKi-2x-NlU" id="BaV-1V-S06"/>
-                                                                <segue destination="5zH-IT-z4i" kind="show" id="Lz4-GK-qjs"/>
+                                                                <segue destination="5zH-IT-z4i" kind="show" identifier="ShowFoodInfoSegue" id="Lz4-GK-qjs"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -805,7 +805,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="H56-kn-x6g">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H56-kn-x6g">
                                 <rect key="frame" x="0.0" y="88" width="375" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="96B-Ab-84y"/>
@@ -874,6 +874,10 @@
                                                 <constraint firstItem="WAx-hp-mss" firstAttribute="centerY" secondItem="b9r-8n-V7K" secondAttribute="centerY" id="xn8-9T-TUH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nutrientNameLabel" destination="WAx-hp-mss" id="GVw-ar-u9d"/>
+                                            <outlet property="nutrientValueLabel" destination="put-sj-vok" id="vpk-pd-iLZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -2007,11 +2011,8 @@
             <point key="canvasLocation" x="5580" y="121"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="1" width="550" height="447"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OnK-Yi-XeT"/>
-        <segue reference="eHc-TS-pEP"/>
+        <segue reference="DrV-jQ-HJE"/>
     </inferredMetricsTieBreakers>
 </document>

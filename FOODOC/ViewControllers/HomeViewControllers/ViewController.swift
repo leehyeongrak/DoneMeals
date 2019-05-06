@@ -106,6 +106,16 @@ class ViewController: UIViewController {
             present(bodyInfoViewController, animated: true, completion: nil)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowFoodInfoSegue" {
+            if let foodInfoViewController = segue.destination as? FoodInfoViewController {
+                if let cell = sender as? FoodCollectionViewCell {
+                    foodInfoViewController.food = cell.food
+                }
+            }
+        }
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

@@ -9,6 +9,9 @@
 import UIKit
 
 class FoodCollectionViewCell: UICollectionViewCell {
+    
+    var food: FoodInfo?
+    
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var calorieLabel: UILabel!
     
