@@ -115,34 +115,38 @@ extension ManualAddViewController: UITableViewDelegate, UITableViewDataSource {
         if let selectedFood = result {
             
             if let nutrient = selectedFood["nutrient"] as? NutrientInfo, let intake = Double(intakeText), let defaultIntake = selectedFood["defaultIntake"] as? Double {
+                
+                let percentage = intake/defaultIntake
+                
                 switch indexPath.row {
                 case 0:
+                    let calorie = (nutrient.carbo * 4 + nutrient.prot * 4 + nutrient.fat * 9) * percentage
                     cell.nutrientNameLabel.text = "칼로리"
-                    cell.nutrientValueLabel.text = "0kcal"
+                    cell.nutrientValueLabel.text = "\(calorie)kcal"
                 case 1:
                     cell.nutrientNameLabel.text = "탄수화물"
-                    cell.nutrientValueLabel.text = "\(nutrient.carbo*(intake/defaultIntake))g"
+                    cell.nutrientValueLabel.text = "\(nutrient.carbo * percentage)g"
                 case 2:
                     cell.nutrientNameLabel.text = "단백질"
-                    cell.nutrientValueLabel.text = "\(nutrient.prot*(intake/defaultIntake))g"
+                    cell.nutrientValueLabel.text = "\(nutrient.prot * percentage)g"
                 case 3:
                     cell.nutrientNameLabel.text = "지방"
-                    cell.nutrientValueLabel.text = "\(nutrient.fat*(intake/defaultIntake))g"
+                    cell.nutrientValueLabel.text = "\(nutrient.fat * percentage)g"
                 case 4:
                     cell.nutrientNameLabel.text = "당류"
-                    cell.nutrientValueLabel.text = "\(nutrient.sugars*(intake/defaultIntake))g"
+                    cell.nutrientValueLabel.text = "\(nutrient.sugars * percentage)g"
                 case 5:
                     cell.nutrientNameLabel.text = "나트륨"
-                    cell.nutrientValueLabel.text = "\(nutrient.sodium*(intake/defaultIntake))mg"
+                    cell.nutrientValueLabel.text = "\(nutrient.sodium * percentage)mg"
                 case 6:
                     cell.nutrientNameLabel.text = "콜레스테롤"
-                    cell.nutrientValueLabel.text = "\(nutrient.cholesterol*(intake/defaultIntake))mg"
+                    cell.nutrientValueLabel.text = "\(nutrient.cholesterol * percentage)mg"
                 case 7:
                     cell.nutrientNameLabel.text = "포화지방산"
-                    cell.nutrientValueLabel.text = "\(nutrient.satFat*(intake/defaultIntake))g"
+                    cell.nutrientValueLabel.text = "\(nutrient.satFat * percentage)g"
                 default:
                     cell.nutrientNameLabel.text = "트랜스지방산"
-                    cell.nutrientValueLabel.text = "\(nutrient.transFat*(intake/defaultIntake))g"
+                    cell.nutrientValueLabel.text = "\(nutrient.transFat * percentage)g"
                 }
             }
         }

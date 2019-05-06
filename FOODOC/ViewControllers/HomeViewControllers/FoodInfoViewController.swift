@@ -55,8 +55,9 @@ extension FoodInfoViewController: UITableViewDelegate, UITableViewDataSource {
         if let nutrient = food?.nutrientInfo {
             switch indexPath.row {
             case 0:
+                let calorie = nutrient.carbo * 4 + nutrient.prot * 4 + nutrient.fat * 9
                 cell.nutrientNameLabel.text = "칼로리"
-                cell.nutrientValueLabel.text = "0kcal"
+                cell.nutrientValueLabel.text = "\(calorie)kcal"
             case 1:
                 cell.nutrientNameLabel.text = "탄수화물"
                 cell.nutrientValueLabel.text = "\(nutrient.carbo)g"
