@@ -71,6 +71,19 @@ class APIService: APIServiceProtocol {
             completion(nil, error)
         }
     }
+    
+    func deleteMealInformation(fid: String, completion: @escaping (Error?) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("users").child(uid).child("foods").child(fid)
+        
+        ref.removeValue { (error, ref) in
+            if error != nil {
+                completion(error)
+            } else {
+                completion(nil)
+            }
+        }
+    }
 }
 
 protocol APIServiceProtocol {
@@ -78,4 +91,5 @@ protocol APIServiceProtocol {
     func updateUserInformation(uid: String, information: [String: Any], completion: @escaping (Error?) -> Void)
     func addMealInformation(values: [String: Any], timestamp: Int, completion: @escaping (Error?) -> Void)
     func fetchMealInformation(bld: Bld, completion: @escaping (Array<FoodInfo>?, Error?) -> Void)
+    func deleteMealInformation(fid: String, completion: @escaping (Error?) -> Void)
 }

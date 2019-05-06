@@ -19,6 +19,26 @@ class FoodInfoViewController: UIViewController {
     
     @IBOutlet weak var nutrientTableView: UITableView!
     
+    @IBAction func tappedTrashButton(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: nil, message: "삭제하시겠습니까?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "네", style: .default, handler: { (action) in
+            let service = APIService()
+            if let target = self.food {
+                service.deleteMealInformation(fid: target.fid, completion: { (error) in
+                    if error != nil {
+                        return
+                    }
+                    if let rootViewController = self.navigationController?.viewControllers[0] as? ViewController {
+                        rootViewController.fetchMealsOfToday()
+                    }
+                    self.navigationController?.popToRootViewController(animated: true)
+                })
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

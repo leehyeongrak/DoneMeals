@@ -945,7 +945,11 @@
                         <viewLayoutGuide key="safeArea" id="tQs-HL-ujQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="식사정보" id="04Y-In-05H">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="8oL-ru-GSo"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="8oL-ru-GSo">
+                            <connections>
+                                <action selector="tappedTrashButton:" destination="5zH-IT-z4i" id="fMo-vd-5cp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="foodImageView" destination="H56-kn-x6g" id="XdI-mL-iHG"/>
