@@ -57,7 +57,7 @@ class APIService: APIServiceProtocol {
         let ref = Database.database().reference().child("users").child(uid).child("foods")
         
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let values = snapshot.value as? [String: Any] else { return }
+            guard let values = snapshot.value as? [String: Any] else { return completion(nil, nil) }
             var list: Array<FoodInfo> = []
             for value in values {
                 if let meal = value.value as? [String: Any] {

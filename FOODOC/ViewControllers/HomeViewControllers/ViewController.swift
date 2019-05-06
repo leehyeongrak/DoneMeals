@@ -59,13 +59,29 @@ class ViewController: UIViewController {
         let service = APIService()
         service.fetchMealInformation(bld: Bld.Breakfast, completion: { (list, error) in
             if let list = list {
-                self.breakfastList = list.filter({ (food) -> Bool in
-                    if food.bld == Bld.Breakfast {
+                self.mealList = list.filter({ (food) -> Bool in
+                    let calender = Calendar.current
+                    let date = Date(timeIntervalSince1970: TimeInterval(food.createdTime))
+                    let current = Date()
+                    let components = calender.dateComponents([.year, .month, .day, .hour], from: date)
+                    let currentComponents = calender.dateComponents([.year, .month, .day], from: current)
+                    if components.year == currentComponents.year && components.month == currentComponents.month && components.day == currentComponents.day {
                         return true
                     } else {
                         return false
                     }
                 })
+                
+                for meal in self.mealList {
+                    switch meal.bld {
+                    case .Breakfast:
+                        self.breakfastList.append(meal)
+                    case .Lunch:
+                        self.lunchList.append(meal)
+                    case .Dinner:
+                        self.dinnerList.append(meal)
+                    }
+                }
             }
             self.mealTableView.reloadData()
             self.activityIndicatorView.stopAnimating()
