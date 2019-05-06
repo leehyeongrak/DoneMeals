@@ -704,7 +704,7 @@
                                                                     </view>
                                                                 </subviews>
                                                             </view>
-                                                            <color key="backgroundColor" red="0.5" green="1" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="CFv-pW-uJh" secondAttribute="trailing" constant="8" id="LgK-Pt-EML"/>
                                                                 <constraint firstAttribute="bottom" secondItem="CFv-pW-uJh" secondAttribute="bottom" constant="8" id="WhT-M8-RwY"/>
@@ -763,11 +763,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RG8-jk-UJr">
+                                <rect key="frame" x="177.66666666666666" y="398.66666666666669" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GyP-df-WxB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5fy-f7-y8i"/>
                             <constraint firstItem="GyP-df-WxB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HgY-os-SYd"/>
+                            <constraint firstItem="RG8-jk-UJr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="IsA-cN-ESA"/>
+                            <constraint firstItem="RG8-jk-UJr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Pzw-ol-trY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GyP-df-WxB" secondAttribute="trailing" id="UqL-rB-sct"/>
                             <constraint firstItem="Hr7-F5-Ocm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Y85-2y-s3s"/>
                             <constraint firstItem="Hr7-F5-Ocm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="96" id="g0c-R9-P5N"/>
@@ -784,6 +789,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="RG8-jk-UJr" id="Ttl-yu-3rq"/>
                         <outlet property="mealTableView" destination="Hr7-F5-Ocm" id="8w3-bz-GqE"/>
                     </connections>
                 </viewController>

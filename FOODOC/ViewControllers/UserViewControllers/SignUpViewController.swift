@@ -41,7 +41,7 @@ class SignUpViewController: UIViewController {
                         print(error!)
                         return
                     }
-                    let value: [String: Any] = ["email": emailText, "name": "", "gender": true, "age": 0, "height": 0.0, "weight": 0.0]
+                    let value: [String: Any] = ["email": emailText, "name": "", "gender": true, "age": "", "height": "", "weight": ""]
                     if let uid = user?.user.uid {
                         self.updateUserInfoIntoDatabase(uid: uid, value: value)
                     }

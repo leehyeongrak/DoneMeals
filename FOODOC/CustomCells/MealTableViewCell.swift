@@ -10,6 +10,12 @@ import UIKit
 
 class MealTableViewCell: UITableViewCell {
 
+    var mealList: Array<FoodInfo> = [] {
+        didSet {
+            self.foodCollectionView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var mealTimeLabel: UILabel!
     @IBOutlet weak var recommendedAmountLabel: UILabel!
     @IBOutlet weak var foodCollectionView: UICollectionView!
@@ -33,16 +39,26 @@ class MealTableViewCell: UITableViewCell {
 
 extension MealTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if mealList.count == 0 {
+            nilCoverView.isHidden = false
+        } else {
+            nilCoverView.isHidden = true
+        }
+        
+        return mealList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCollectionViewCell", for: indexPath) as? FoodCollectionViewCell else { return UICollectionViewCell() }
-        let bgImage = UIImageView()
-        bgImage.image = UIImage(named: "1")
-        bgImage.contentMode = .scaleAspectFill
-        
-        cell.backgroundView = bgImage
+//        let bgImage = UIImageView()
+//        bgImage.image = UIImage(named: "1")
+//        bgImage.contentMode = .scaleAspectFill
+        let food = mealList[indexPath.row]
+        let nutrient = food.nutrientInfo
+        let calorie = nutrient.carbo * 4 + nutrient.prot * 4 + nutrient.fat * 9
+        cell.foodNameLabel.text = food.name
+        cell.calorieLabel.text = "\(calorie)kcal"
+//        cell.backgroundView = bgImage
 
         return cell
     }

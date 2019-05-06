@@ -9,22 +9,31 @@
 import Foundation
 
 struct FoodInfo {
-//    var fid: String
+    var fid: String
     var name: String
     var amount: Double
-    var createdTime: Date
+    var createdTime: Int
     var imageURL: String
     var nutrientInfo: NutrientInfo
     var bld: Bld
     
-    init(dictionary: [String: Any]) {
-//        self.fid = fid
+    init(fid: String, dictionary: [String: Any], nutrient: NutrientInfo) {
+        self.fid = fid
         self.name = dictionary["name"] as! String
         self.amount = dictionary["amount"] as! Double
-        self.createdTime = dictionary["createdTime"] as! Date
+        self.createdTime = dictionary["createdTime"] as! Int
         self.imageURL = dictionary["imageURL"] as! String
-        self.nutrientInfo = dictionary["nutrientInfo"] as! NutrientInfo
-        self.bld = dictionary["bld"] as! Bld
+        switch dictionary["bld"] as! String {
+        case "아침":
+            self.bld = .Breakfast
+        case "점심":
+            self.bld = .Lunch
+        case "저녁":
+            self.bld = .Dinner
+        default:
+            self.bld = .Breakfast
+        }
+        self.nutrientInfo = nutrient
     }
 }
 
