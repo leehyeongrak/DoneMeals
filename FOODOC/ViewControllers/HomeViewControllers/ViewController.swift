@@ -55,6 +55,10 @@ class ViewController: UIViewController {
     }
     
     private func fetchMealsOfToday() {
+        self.breakfastList.removeAll()
+        self.lunchList.removeAll()
+        self.dinnerList.removeAll()
+        
         self.activityIndicatorView.startAnimating()
         let service = APIService()
         service.fetchMealInformation(bld: Bld.Breakfast, completion: { (list, error) in
