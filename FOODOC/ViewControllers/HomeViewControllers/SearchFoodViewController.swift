@@ -45,9 +45,9 @@ class SearchFoodViewController: UIViewController {
             return
         }
         
-        let nutrient = NutrientInfo(dictionary: ["carbo": 12.3, "prot": 23.1, "fat": 11.5 ,"sugars": 12.4, "sodium": 7.2, "cholesterol": 3.2, "satFat": 15.2, "transFat": 5.4])
+        let nutrient = NutrientInfo(dictionary: ["calorie": 200, "carbo": 12, "prot": 23, "fat": 11 ,"sugars": 12.4, "sodium": 7.2, "cholesterol": 3.2, "satFat": 15.2, "transFat": 5.4])
         
-        let result: [String: Any] = ["name": "김치찌개", "defaultIntake": 200.0, "nutrient": nutrient]
+        let result: [String: Any] = ["name": "김치찌개", "defaultIntake": 200, "nutrient": nutrient]
         
         manualAddViewController.result = result
     }

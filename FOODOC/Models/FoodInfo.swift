@@ -11,7 +11,7 @@ import Foundation
 struct FoodInfo {
     var fid: String
     var name: String
-    var amount: Double
+    var amount: Int
     var createdTime: Int
     var imageURL: String
     var nutrientInfo: NutrientInfo
@@ -20,7 +20,7 @@ struct FoodInfo {
     init(fid: String, dictionary: [String: Any], nutrient: NutrientInfo) {
         self.fid = fid
         self.name = dictionary["name"] as! String
-        self.amount = dictionary["amount"] as! Double
+        self.amount = dictionary["amount"] as! Int
         self.createdTime = dictionary["createdTime"] as! Int
         self.imageURL = dictionary["imageURL"] as! String
         switch dictionary["bld"] as! String {

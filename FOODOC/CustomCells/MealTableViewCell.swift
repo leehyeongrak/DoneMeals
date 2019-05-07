@@ -55,7 +55,7 @@ extension MealTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
 //        bgImage.contentMode = .scaleAspectFill
         let food = mealList[indexPath.row]
         let nutrient = food.nutrientInfo
-        let calorie = nutrient.carbo * 4 + nutrient.prot * 4 + nutrient.fat * 9
+        let calorie = nutrient.calorie
         cell.food = food
         cell.foodNameLabel.text = food.name
         cell.calorieLabel.text = "\(calorie)kcal"

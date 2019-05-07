@@ -16,6 +16,13 @@ class ViewController: UIViewController {
     var lunchList: Array<FoodInfo> = []
     var dinnerList: Array<FoodInfo> = []
     
+    var user: UserInfo?
+    
+    @IBOutlet weak var recommendedCalorieLabel: UILabel!
+    @IBOutlet weak var recommendedCarboLabel: UILabel!
+    @IBOutlet weak var recommendedProtLabel: UILabel!
+    @IBOutlet weak var recommendedFatLabel: UILabel!
+    
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var mealTableView: UITableView!
     
@@ -48,10 +55,31 @@ class ViewController: UIViewController {
                 if age == "" {
                     self.presentBodyInfoViewController()
                 } else {
-                    self.fetchMealsOfToday()
+                    let service = APIService()
+                    service.fetchUserInformation(completion: { (user, error) in
+                        if error != nil {
+                            return
+                        }
+                        self.user = user
+                        self.fetchMealsOfToday()
+                    })
                 }
             }
         })
+    }
+    
+    func updateRecommendedIntake() {
+        var calorie = 0
+        var carbo = 0
+        var prot = 0
+        var fat = 0
+        
+        for meal in mealList {
+            carbo += meal.nutrientInfo.carbo
+        }
+        if let user = self.user {
+            
+        }
     }
     
     func fetchMealsOfToday() {

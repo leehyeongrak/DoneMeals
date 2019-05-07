@@ -26,7 +26,7 @@ class ManualAddViewController: UIViewController {
         let service = APIService()
         
         let timestamp = Int(self.date!.timeIntervalSince1970)
-        let values: [String: Any] = ["name": foodNameLabel.text!, "amount": Double(foodIntakeTextField.text!) ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
+        let values: [String: Any] = ["name": foodNameLabel.text!, "amount": Int(foodIntakeTextField.text!) ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
         
         service.addMealInformation(values: values, timestamp: timestamp) { (error) in
             if let rootViewController = self.navigationController?.viewControllers[0] as? ViewController {
@@ -55,7 +55,7 @@ class ManualAddViewController: UIViewController {
         
         if let selectedFood = result {
             foodNameLabel.text = selectedFood["name"] as? String
-            foodIntakeTextField.text = "\((selectedFood["defaultIntake"] as? Double) ?? 0)"
+            foodIntakeTextField.text = "\((selectedFood["defaultIntake"] as? Int) ?? 0)"
             self.nutrient = selectedFood["nutrient"] as? NutrientInfo
         }
         setupIntakeDate(date: Date(), bld: nil)
@@ -114,24 +114,23 @@ extension ManualAddViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let selectedFood = result {
             
-            if let nutrient = selectedFood["nutrient"] as? NutrientInfo, let intake = Double(intakeText), let defaultIntake = selectedFood["defaultIntake"] as? Double {
+            if let nutrient = selectedFood["nutrient"] as? NutrientInfo, let intake = Int(intakeText), let defaultIntake = selectedFood["defaultIntake"] as? Int {
                 
-                let percentage = intake/defaultIntake
+                let percentage = Double(intake)/Double(defaultIntake)
                 
                 switch indexPath.row {
                 case 0:
-                    let calorie = (nutrient.carbo * 4 + nutrient.prot * 4 + nutrient.fat * 9) * percentage
                     cell.nutrientNameLabel.text = "칼로리"
-                    cell.nutrientValueLabel.text = "\(calorie)kcal"
+                    cell.nutrientValueLabel.text = "\(Int(round(Double(nutrient.calorie) * percentage)))kcal"
                 case 1:
                     cell.nutrientNameLabel.text = "탄수화물"
-                    cell.nutrientValueLabel.text = "\(nutrient.carbo * percentage)g"
+                    cell.nutrientValueLabel.text = "\(Int(round(Double(nutrient.carbo) * percentage)))g"
                 case 2:
                     cell.nutrientNameLabel.text = "단백질"
-                    cell.nutrientValueLabel.text = "\(nutrient.prot * percentage)g"
+                    cell.nutrientValueLabel.text = "\(Int(round(Double(nutrient.prot) * percentage)))g"
                 case 3:
                     cell.nutrientNameLabel.text = "지방"
-                    cell.nutrientValueLabel.text = "\(nutrient.fat * percentage)g"
+                    cell.nutrientValueLabel.text = "\(Int(round(Double(nutrient.fat) * percentage)))g"
                 case 4:
                     cell.nutrientNameLabel.text = "당류"
                     cell.nutrientValueLabel.text = "\(nutrient.sugars * percentage)g"

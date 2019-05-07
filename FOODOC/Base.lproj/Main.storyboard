@@ -791,6 +791,10 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="RG8-jk-UJr" id="Ttl-yu-3rq"/>
                         <outlet property="mealTableView" destination="Hr7-F5-Ocm" id="8w3-bz-GqE"/>
+                        <outlet property="recommendedCalorieLabel" destination="hoB-51-kvt" id="JT9-Nj-pFX"/>
+                        <outlet property="recommendedCarboLabel" destination="Rvn-nT-Sbi" id="Her-Mv-VVF"/>
+                        <outlet property="recommendedFatLabel" destination="73N-tA-JSn" id="bMZ-1x-Enk"/>
+                        <outlet property="recommendedProtLabel" destination="C5z-jw-h1m" id="JTo-As-HnQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

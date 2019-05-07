@@ -9,10 +9,10 @@
 import Foundation
 
 struct NutrientInfo {
-//    var nid: String
-    var carbo: Double
-    var prot: Double
-    var fat: Double
+    var calorie: Int
+    var carbo: Int
+    var prot: Int
+    var fat: Int
     var sugars: Double
     var sodium: Double
     var cholesterol: Double
@@ -20,7 +20,8 @@ struct NutrientInfo {
     var transFat: Double
     
     var dictionary: [String: Any] {
-        return ["carbo": carbo,
+        return ["calorie": calorie,
+                "carbo": carbo,
                 "prot": prot,
                 "fat": fat,
                 "sugars": sugars,
@@ -31,9 +32,10 @@ struct NutrientInfo {
     }
     
     init(dictionary: [String: Any]) {
-        self.carbo = dictionary["carbo"] as! Double
-        self.prot = dictionary["prot"] as! Double
-        self.fat = dictionary["fat"] as! Double
+        self.calorie = dictionary["calorie"] as! Int
+        self.carbo = dictionary["carbo"] as! Int
+        self.prot = dictionary["prot"] as! Int
+        self.fat = dictionary["fat"] as! Int
         self.sugars = dictionary["sugars"] as! Double
         self.sodium = dictionary["sodium"] as! Double
         self.cholesterol = dictionary["cholesterol"] as! Double
