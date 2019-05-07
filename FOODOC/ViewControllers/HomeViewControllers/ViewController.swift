@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NotificationCenter
 
 class ViewController: UIViewController {
     
@@ -37,11 +38,23 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(editedBodyInfo), name: NSNotification.Name("EditBodyInfo"), object: nil)
+        
         checkUserAuth()
         
         mealTableView.delegate = self
         mealTableView.dataSource = self
         mealTableView.allowsSelection = false
+    }
+    
+    @objc func editedBodyInfo() {
+        let service = APIService()
+        service.fetchUserInformation(completion: { (user, error) in
+            self.user = user
+            self.fetchMealsOfToday {
+                self.updateRecommendedIntake()
+            }
+        })
     }
     
     func checkUserAuth() {

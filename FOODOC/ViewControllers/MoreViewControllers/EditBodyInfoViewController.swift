@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 class EditBodyInfoViewController: UIViewController {
     
@@ -41,6 +42,8 @@ class EditBodyInfoViewController: UIViewController {
                 print(error!)
                 return
             }
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "EditBodyInfo"), object: nil)
             self.updateDataDelegate?.updateData()
             self.navigationController?.popViewController(animated: true)
         }
