@@ -134,6 +134,27 @@ class ViewController: UIViewController {
             self.carboProgressView.setProgress(Float(Double(carbo)/user.recommendedIntake.carbo), animated: true)
             self.protProgressView.setProgress(Float(Double(prot)/user.recommendedIntake.prot), animated: true)
             self.fatProgressView.setProgress(Float(Double(fat)/user.recommendedIntake.fat), animated: true)
+            
+            if self.calorieProgressView.progress == 1 {
+                calorieProgressView.tintColor = UIColor.red
+            } else {
+                calorieProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+            if self.carboProgressView.progress == 1 {
+                carboProgressView.tintColor = UIColor.red
+            } else {
+                carboProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+            if self.protProgressView.progress == 1 {
+                protProgressView.tintColor = UIColor.red
+            } else {
+                protProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+            if self.fatProgressView.progress == 1 {
+                fatProgressView.tintColor = UIColor.red
+            } else {
+                fatProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
         }
     }
     
@@ -213,12 +234,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableViewCell", for: indexPath) as? MealTableViewCell else { return UITableViewCell() }
         switch indexPath.row {
         case 0:
+            if let user = self.user {
+                let recommendedCalorie = Int(round(user.recommendedIntake.calorie / 10 * 3))
+                cell.recommendedAmountLabel.text = "권장섭취량: \(recommendedCalorie)kcal"
+            }
             cell.mealTimeLabel.text = "아침"
             cell.mealList = self.breakfastList
         case 1:
+            if let user = self.user {
+                let recommendedCalorie = Int(round(user.recommendedIntake.calorie / 10 * 4))
+                cell.recommendedAmountLabel.text = "권장섭취량: \(recommendedCalorie)kcal"
+            }
             cell.mealTimeLabel.text = "점심"
             cell.mealList = self.lunchList
         case 2:
+            if let user = self.user {
+                let recommendedCalorie = Int(round(user.recommendedIntake.calorie / 10 * 3))
+                cell.recommendedAmountLabel.text = "권장섭취량: \(recommendedCalorie)kcal"
+            }
             cell.mealTimeLabel.text = "저녁"
             cell.mealList = self.dinnerList
         default:
