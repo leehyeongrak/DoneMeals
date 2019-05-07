@@ -55,10 +55,10 @@ extension MealTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
 //        bgImage.contentMode = .scaleAspectFill
         let food = mealList[indexPath.row]
         let nutrient = food.nutrientInfo
-        let calorie = nutrient.calorie
+        let percentage = Double(food.intake)/Double(food.defaultIntake)
         cell.food = food
         cell.foodNameLabel.text = food.name
-        cell.calorieLabel.text = "\(calorie)kcal"
+        cell.calorieLabel.text = "\(Int(round(Double(nutrient.calorie) * percentage)))kcal"
 //        cell.backgroundView = bgImage
 
         return cell

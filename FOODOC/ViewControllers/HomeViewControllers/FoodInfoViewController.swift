@@ -52,7 +52,7 @@ class FoodInfoViewController: UIViewController {
     private func setupViews() {
         if let food = self.food {
             self.foodNameLabel.text = food.name
-            self.foodIntakeLabel.text = String(food.amount)
+            self.foodIntakeLabel.text = String(food.intake)
             
             let date = Date(timeIntervalSince1970: TimeInterval(exactly: food.createdTime)!)
             let dateFormatter = DateFormatter()
@@ -73,34 +73,37 @@ extension FoodInfoViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NutrientTableViewCell", for: indexPath) as? NutrientTableViewCell else { return UITableViewCell() }
         
         if let nutrient = food?.nutrientInfo {
+            
+            let percentage = Double(food!.intake)/Double(food!.defaultIntake)
+            
             switch indexPath.row {
             case 0:
                 cell.nutrientNameLabel.text = "칼로리"
-                cell.nutrientValueLabel.text = "\(nutrient.calorie)kcal"
+                cell.nutrientValueLabel.text = "\(Int(round(Double(nutrient.calorie) * percentage)))kcal"
             case 1:
                 cell.nutrientNameLabel.text = "탄수화물"
-                cell.nutrientValueLabel.text = "\(nutrient.carbo)g"
+                cell.nutrientValueLabel.text = "\(Int(round(Double(nutrient.carbo) * percentage)))g"
             case 2:
                 cell.nutrientNameLabel.text = "단백질"
-                cell.nutrientValueLabel.text = "\(nutrient.prot)g"
+                cell.nutrientValueLabel.text = "\(Int(round(Double(nutrient.prot) * percentage)))g"
             case 3:
                 cell.nutrientNameLabel.text = "지방"
-                cell.nutrientValueLabel.text = "\(nutrient.fat)g"
+                cell.nutrientValueLabel.text = "\(Int(round(Double(nutrient.fat) * percentage)))g"
             case 4:
                 cell.nutrientNameLabel.text = "당류"
-                cell.nutrientValueLabel.text = "\(nutrient.sugars)g"
+                cell.nutrientValueLabel.text = "\(nutrient.sugars * percentage)g"
             case 5:
                 cell.nutrientNameLabel.text = "나트륨"
-                cell.nutrientValueLabel.text = "\(nutrient.sodium)mg"
+                cell.nutrientValueLabel.text = "\(nutrient.sodium * percentage)mg"
             case 6:
                 cell.nutrientNameLabel.text = "콜레스테롤"
-                cell.nutrientValueLabel.text = "\(nutrient.cholesterol)mg"
+                cell.nutrientValueLabel.text = "\(nutrient.cholesterol * percentage)mg"
             case 7:
                 cell.nutrientNameLabel.text = "포화지방산"
-                cell.nutrientValueLabel.text = "\(nutrient.satFat)g"
+                cell.nutrientValueLabel.text = "\(nutrient.satFat * percentage)g"
             default:
                 cell.nutrientNameLabel.text = "트랜스지방산"
-                cell.nutrientValueLabel.text = "\(nutrient.transFat)g"
+                cell.nutrientValueLabel.text = "\(nutrient.transFat * percentage)g"
             }
         }
         

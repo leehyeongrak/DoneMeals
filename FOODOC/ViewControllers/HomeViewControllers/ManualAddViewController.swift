@@ -26,7 +26,7 @@ class ManualAddViewController: UIViewController {
         let service = APIService()
         
         let timestamp = Int(self.date!.timeIntervalSince1970)
-        let values: [String: Any] = ["name": foodNameLabel.text!, "amount": Int(foodIntakeTextField.text!) ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
+        let values: [String: Any] = ["name": foodNameLabel.text!, "intake": Int(foodIntakeTextField.text!) ?? 0, "defaultIntake": result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
         
         service.addMealInformation(values: values, timestamp: timestamp) { (error) in
             if let rootViewController = self.navigationController?.viewControllers[0] as? ViewController {
