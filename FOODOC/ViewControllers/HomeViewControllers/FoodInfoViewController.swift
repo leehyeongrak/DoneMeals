@@ -29,7 +29,9 @@ class FoodInfoViewController: UIViewController {
                         return
                     }
                     if let rootViewController = self.navigationController?.viewControllers[0] as? ViewController {
-                        rootViewController.fetchMealsOfToday()
+                        rootViewController.fetchMealsOfToday{
+                            rootViewController.updateRecommendedIntake()
+                        }
                     }
                     self.navigationController?.popToRootViewController(animated: true)
                 })

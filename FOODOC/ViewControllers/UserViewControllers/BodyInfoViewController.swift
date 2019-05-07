@@ -74,6 +74,7 @@ class BodyInfoViewController: UIViewController {
         coverView.frame = view.bounds
         coverView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        nameTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -136,3 +137,9 @@ extension BodyInfoViewController: DismissViewControllerDelegate {
     }
 }
 
+extension BodyInfoViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+}

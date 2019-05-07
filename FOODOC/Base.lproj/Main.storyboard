@@ -506,20 +506,20 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.333333333333332"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="칼로리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ude-Ff-2EG">
-                                                                <rect key="frame" x="0.0" y="0.0" width="101.33333333333333" height="20.333333333333332"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="140" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1276kcal/2552kcal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-51-kvt">
-                                                                <rect key="frame" x="101.33333333333333" y="0.0" width="241.66666666666669" height="20.333333333333332"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0kcal/0kcal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-51-kvt">
+                                                                <rect key="frame" x="140" y="0.0" width="203" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BM8-yJ-LH0">
+                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="BM8-yJ-LH0">
                                                         <rect key="frame" x="0.0" y="24.333333333333343" width="343" height="2.6666666666666679"/>
                                                         <color key="tintColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="trackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -536,20 +536,20 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="106.33333333333333" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탄수화물" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5s-V4-Er5">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59.333333333333336" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="69" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="48g/96g" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvn-nT-Sbi">
-                                                                        <rect key="frame" x="59.333333333333329" y="0.0" width="47" height="17"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0g/0g" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvn-nT-Sbi">
+                                                                        <rect key="frame" x="69" y="0.0" width="37.333333333333343" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3XJ-Lq-YWx">
+                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="3XJ-Lq-YWx">
                                                                 <rect key="frame" x="0.0" y="21" width="106.33333333333333" height="2.6666666666666679"/>
                                                                 <color key="tintColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="trackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -563,20 +563,20 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="106.33333333333333" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단백질" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqO-95-I8Y">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="49" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="61.666666666666664" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80g/160g" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5z-jw-h1m">
-                                                                        <rect key="frame" x="49" y="0.0" width="57.333333333333343" height="17"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0g/0g" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5z-jw-h1m">
+                                                                        <rect key="frame" x="61.666666666666657" y="0.0" width="44.666666666666657" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h8Q-fA-end">
+                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="h8Q-fA-end">
                                                                 <rect key="frame" x="0.0" y="21" width="106.33333333333333" height="2.6666666666666679"/>
                                                                 <color key="tintColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="trackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -590,20 +590,20 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="106.33333333333333" height="17"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지방" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjF-jR-FLg">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85g/170g" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73N-tA-JSn">
-                                                                        <rect key="frame" x="39.333333333333343" y="0.0" width="67" height="17"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0g/0g" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73N-tA-JSn">
+                                                                        <rect key="frame" x="51.000000000000028" y="0.0" width="55.333333333333343" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZDH-Zk-l5g">
+                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ZDH-Zk-l5g">
                                                                 <rect key="frame" x="0.0" y="21" width="106.33333333333333" height="2.6666666666666679"/>
                                                                 <color key="tintColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="trackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -790,7 +790,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicatorView" destination="RG8-jk-UJr" id="Ttl-yu-3rq"/>
+                        <outlet property="calorieProgressView" destination="BM8-yJ-LH0" id="1aC-18-xCK"/>
+                        <outlet property="carboProgressView" destination="3XJ-Lq-YWx" id="6b3-JS-gWA"/>
+                        <outlet property="fatProgressView" destination="ZDH-Zk-l5g" id="4Nx-ug-7wA"/>
                         <outlet property="mealTableView" destination="Hr7-F5-Ocm" id="8w3-bz-GqE"/>
+                        <outlet property="protProgressView" destination="h8Q-fA-end" id="UJz-7h-QaX"/>
                         <outlet property="recommendedCalorieLabel" destination="hoB-51-kvt" id="JT9-Nj-pFX"/>
                         <outlet property="recommendedCarboLabel" destination="Rvn-nT-Sbi" id="Her-Mv-VVF"/>
                         <outlet property="recommendedFatLabel" destination="73N-tA-JSn" id="bMZ-1x-Enk"/>

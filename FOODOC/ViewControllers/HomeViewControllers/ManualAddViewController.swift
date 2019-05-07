@@ -30,7 +30,9 @@ class ManualAddViewController: UIViewController {
         
         service.addMealInformation(values: values, timestamp: timestamp) { (error) in
             if let rootViewController = self.navigationController?.viewControllers[0] as? ViewController {
-                rootViewController.fetchMealsOfToday()
+                rootViewController.fetchMealsOfToday{
+                    rootViewController.updateRecommendedIntake()
+                }
             }
             self.navigationController?.popToRootViewController(animated: true)
         }
