@@ -10,6 +10,7 @@
 		390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DAD225884F5008537DD /* RecommendViewController.swift */; };
 		390A1DB022588511008537DD /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DAF22588511008537DD /* AddViewController.swift */; };
 		390A1DB22258851A008537DD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DB12258851A008537DD /* HistoryViewController.swift */; };
+		391C79A12281883C00EDE700 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C79A02281883C00EDE700 /* TabBarController.swift */; };
 		392EADA12265A38F000841F3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EADA02265A38F000841F3 /* UserInfo.swift */; };
 		394CEDB0226EB4DB00C23D66 /* ManualAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394CEDAF226EB4DB00C23D66 /* ManualAddViewController.swift */; };
 		394CEDB2226EBCD000C23D66 /* DateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394CEDB1226EBCD000C23D66 /* DateSelectViewController.swift */; };
@@ -43,6 +44,7 @@
 		390A1DAD225884F5008537DD /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		390A1DAF22588511008537DD /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		390A1DB12258851A008537DD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		391C79A02281883C00EDE700 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		392EADA02265A38F000841F3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		394CEDAF226EB4DB00C23D66 /* ManualAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAddViewController.swift; sourceTree = "<group>"; };
 		394CEDB1226EBCD000C23D66 /* DateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				39A8D2B3226880C400FF3654 /* Models */,
 				390A1DB522588591008537DD /* ViewControllers */,
 				39D53ABA22522ACE00D2C4E0 /* Main.storyboard */,
+				391C79A02281883C00EDE700 /* TabBarController.swift */,
 				39D53ABD22522ACF00D2C4E0 /* Assets.xcassets */,
 				39D53ABF22522ACF00D2C4E0 /* LaunchScreen.storyboard */,
 				39D53AC222522ACF00D2C4E0 /* Info.plist */,
@@ -336,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A644ED226C48C30005FB73 /* FoodInfoViewController.swift in Sources */,
+				391C79A12281883C00EDE700 /* TabBarController.swift in Sources */,
 				39D53AB922522ACE00D2C4E0 /* ViewController.swift in Sources */,
 				39D53AB722522ACE00D2C4E0 /* AppDelegate.swift in Sources */,
 				39A94AD222589EB4007D6DFE /* BodyInfoViewController.swift in Sources */,

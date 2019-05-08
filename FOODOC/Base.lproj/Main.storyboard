@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UEU-qN-OGs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="추천" id="MzV-IT-0kX"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="추천" id="MzV-IT-0kX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EI7-L2-va7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -36,7 +36,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nzA-eR-3dL"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="카메라" id="u8g-He-mpL"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="카메라" id="u8g-He-mpL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDt-Zu-UdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,7 +52,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gAU-cs-WDk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="기록" id="0xk-rx-aVK"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="기록" id="0xk-rx-aVK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOD-mq-uae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1047,7 +1047,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="2fX-s1-85l">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fI8-s5-4JL" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fI8-s5-4JL" customClass="TabBarController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bex-kW-bZg">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -1425,7 +1425,7 @@
         <scene sceneID="A7t-Ih-nSo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yQv-MD-zEg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="더보기" id="qPO-wX-ZJs"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="더보기" id="qPO-wX-ZJs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pSN-UZ-X4u">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
