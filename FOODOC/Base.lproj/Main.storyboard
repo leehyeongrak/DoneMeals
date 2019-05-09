@@ -33,10 +33,56 @@
                     <view key="view" contentMode="scaleToFill" id="PKk-4c-Zvw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음식을 촬영해주세요 ^.^" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5x-ux-wY7">
+                                <rect key="frame" x="51.666666666666657" y="369.33333333333331" width="272" height="34.666666666666686"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjf-qU-YKg">
+                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bMe-ja-2XU">
+                                        <rect key="frame" x="87.666666666666686" y="242.66666666666669" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="A92-I4-Vgk"/>
+                                            <constraint firstAttribute="height" constant="200" id="VV6-Ip-wgy"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="predictionLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpC-6j-fhe">
+                                        <rect key="frame" x="128" y="458.66666666666669" width="119" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="bMe-ja-2XU" firstAttribute="centerX" secondItem="Zjf-qU-YKg" secondAttribute="centerX" id="0gF-BZ-HA8"/>
+                                    <constraint firstItem="SpC-6j-fhe" firstAttribute="top" secondItem="bMe-ja-2XU" secondAttribute="bottom" constant="16" id="A5Q-M9-A9O"/>
+                                    <constraint firstItem="SpC-6j-fhe" firstAttribute="centerX" secondItem="bMe-ja-2XU" secondAttribute="centerX" id="DmN-8O-Ix7"/>
+                                    <constraint firstItem="bMe-ja-2XU" firstAttribute="centerY" secondItem="Zjf-qU-YKg" secondAttribute="centerY" id="vsc-Oj-0wT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nzA-eR-3dL" firstAttribute="trailing" secondItem="Zjf-qU-YKg" secondAttribute="trailing" id="Ccu-ei-xfk"/>
+                            <constraint firstItem="l5x-ux-wY7" firstAttribute="centerX" secondItem="nzA-eR-3dL" secondAttribute="centerX" id="IVi-Un-hO1"/>
+                            <constraint firstItem="nzA-eR-3dL" firstAttribute="bottom" secondItem="Zjf-qU-YKg" secondAttribute="bottom" id="Ief-ys-aTu"/>
+                            <constraint firstItem="Zjf-qU-YKg" firstAttribute="leading" secondItem="nzA-eR-3dL" secondAttribute="leading" id="OzC-iE-oWN"/>
+                            <constraint firstItem="l5x-ux-wY7" firstAttribute="centerY" secondItem="nzA-eR-3dL" secondAttribute="centerY" id="tiZ-rD-QmQ"/>
+                            <constraint firstItem="Zjf-qU-YKg" firstAttribute="top" secondItem="nzA-eR-3dL" secondAttribute="top" id="yk3-Bp-xvT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nzA-eR-3dL"/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="카메라" id="u8g-He-mpL"/>
+                    <connections>
+                        <outlet property="mealImageView" destination="bMe-ja-2XU" id="qKZ-b6-4uJ"/>
+                        <outlet property="predictionContainerView" destination="Zjf-qU-YKg" id="cD8-AQ-bi8"/>
+                        <outlet property="predictionLabel" destination="SpC-6j-fhe" id="DPU-cX-ePE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDt-Zu-UdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2025,6 +2071,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="OnK-Yi-XeT"/>
-        <segue reference="DrV-jQ-HJE"/>
+        <segue reference="F0G-dQ-0Pp"/>
     </inferredMetricsTieBreakers>
 </document>
