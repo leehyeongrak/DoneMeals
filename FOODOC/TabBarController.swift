@@ -40,8 +40,7 @@ extension TabBarController: UITabBarControllerDelegate {
         }
 //        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         let cancel = UIAlertAction(title: "취소", style: .cancel) { (action) in
-            self.tabBar.isHidden = false
-            self.selectedIndex = self.index
+            self.cancelImagePicker()
         }
         alert.addAction(library)
         alert.addAction(camera)
@@ -60,9 +59,20 @@ extension TabBarController: UITabBarControllerDelegate {
     }
     
     func openCamera(viewController: UIViewController) {
+        if UIImagePickerController.availableMediaTypes(for: .camera) == nil {
+            print("카메라를 사용할 수 없습니다.")
+            cancelImagePicker()
+            return
+        }
         guard let vc = viewController as? AddViewController else { return }
         imagePickerView.delegate = vc
         imagePickerView.sourceType = .camera
         vc.present(imagePickerView, animated: true, completion: nil)
+    }
+    
+    func cancelImagePicker() {
+        self.tabBar.isHidden = false
+        self.selectedIndex = self.index
+        self.dismiss(animated: true, completion: nil)
     }
 }

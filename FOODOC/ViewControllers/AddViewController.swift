@@ -10,6 +10,7 @@ import UIKit
 
 class AddViewController: UIViewController {
 
+    
     @IBOutlet weak var predictionContainerView: UIView!
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var predictionLabel: UILabel!
@@ -40,8 +41,23 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
     }
     
     func predictFood(image: UIImage) {
+        let model = Food101()
+        let size = CGSize(width: 299, height: 299)
+        
+        guard let buffer = image.resize(to: size)?.pixelBuffer() else {
+            fatalError("Scaling or converting to pixel buffer failed!")
+        }
+        
+        guard let result = try? model.prediction(image: buffer) else {
+            fatalError("Prediction failed!")
+        }
+        
+        let confidence = result.foodConfidence["\(result.classLabel)"]! * 100.0
+        let converted = String(format: "%.2f", confidence)
+        
         predictionContainerView.isHidden = false
         mealImageView.image = image
+        predictionLabel.text = "\(result.classLabel) - \(converted) %"
         
     }
 }
