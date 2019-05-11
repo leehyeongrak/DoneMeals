@@ -17,8 +17,11 @@ class AddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
     }
 }
 
@@ -27,9 +30,30 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
         guard let image = info[.originalImage] as? UIImage else {
             return
         }
-        predictFood(image: image)
-        print("Aasdasdadasda")
-        self.dismiss(animated: true, completion: nil)
+        var food: String = ""
+        predictFood(image: image) { (result) in
+            food = result
+        }
+        self.dismiss(animated: true) {
+            let alert = UIAlertController(title: nil, message: "\(food)(이)가 맞습니까?", preferredStyle: .actionSheet)
+            let continueAdd = UIAlertAction(title: "네", style: .default) { (action) in
+            }
+            let searchFood = UIAlertAction(title: "아니요(검색하기)", style: .default) { (action) in
+            }
+            let cancel = UIAlertAction(title: "취소", style: .cancel) { (action) in
+                if let tbc = self.tabBarController as? TabBarController {
+                    tbc.tabBar.isHidden = false
+                    tbc.selectedIndex = tbc.index
+                    self.predictionContainerView.isHidden = true
+                    tbc.dismiss(animated: true, completion: nil)
+                }
+            }
+            alert.addAction(continueAdd)
+            alert.addAction(searchFood)
+            alert.addAction(cancel)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     
@@ -40,7 +64,7 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
         self.dismiss(animated: true, completion: nil)
     }
     
-    func predictFood(image: UIImage) {
+    func predictFood(image: UIImage, completion: @escaping (String) -> Void) {
         let model = Food101()
         let size = CGSize(width: 299, height: 299)
         
@@ -55,9 +79,12 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
         let confidence = result.foodConfidence["\(result.classLabel)"]! * 100.0
         let converted = String(format: "%.2f", confidence)
         
-        predictionContainerView.isHidden = false
-        mealImageView.image = image
-        predictionLabel.text = "\(result.classLabel) - \(converted) %"
+        DispatchQueue.main.async {
+            self.predictionContainerView.isHidden = false
+            self.mealImageView.image = image
+            self.predictionLabel.text = "\(result.classLabel) (\(converted)%)"
+        }
         
+        completion(result.classLabel)
     }
 }
