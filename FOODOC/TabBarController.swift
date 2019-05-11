@@ -29,7 +29,7 @@ class TabBarController: UITabBarController {
 
 extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let vc = viewController as? AddViewController else { return }
+        guard let vc = viewController as? PredictViewController else { return }
 //        imagePickerView.delegate = vc
         let alert = UIAlertController(title: nil, message: "사진을 불러올 방법을 선택하세요", preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진앨범", style: .default) { (action) in
@@ -52,7 +52,7 @@ extension TabBarController: UITabBarControllerDelegate {
     }
     
     func openLibrary(viewController: UIViewController) {
-        guard let vc = viewController as? AddViewController else { return }
+        guard let vc = viewController as? PredictViewController else { return }
         imagePickerView.delegate = vc
         imagePickerView.sourceType = .photoLibrary
         vc.present(imagePickerView, animated: true, completion: nil)
@@ -64,7 +64,7 @@ extension TabBarController: UITabBarControllerDelegate {
             cancelImagePicker()
             return
         }
-        guard let vc = viewController as? AddViewController else { return }
+        guard let vc = viewController as? PredictViewController else { return }
         imagePickerView.delegate = vc
         imagePickerView.sourceType = .camera
         vc.present(imagePickerView, animated: true, completion: nil)

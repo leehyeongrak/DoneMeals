@@ -39,6 +39,7 @@
 		39D53ABE22522ACF00D2C4E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39D53ABD22522ACF00D2C4E0 /* Assets.xcassets */; };
 		39D53AC122522ACF00D2C4E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D53ABF22522ACF00D2C4E0 /* LaunchScreen.storyboard */; };
 		39E502E62264B0D100F5F5EA /* TimeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */; };
+		39F942C02286B0CA00D43463 /* PredictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F942BF2286B0CA00D43463 /* PredictViewController.swift */; };
 		AB4488C4D3E1D36B63ED6D0C /* Pods_FOODOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438DF178CE21A77A9CE2BE9 /* Pods_FOODOC.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		39D53AC022522ACF00D2C4E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39D53AC222522ACF00D2C4E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectViewController.swift; sourceTree = "<group>"; };
+		39F942BF2286B0CA00D43463 /* PredictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictViewController.swift; sourceTree = "<group>"; };
 		9438DF178CE21A77A9CE2BE9 /* Pods_FOODOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOODOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6CE25A9166F95A830E1AFD /* Pods-FOODOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOODOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOODOC/Pods-FOODOC.release.xcconfig"; sourceTree = "<group>"; };
 		BE732957E75CC850D5E66845 /* Pods-FOODOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOODOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOODOC/Pods-FOODOC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				39E502E82264B45400F5F5EA /* UserViewControllers */,
 				39A644F2226C54A70005FB73 /* HomeViewControllers */,
 				390A1DAD225884F5008537DD /* RecommendViewController.swift */,
+				39F942BF2286B0CA00D43463 /* PredictViewController.swift */,
 				390A1DAF22588511008537DD /* AddViewController.swift */,
 				390A1DB12258851A008537DD /* HistoryViewController.swift */,
 				39E502E72264B41700F5F5EA /* MoreViewControllers */,
@@ -364,6 +367,7 @@
 				39CFFA78225DBD2A000572F8 /* EditBodyInfoViewController.swift in Sources */,
 				39A94AD022589E0A007D6DFE /* SignUpViewController.swift in Sources */,
 				39A644F1226C53850005FB73 /* NutrientTableViewCell.swift in Sources */,
+				39F942C02286B0CA00D43463 /* PredictViewController.swift in Sources */,
 				390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */,
 				39C3F2592283DA32005198FE /* Food101.mlmodel in Sources */,
 				39C34648226AE71200057751 /* MealTableViewCell.swift in Sources */,
