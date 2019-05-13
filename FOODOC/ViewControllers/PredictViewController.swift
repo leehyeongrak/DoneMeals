@@ -36,8 +36,11 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
         self.dismiss(animated: true) {
             let alert = UIAlertController(title: nil, message: "\(food)(이)가 맞습니까?", preferredStyle: .actionSheet)
             let continueAdd = UIAlertAction(title: "네", style: .default) { (action) in
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as? AddViewController {
+                    self.present(vc, animated: true, completion: nil)
+                }
             }
-            let searchFood = UIAlertAction(title: "아니요(검색하기)", style: .default) { (action) in
+            let searchFood = UIAlertAction(title: "다른음식 검색하기", style: .default) { (action) in
             }
             let cancel = UIAlertAction(title: "취소", style: .cancel) { (action) in
                 if let tbc = self.tabBarController as? TabBarController {
