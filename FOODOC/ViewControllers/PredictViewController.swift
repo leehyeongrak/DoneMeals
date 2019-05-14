@@ -46,6 +46,16 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
                 }
             }
             let searchFood = UIAlertAction(title: "다른음식 검색하기", style: .default) { (action) in
+                if let searchFoodViewController = self.storyboard?.instantiateViewController(withIdentifier: "SearchFoodViewController") {
+                    let navigationController = UINavigationController(rootViewController: searchFoodViewController)
+                    
+                    let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(self.dismissSearchFood))
+                    searchFoodViewController.navigationItem.leftBarButtonItem = cancelButton
+                    self.present(navigationController, animated: true, completion: {
+                        self.predictionContainerView.isHidden = true
+                    })
+                    
+                }
             }
             let cancel = UIAlertAction(title: "취소", style: .cancel) { (action) in
                 if let tbc = self.tabBarController as? TabBarController {
@@ -61,6 +71,14 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
             self.present(alert, animated: true, completion: nil)
         }
         
+    }
+    
+    @objc func dismissSearchFood() {
+        if let tbc = self.tabBarController as? TabBarController {
+            tbc.tabBar.isHidden = false
+            tbc.selectedIndex = tbc.index
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

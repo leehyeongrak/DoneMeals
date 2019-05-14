@@ -958,7 +958,7 @@
         <!--음식검색-->
         <scene sceneID="xmr-AB-hcN">
             <objects>
-                <viewController title="음식검색" id="TtS-I2-hxX" customClass="SearchFoodViewController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchFoodViewController" title="음식검색" id="TtS-I2-hxX" customClass="SearchFoodViewController" customModule="FOODOC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tqe-1j-cdA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
