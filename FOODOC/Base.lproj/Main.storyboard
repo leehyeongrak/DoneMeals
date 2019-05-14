@@ -2180,6 +2180,9 @@
                                 <rect key="frame" x="261" y="400" width="98" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="섭취일자Button"/>
+                                <connections>
+                                    <segue destination="Pgx-0F-rdN" kind="presentation" id="7uU-nV-Ucd"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="THh-nh-pyn">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -2257,6 +2260,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="18H-pp-uGE"/>
         <segue reference="OnK-Yi-XeT"/>
         <segue reference="F0G-dQ-0Pp"/>
     </inferredMetricsTieBreakers>

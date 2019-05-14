@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 class AddViewController: UIViewController {
     
@@ -14,6 +15,8 @@ class AddViewController: UIViewController {
     var date: Date?
     var nutrient: NutrientInfo?
     var bld: Bld?
+    
+    var cancelAddMealDelegate: CancelAddMealDelegate?
     
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
@@ -23,18 +26,8 @@ class AddViewController: UIViewController {
     @IBOutlet weak var nutrientTableView: UITableView!
     
     @IBAction func tappedCancelButton(_ sender: UIBarButtonItem) {
-        print(self.tabBarController)
-        self.dismiss(animated: true) {
-            print("안뒈왜")
-        }
-//        if let tbc = self.tabBarController as? TabBarController {
-//            print("아")
-//            tbc.tabBar.isHidden = false
-//            tbc.selectedIndex = tbc.index
-//            //                tbc.dismiss(animated: true, completion: nil)
-//        }
-
-        
+        self.dismiss(animated: true, completion: nil)
+        self.cancelAddMealDelegate?.cancelAddMeal()
     }
     
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
@@ -49,7 +42,9 @@ class AddViewController: UIViewController {
                     rootViewController.updateRecommendedIntake()
                 }
             }
-            self.navigationController?.popToRootViewController(animated: true)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
+            self.dismiss(animated: true, completion: nil)
+            self.cancelAddMealDelegate?.cancelAddMeal()
         }
     }
     
@@ -70,7 +65,7 @@ class AddViewController: UIViewController {
         foodIntakeTextField.delegate = self
         addDoneButtonOnKeyboard()
         
-        if let selectedFood = result {
+        if let selectedFood = self.result {
             foodNameLabel.text = selectedFood["name"] as? String
             foodIntakeTextField.text = "\((selectedFood["defaultIntake"] as? Int) ?? 0)"
             self.nutrient = selectedFood["nutrient"] as? NutrientInfo
@@ -113,7 +108,7 @@ class AddViewController: UIViewController {
         dateSelectViewController?.dismissViewControllerDelegate = self
         dateSelectViewController?.dateSelectedDelegate = self
         
-        self.navigationController?.view.addSubview(coverView)
+        self.view.addSubview(coverView)
         UIView.animate(withDuration: 0.3) { self.coverView.alpha = 0.6 }
     }
     

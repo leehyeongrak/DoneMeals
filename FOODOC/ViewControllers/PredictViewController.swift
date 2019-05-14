@@ -37,6 +37,11 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
             let alert = UIAlertController(title: nil, message: "\(food)(이)가 맞습니까?", preferredStyle: .actionSheet)
             let continueAdd = UIAlertAction(title: "네", style: .default) { (action) in
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as? AddViewController {
+                    vc.cancelAddMealDelegate = self
+                    let nutrient = NutrientInfo(dictionary: ["calorie": 200, "carbo": 12, "prot": 23, "fat": 11 ,"sugars": 12.4, "sodium": 7.2, "cholesterol": 3.2, "satFat": 15.2, "transFat": 5.4])
+                    
+                    let result: [String: Any] = ["name": "김치찌개", "defaultIntake": 200, "nutrient": nutrient]
+                    vc.result = result
                     self.present(vc, animated: true, completion: nil)
                 }
             }
@@ -47,7 +52,6 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
                     tbc.tabBar.isHidden = false
                     tbc.selectedIndex = tbc.index
                     self.predictionContainerView.isHidden = true
-                    tbc.dismiss(animated: true, completion: nil)
                 }
             }
             alert.addAction(continueAdd)
@@ -61,6 +65,7 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         if let tbc = self.tabBarController as? TabBarController {
+            tbc.tabBar.isHidden = false
             tbc.selectedIndex = tbc.index
         }
         self.dismiss(animated: true, completion: nil)
@@ -88,5 +93,19 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         
         completion(result.classLabel)
+    }
+}
+
+protocol CancelAddMealDelegate {
+    func cancelAddMeal()
+}
+
+extension PredictViewController: CancelAddMealDelegate {
+    func cancelAddMeal() {
+        if let tbc = self.tabBarController as? TabBarController {
+            tbc.tabBar.isHidden = false
+            tbc.selectedIndex = tbc.index
+            self.predictionContainerView.isHidden = true
+        }
     }
 }

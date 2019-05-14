@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 class ManualAddViewController: UIViewController {
     
@@ -29,11 +30,7 @@ class ManualAddViewController: UIViewController {
         let values: [String: Any] = ["name": foodNameLabel.text!, "intake": Int(foodIntakeTextField.text!) ?? 0, "defaultIntake": result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
         
         service.addMealInformation(values: values, timestamp: timestamp) { (error) in
-            if let rootViewController = self.navigationController?.viewControllers[0] as? ViewController {
-                rootViewController.fetchMealsOfToday{
-                    rootViewController.updateRecommendedIntake()
-                }
-            }
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
             self.navigationController?.popToRootViewController(animated: true)
         }
     }

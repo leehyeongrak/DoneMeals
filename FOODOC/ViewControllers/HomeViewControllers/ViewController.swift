@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(completeAddMeal), name: NSNotification.Name("CompleteAddMeal"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(editedBodyInfo), name: NSNotification.Name("EditBodyInfo"), object: nil)
         
         checkUserAuth()
@@ -45,6 +46,12 @@ class ViewController: UIViewController {
         mealTableView.delegate = self
         mealTableView.dataSource = self
         mealTableView.allowsSelection = false
+    }
+    
+    @objc func completeAddMeal() {
+        self.fetchMealsOfToday {
+            self.updateRecommendedIntake()
+        }
     }
     
     @objc func editedBodyInfo() {

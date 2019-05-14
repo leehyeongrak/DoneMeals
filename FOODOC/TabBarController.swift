@@ -70,6 +70,5 @@ extension TabBarController: UITabBarControllerDelegate {
     func cancelImagePicker() {
         self.tabBar.isHidden = false
         self.selectedIndex = self.index
-        self.dismiss(animated: true, completion: nil)
     }
 }
