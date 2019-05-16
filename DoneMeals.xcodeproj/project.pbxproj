@@ -40,7 +40,6 @@
 		39D53AC122522ACF00D2C4E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D53ABF22522ACF00D2C4E0 /* LaunchScreen.storyboard */; };
 		39E502E62264B0D100F5F5EA /* TimeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */; };
 		39F942C02286B0CA00D43463 /* PredictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F942BF2286B0CA00D43463 /* PredictViewController.swift */; };
-		AB4488C4D3E1D36B63ED6D0C /* Pods_FOODOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438DF178CE21A77A9CE2BE9 /* Pods_FOODOC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +56,7 @@
 		39874E3922707E45007732D2 /* NutrientInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientInfo.swift; sourceTree = "<group>"; };
 		39A644EC226C48C30005FB73 /* FoodInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfoViewController.swift; sourceTree = "<group>"; };
 		39A644F0226C53850005FB73 /* NutrientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientTableViewCell.swift; sourceTree = "<group>"; };
-		39A8D2B62268838C00FF3654 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIService.swift; path = FOODOC/APIService.swift; sourceTree = SOURCE_ROOT; };
+		39A8D2B62268838C00FF3654 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIService.swift; path = DoneMeals/APIService.swift; sourceTree = SOURCE_ROOT; };
 		39A94ACB22588A62007D6DFE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		39A94ACD22589D0D007D6DFE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		39A94ACF22589E0A007D6DFE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +69,7 @@
 		39CFFA75225DB88E000572F8 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		39CFFA77225DBD2A000572F8 /* EditBodyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBodyInfoViewController.swift; sourceTree = "<group>"; };
 		39D0899B225B319D008AC99A /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
-		39D53AB322522ACE00D2C4E0 /* FOODOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOODOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39D53AB322522ACE00D2C4E0 /* DoneMeals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoneMeals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39D53AB822522ACE00D2C4E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		39D53ABB22522ACE00D2C4E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,9 +78,6 @@
 		39D53AC222522ACF00D2C4E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectViewController.swift; sourceTree = "<group>"; };
 		39F942BF2286B0CA00D43463 /* PredictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictViewController.swift; sourceTree = "<group>"; };
-		9438DF178CE21A77A9CE2BE9 /* Pods_FOODOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FOODOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA6CE25A9166F95A830E1AFD /* Pods-FOODOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOODOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOODOC/Pods-FOODOC.release.xcconfig"; sourceTree = "<group>"; };
-		BE732957E75CC850D5E66845 /* Pods-FOODOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOODOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOODOC/Pods-FOODOC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,22 +85,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB4488C4D3E1D36B63ED6D0C /* Pods_FOODOC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		236D981FB823C6C51B737EA5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BE732957E75CC850D5E66845 /* Pods-FOODOC.debug.xcconfig */,
-				BA6CE25A9166F95A830E1AFD /* Pods-FOODOC.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		390A1DB522588591008537DD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,22 +140,20 @@
 		39D53AAA22522ACE00D2C4E0 = {
 			isa = PBXGroup;
 			children = (
-				39D53AB522522ACE00D2C4E0 /* FOODOC */,
+				39D53AB522522ACE00D2C4E0 /* DoneMeals */,
 				39D53AB422522ACE00D2C4E0 /* Products */,
-				236D981FB823C6C51B737EA5 /* Pods */,
-				E6ED3487F68B7D8B7D5BFBB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		39D53AB422522ACE00D2C4E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				39D53AB322522ACE00D2C4E0 /* FOODOC.app */,
+				39D53AB322522ACE00D2C4E0 /* DoneMeals.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		39D53AB522522ACE00D2C4E0 /* FOODOC */ = {
+		39D53AB522522ACE00D2C4E0 /* DoneMeals */ = {
 			isa = PBXGroup;
 			children = (
 				39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */,
@@ -186,7 +170,7 @@
 				39D53AC222522ACF00D2C4E0 /* Info.plist */,
 				39A94AD32258AAC3007D6DFE /* GoogleService-Info.plist */,
 			);
-			path = FOODOC;
+			path = DoneMeals;
 			sourceTree = "<group>";
 		};
 		39E502E72264B41700F5F5EA /* MoreViewControllers */ = {
@@ -212,34 +196,24 @@
 			path = UserViewControllers;
 			sourceTree = "<group>";
 		};
-		E6ED3487F68B7D8B7D5BFBB5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9438DF178CE21A77A9CE2BE9 /* Pods_FOODOC.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		39D53AB222522ACE00D2C4E0 /* FOODOC */ = {
+		39D53AB222522ACE00D2C4E0 /* DoneMeals */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 39D53AC522522ACF00D2C4E0 /* Build configuration list for PBXNativeTarget "FOODOC" */;
+			buildConfigurationList = 39D53AC522522ACF00D2C4E0 /* Build configuration list for PBXNativeTarget "DoneMeals" */;
 			buildPhases = (
-				E40781D6B977C6E6E4D7F483 /* [CP] Check Pods Manifest.lock */,
 				39D53AAF22522ACE00D2C4E0 /* Sources */,
 				39D53AB022522ACE00D2C4E0 /* Frameworks */,
 				39D53AB122522ACE00D2C4E0 /* Resources */,
-				70E7A3083DD9B29ED7AD5AE9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FOODOC;
+			name = DoneMeals;
 			productName = FOODOC;
-			productReference = 39D53AB322522ACE00D2C4E0 /* FOODOC.app */;
+			productReference = 39D53AB322522ACE00D2C4E0 /* DoneMeals.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -257,7 +231,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 39D53AAE22522ACE00D2C4E0 /* Build configuration list for PBXProject "FOODOC" */;
+			buildConfigurationList = 39D53AAE22522ACE00D2C4E0 /* Build configuration list for PBXProject "DoneMeals" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -270,7 +244,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				39D53AB222522ACE00D2C4E0 /* FOODOC */,
+				39D53AB222522ACE00D2C4E0 /* DoneMeals */,
 			);
 		};
 /* End PBXProject section */
@@ -288,59 +262,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		70E7A3083DD9B29ED7AD5AE9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FOODOC/Pods-FOODOC-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOODOC/Pods-FOODOC-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E40781D6B977C6E6E4D7F483 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FOODOC-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		39D53AAF22522ACE00D2C4E0 /* Sources */ = {
@@ -519,17 +440,16 @@
 		};
 		39D53AC622522ACF00D2C4E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE732957E75CC850D5E66845 /* Pods-FOODOC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6843LQ44V6;
-				INFOPLIST_FILE = FOODOC/Info.plist;
+				INFOPLIST_FILE = DoneMeals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rak.FOODOC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rak.DoneMeals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -538,17 +458,16 @@
 		};
 		39D53AC722522ACF00D2C4E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA6CE25A9166F95A830E1AFD /* Pods-FOODOC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6843LQ44V6;
-				INFOPLIST_FILE = FOODOC/Info.plist;
+				INFOPLIST_FILE = DoneMeals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rak.FOODOC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rak.DoneMeals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -558,7 +477,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		39D53AAE22522ACE00D2C4E0 /* Build configuration list for PBXProject "FOODOC" */ = {
+		39D53AAE22522ACE00D2C4E0 /* Build configuration list for PBXProject "DoneMeals" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				39D53AC322522ACF00D2C4E0 /* Debug */,
@@ -567,7 +486,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		39D53AC522522ACF00D2C4E0 /* Build configuration list for PBXNativeTarget "FOODOC" */ = {
+		39D53AC522522ACF00D2C4E0 /* Build configuration list for PBXNativeTarget "DoneMeals" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				39D53AC622522ACF00D2C4E0 /* Debug */,
