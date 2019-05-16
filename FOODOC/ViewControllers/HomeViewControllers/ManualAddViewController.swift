@@ -12,6 +12,7 @@ import NotificationCenter
 class ManualAddViewController: UIViewController {
     
     var result: [String: Any]?
+    var image: UIImage?
     var date: Date?
     var nutrient: NutrientInfo?
     var bld: Bld?
@@ -27,7 +28,14 @@ class ManualAddViewController: UIViewController {
         let service = APIService()
         
         let timestamp = Int(self.date!.timeIntervalSince1970)
-        let values: [String: Any] = ["name": foodNameLabel.text!, "intake": Int(foodIntakeTextField.text!) ?? 0, "defaultIntake": result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
+        var values: [String: Any] = [:]
+        if let image = self.image {
+            values = ["name": foodNameLabel.text!, "intake": Int(foodIntakeTextField.text!) ?? 0, "defaultIntake": result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
+            
+        } else {
+            values = ["name": foodNameLabel.text!, "intake": Int(foodIntakeTextField.text!) ?? 0, "defaultIntake": result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
+        }
         
         service.addMealInformation(values: values, timestamp: timestamp) { (error) in
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
@@ -52,6 +60,10 @@ class ManualAddViewController: UIViewController {
         foodIntakeTextField.delegate = self
         addDoneButtonOnKeyboard()
         
+        if let image = self.image {
+            foodImageView.image = image
+        }
+        
         if let selectedFood = result {
             foodNameLabel.text = selectedFood["name"] as? String
             foodIntakeTextField.text = "\((selectedFood["defaultIntake"] as? Int) ?? 0)"
@@ -60,6 +72,9 @@ class ManualAddViewController: UIViewController {
         setupIntakeDate(date: Date(), bld: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print(image)
+    }
     private func setupIntakeDate(date: Date, bld: Bld?) {
         self.date = date
         let dateFormatter = DateFormatter()

@@ -11,12 +11,11 @@ import NotificationCenter
 
 class AddViewController: UIViewController {
     
+    var image: UIImage?
     var result: [String: Any]?
     var date: Date?
     var nutrient: NutrientInfo?
     var bld: Bld?
-    
-    var cancelAddMealDelegate: CancelAddMealDelegate?
     
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
@@ -27,7 +26,7 @@ class AddViewController: UIViewController {
     
     @IBAction func tappedCancelButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
-        self.cancelAddMealDelegate?.cancelAddMeal()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
     }
     
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
@@ -43,8 +42,8 @@ class AddViewController: UIViewController {
                 }
             }
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
             self.dismiss(animated: true, completion: nil)
-            self.cancelAddMealDelegate?.cancelAddMeal()
         }
     }
     
@@ -64,6 +63,10 @@ class AddViewController: UIViewController {
         
         foodIntakeTextField.delegate = self
         addDoneButtonOnKeyboard()
+        
+        if let image = self.image {
+            foodImageView.image = image
+        }
         
         if let selectedFood = self.result {
             foodNameLabel.text = selectedFood["name"] as? String

@@ -10,9 +10,8 @@ import UIKit
 
 class SearchFoodViewController: UIViewController {
 
-//    var results: Array<FoodInfo> = []
     let samples: Array<String> = ["김치찌개", "된장찌개", "육개장"]
-
+    var image: UIImage?
     var results: Array<String> = []
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -49,6 +48,9 @@ class SearchFoodViewController: UIViewController {
         
         let result: [String: Any] = ["name": "김치찌개", "defaultIntake": 200, "nutrient": nutrient]
         
+        if let image = self.image {
+            manualAddViewController.image = image
+        }
         manualAddViewController.result = result
     }
     

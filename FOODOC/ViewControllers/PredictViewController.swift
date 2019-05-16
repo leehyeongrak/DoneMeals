@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 class PredictViewController: UIViewController {
     
@@ -16,11 +17,20 @@ class PredictViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(completeCameraTask), name: NSNotification.Name("CompleteCameraTask"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @objc func completeCameraTask() {
+        if let tbc = self.tabBarController as? TabBarController {
+            tbc.tabBar.isHidden = false
+            tbc.selectedIndex = tbc.index
+            self.predictionContainerView.isHidden = true
+        }
     }
 }
 
@@ -36,21 +46,22 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
         self.dismiss(animated: true) {
             let alert = UIAlertController(title: nil, message: "\(food)(이)가 맞습니까?", preferredStyle: .actionSheet)
             let continueAdd = UIAlertAction(title: "네", style: .default) { (action) in
-                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as? AddViewController {
-                    vc.cancelAddMealDelegate = self
+                if let addViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as? AddViewController {
                     let nutrient = NutrientInfo(dictionary: ["calorie": 200, "carbo": 12, "prot": 23, "fat": 11 ,"sugars": 12.4, "sodium": 7.2, "cholesterol": 3.2, "satFat": 15.2, "transFat": 5.4])
                     
                     let result: [String: Any] = ["name": "김치찌개", "defaultIntake": 200, "nutrient": nutrient]
-                    vc.result = result
-                    self.present(vc, animated: true, completion: nil)
+                    addViewController.image = image
+                    addViewController.result = result
+                    self.present(addViewController, animated: true, completion: nil)
                 }
             }
             let searchFood = UIAlertAction(title: "다른음식 검색하기", style: .default) { (action) in
-                if let searchFoodViewController = self.storyboard?.instantiateViewController(withIdentifier: "SearchFoodViewController") {
+                if let searchFoodViewController = self.storyboard?.instantiateViewController(withIdentifier: "SearchFoodViewController") as? SearchFoodViewController {
                     let navigationController = UINavigationController(rootViewController: searchFoodViewController)
                     
                     let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(self.dismissSearchFood))
                     searchFoodViewController.navigationItem.leftBarButtonItem = cancelButton
+                    searchFoodViewController.image = image
                     self.present(navigationController, animated: true, completion: {
                         self.predictionContainerView.isHidden = true
                     })
@@ -111,19 +122,5 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         
         completion(result.classLabel)
-    }
-}
-
-protocol CancelAddMealDelegate {
-    func cancelAddMeal()
-}
-
-extension PredictViewController: CancelAddMealDelegate {
-    func cancelAddMeal() {
-        if let tbc = self.tabBarController as? TabBarController {
-            tbc.tabBar.isHidden = false
-            tbc.selectedIndex = tbc.index
-            self.predictionContainerView.isHidden = true
-        }
     }
 }
