@@ -1,6 +1,6 @@
 //
 //  SetNotificationViewController.swift
-//  FOODOC
+//  DoneMeals
 //
 //  Created by RAK on 14/04/2019.
 //  Copyright © 2019 RAK. All rights reserved.
