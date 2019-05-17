@@ -39,7 +39,12 @@ class ManualAddViewController: UIViewController {
         
         service.addMealInformation(values: values, timestamp: timestamp) { (error) in
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
-            self.navigationController?.popToRootViewController(animated: true)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
+            if self.image == nil {
+                self.navigationController?.popToRootViewController(animated: true)
+            } else {
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
@@ -72,9 +77,6 @@ class ManualAddViewController: UIViewController {
         setupIntakeDate(date: Date(), bld: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        print(image)
-    }
     private func setupIntakeDate(date: Date, bld: Bld?) {
         self.date = date
         let dateFormatter = DateFormatter()

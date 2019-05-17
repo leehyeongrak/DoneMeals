@@ -39,7 +39,7 @@ class APIService: APIServiceProtocol {
     
     func addMealInformation(values: [String : Any], timestamp: Int, completion: @escaping (Error?) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child("users").child(uid).child("foods")
+        let ref = Database.database().reference().child("users").child(uid).child("meals")
         let childRef = ref.childByAutoId()
         
         childRef.updateChildValues(values) { (error, ref) in
@@ -54,7 +54,7 @@ class APIService: APIServiceProtocol {
     
     func fetchMealInformation(bld: Bld, completion: @escaping (Array<FoodInfo>?, Error?) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child("users").child(uid).child("foods")
+        let ref = Database.database().reference().child("users").child(uid).child("meals")
         
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let values = snapshot.value as? [String: Any] else { return completion(nil, nil) }
@@ -74,7 +74,7 @@ class APIService: APIServiceProtocol {
     
     func deleteMealInformation(fid: String, completion: @escaping (Error?) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child("users").child(uid).child("foods").child(fid)
+        let ref = Database.database().reference().child("users").child(uid).child("meals").child(fid)
         
         ref.removeValue { (error, ref) in
             if error != nil {

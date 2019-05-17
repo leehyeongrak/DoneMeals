@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NotificationCenter
 
 class BodyInfoViewController: UIViewController {
     
@@ -60,6 +61,7 @@ class BodyInfoViewController: UIViewController {
                 print(error!)
                 return
             }
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "EditBodyInfo"), object: nil)
             self.dismiss(animated: true, completion: nil)
         }
     }
