@@ -101,8 +101,8 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
     }
     
     func predictFood(image: UIImage, completion: @escaping (String) -> Void) {
-        let model = Food101()
-        let size = CGSize(width: 299, height: 299)
+        let model = FoodModel()
+        let size = CGSize(width: 224, height: 224)
         
         guard let buffer = image.resize(to: size)?.pixelBuffer() else {
             fatalError("Scaling or converting to pixel buffer failed!")
@@ -112,7 +112,7 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
             fatalError("Prediction failed!")
         }
         
-        let confidence = result.foodConfidence["\(result.classLabel)"]! * 100.0
+        let confidence = result.output[result.classLabel]! * 100.0
         let converted = String(format: "%.2f", confidence)
         
         DispatchQueue.main.async {

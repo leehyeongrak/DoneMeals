@@ -10,6 +10,7 @@
 		390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DAD225884F5008537DD /* RecommendViewController.swift */; };
 		390A1DB022588511008537DD /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DAF22588511008537DD /* AddViewController.swift */; };
 		390A1DB22258851A008537DD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390A1DB12258851A008537DD /* HistoryViewController.swift */; };
+		390A97DC228FFF24007E37BB /* FoodModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 390A97DB228FFF24007E37BB /* FoodModel.mlmodel */; };
 		391C79A12281883C00EDE700 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C79A02281883C00EDE700 /* TabBarController.swift */; };
 		392EADA12265A38F000841F3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EADA02265A38F000841F3 /* UserInfo.swift */; };
 		394CEDB0226EB4DB00C23D66 /* ManualAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394CEDAF226EB4DB00C23D66 /* ManualAddViewController.swift */; };
@@ -29,7 +30,6 @@
 		39C34648226AE71200057751 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C34647226AE71200057751 /* MealTableViewCell.swift */; };
 		39C3464A226AEDED00057751 /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C34649226AEDED00057751 /* FoodCollectionViewCell.swift */; };
 		39C3F2582283DA32005198FE /* UIImage+PixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C3F2562283DA32005198FE /* UIImage+PixelBuffer.swift */; };
-		39C3F2592283DA32005198FE /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 39C3F2572283DA32005198FE /* Food101.mlmodel */; };
 		39CFFA76225DB88E000572F8 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CFFA75225DB88E000572F8 /* MoreViewController.swift */; };
 		39CFFA78225DBD2A000572F8 /* EditBodyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CFFA77225DBD2A000572F8 /* EditBodyInfoViewController.swift */; };
 		39D0899C225B319D008AC99A /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D0899B225B319D008AC99A /* PickerViewController.swift */; };
@@ -48,6 +48,7 @@
 		390A1DAD225884F5008537DD /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		390A1DAF22588511008537DD /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		390A1DB12258851A008537DD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		390A97DB228FFF24007E37BB /* FoodModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = FoodModel.mlmodel; path = ../../../Downloads/FoodModel.mlmodel; sourceTree = "<group>"; };
 		391C79A02281883C00EDE700 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		392EADA02265A38F000841F3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		394CEDAF226EB4DB00C23D66 /* ManualAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAddViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		39C34647226AE71200057751 /* MealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		39C34649226AEDED00057751 /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		39C3F2562283DA32005198FE /* UIImage+PixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+PixelBuffer.swift"; path = "../../../Downloads/Food101-CoreML-master/Food101Prediction/UIImage+PixelBuffer.swift"; sourceTree = "<group>"; };
-		39C3F2572283DA32005198FE /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Food101.mlmodel; path = "../../../Downloads/Food101-CoreML-master/Food101Prediction/Food101.mlmodel"; sourceTree = "<group>"; };
 		39CFFA75225DB88E000572F8 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		39CFFA77225DBD2A000572F8 /* EditBodyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBodyInfoViewController.swift; sourceTree = "<group>"; };
 		39D0899B225B319D008AC99A /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 			children = (
 				39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */,
 				39A8D2B62268838C00FF3654 /* APIService.swift */,
-				39C3F2572283DA32005198FE /* Food101.mlmodel */,
+				390A97DB228FFF24007E37BB /* FoodModel.mlmodel */,
 				39C3F2562283DA32005198FE /* UIImage+PixelBuffer.swift */,
 				395C68A6226AE63700373480 /* CustomCells */,
 				39A8D2B3226880C400FF3654 /* Models */,
@@ -366,10 +366,10 @@
 				39874E3822707D28007732D2 /* FoodInfo.swift in Sources */,
 				39CFFA78225DBD2A000572F8 /* EditBodyInfoViewController.swift in Sources */,
 				39A94AD022589E0A007D6DFE /* SignUpViewController.swift in Sources */,
+				390A97DC228FFF24007E37BB /* FoodModel.mlmodel in Sources */,
 				39A644F1226C53850005FB73 /* NutrientTableViewCell.swift in Sources */,
 				39F942C02286B0CA00D43463 /* PredictViewController.swift in Sources */,
 				390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */,
-				39C3F2592283DA32005198FE /* Food101.mlmodel in Sources */,
 				39C34648226AE71200057751 /* MealTableViewCell.swift in Sources */,
 				394CEDB2226EBCD000C23D66 /* DateSelectViewController.swift in Sources */,
 				396E4416226C9D4A002D936D /* SearchFoodViewController.swift in Sources */,
