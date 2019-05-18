@@ -11,6 +11,7 @@ import UIKit
 class FoodInfoViewController: UIViewController {
 
     var food: FoodInfo?
+    var image: UIImage?
     
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
@@ -63,19 +64,20 @@ class FoodInfoViewController: UIViewController {
             let bld = food.bld.rawValue
             self.intakeDateLabel.text = dateText + " " + bld
             
-            if food.imageURL != "" {
-                let url = URL(string: food.imageURL)
-                URLSession.shared.dataTask(with: url!) { (data, response, error) in
-                    if error != nil {
-                        print(error!)
-                        return
-                    }
-                    
-                    DispatchQueue.main.async {
-                        self.foodImageView.image = UIImage(data: data!)
-                    }
-                    }.resume()
-            }
+            self.foodImageView.image = self.image
+//            if food.imageURL != "" {
+//                let url = URL(string: food.imageURL)
+//                URLSession.shared.dataTask(with: url!) { (data, response, error) in
+//                    if error != nil {
+//                        print(error!)
+//                        return
+//                    }
+//
+//                    DispatchQueue.main.async {
+//                        self.foodImageView.image = UIImage(data: data!)
+//                    }
+//                    }.resume()
+//            }
         }
     }
 }

@@ -226,6 +226,7 @@ class ViewController: UIViewController {
             if let foodInfoViewController = segue.destination as? FoodInfoViewController {
                 if let cell = sender as? FoodCollectionViewCell {
                     foodInfoViewController.food = cell.food
+                    foodInfoViewController.image = cell.foodImageView.image
                 }
             }
         }
