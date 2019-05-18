@@ -64,19 +64,12 @@ extension MealTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
                 if error != nil {
                     print(error!)
                     return
-                }
-                
+                }       
                 DispatchQueue.main.async {
-                    let bgImage = UIImageView()
-                    bgImage.image = UIImage(data: data!)
-                    cell.backgroundView = bgImage
-                    bgImage.contentMode = .scaleAspectFill
+                    cell.foodImageView.image = UIImage(data: data!)
                 }
             }.resume()
         }
-        
-        
-        print(food.imageURL)
         return cell
     }
     

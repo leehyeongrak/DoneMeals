@@ -12,6 +12,7 @@ class FoodCollectionViewCell: UICollectionViewCell {
     
     var food: FoodInfo?
     
+    @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var calorieLabel: UILabel!
     
@@ -19,5 +20,11 @@ class FoodCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.layer.cornerRadius = 10
+    }
+    
+    override func prepareForReuse() {
+        foodImageView.image = UIImage(named: "sample")
+        foodNameLabel.text = ""
+        calorieLabel.text = ""
     }
 }
