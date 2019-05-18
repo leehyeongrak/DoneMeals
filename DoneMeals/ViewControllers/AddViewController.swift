@@ -31,19 +31,36 @@ class AddViewController: UIViewController {
     
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
         let service = APIService()
-        
-        let timestamp = Int(self.date!.timeIntervalSince1970)
-        let values: [String: Any] = ["name": foodNameLabel.text!, "intake": Int(foodIntakeTextField.text!) ?? 0, "defaultIntake": result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
-        
-        service.addMealInformation(values: values, timestamp: timestamp) { (error) in
-            if let rootViewController = self.navigationController?.viewControllers[0] as? ViewController {
-                rootViewController.fetchMealsOfToday{
-                    rootViewController.updateRecommendedIntake()
+        if let image = self.image {
+            service.uploadImageData(image: image) { (url, error) in
+                let timestamp = Int(self.date!.timeIntervalSince1970)
+                let values: [String: Any] = ["name": self.foodNameLabel.text!, "intake": Int(self.foodIntakeTextField.text!) ?? 0, "defaultIntake": self.result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": url!, "nutrientInfo": self.nutrient!.dictionary as NSDictionary, "bld": self.bld!.rawValue]
+                
+                service.addMealInformation(values: values, timestamp: timestamp) { (error) in
+                    if let rootViewController = self.navigationController?.viewControllers[0] as? ViewController {
+                        rootViewController.fetchMealsOfToday{
+                            rootViewController.updateRecommendedIntake()
+                        }
+                    }
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
-            self.dismiss(animated: true, completion: nil)
+        } else {
+            let timestamp = Int(self.date!.timeIntervalSince1970)
+            let values: [String: Any] = ["name": foodNameLabel.text!, "intake": Int(foodIntakeTextField.text!) ?? 0, "defaultIntake": result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
+            
+            service.addMealInformation(values: values, timestamp: timestamp) { (error) in
+                if let rootViewController = self.navigationController?.viewControllers[0] as? ViewController {
+                    rootViewController.fetchMealsOfToday{
+                        rootViewController.updateRecommendedIntake()
+                    }
+                }
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     

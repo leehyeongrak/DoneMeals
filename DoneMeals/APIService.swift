@@ -84,6 +84,36 @@ class APIService: APIServiceProtocol {
             }
         }
     }
+    
+    func uploadImageData(image: UIImage, completion: @escaping (String?, Error?) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMddHHmmSS"
+        let result = formatter.string(from: date)
+        
+        let storageRef = Storage.storage().reference().child(uid).child("meal_images").child("\(result).jpg")
+        if let data = image.jpegData(compressionQuality: 1) {
+            storageRef.putData(data, metadata: nil) { (metaData, error) in
+                if error != nil {
+                    completion(nil, error!)
+                    return
+                }
+                
+                storageRef.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                        completion(nil, error!)
+                        return
+                    }
+                    
+                    if let imageURL = (url?.absoluteString) {
+                        completion(imageURL, nil)
+                    }
+                })
+            }
+        }
+    }
 }
 
 protocol APIServiceProtocol {
@@ -92,4 +122,5 @@ protocol APIServiceProtocol {
     func addMealInformation(values: [String: Any], timestamp: Int, completion: @escaping (Error?) -> Void)
     func fetchMealInformation(bld: Bld, completion: @escaping (Array<FoodInfo>?, Error?) -> Void)
     func deleteMealInformation(fid: String, completion: @escaping (Error?) -> Void)
+    func uploadImageData(image: UIImage, completion: @escaping (String?, Error?) -> Void)
 }

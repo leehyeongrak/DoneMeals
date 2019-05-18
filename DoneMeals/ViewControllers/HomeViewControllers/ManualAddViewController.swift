@@ -28,22 +28,29 @@ class ManualAddViewController: UIViewController {
         let service = APIService()
         
         let timestamp = Int(self.date!.timeIntervalSince1970)
-        var values: [String: Any] = [:]
         if let image = self.image {
-            values = ["name": foodNameLabel.text!, "intake": Int(foodIntakeTextField.text!) ?? 0, "defaultIntake": result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
-            
+            service.uploadImageData(image: image) { (url, error) in
+                let values = ["name": self.foodNameLabel.text!, "intake": Int(self.foodIntakeTextField.text!) ?? 0, "defaultIntake": self.result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": url!, "nutrientInfo": self.nutrient!.dictionary as NSDictionary, "bld": self.bld!.rawValue]
+                service.addMealInformation(values: values, timestamp: timestamp) { (error) in
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
+                    if self.image == nil {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    } else {
+                        self.navigationController?.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
         } else {
-            values = ["name": foodNameLabel.text!, "intake": Int(foodIntakeTextField.text!) ?? 0, "defaultIntake": result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
-        }
-        
-        service.addMealInformation(values: values, timestamp: timestamp) { (error) in
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
-            if self.image == nil {
-                self.navigationController?.popToRootViewController(animated: true)
-            } else {
-                self.navigationController?.dismiss(animated: true, completion: nil)
+            let values = ["name": foodNameLabel.text!, "intake": Int(foodIntakeTextField.text!) ?? 0, "defaultIntake": result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": "", "nutrientInfo": nutrient!.dictionary as NSDictionary, "bld": bld!.rawValue]
+            service.addMealInformation(values: values, timestamp: timestamp) { (error) in
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
+                if self.image == nil {
+                    self.navigationController?.popToRootViewController(animated: true)
+                } else {
+                    self.navigationController?.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }
