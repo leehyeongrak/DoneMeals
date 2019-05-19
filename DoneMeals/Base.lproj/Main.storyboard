@@ -264,6 +264,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="calorieLabel" destination="av2-4U-idv" id="5Re-S9-BVU"/>
+                                            <outlet property="foodImageView" destination="wx2-Ge-chZ" id="VJT-tj-NRX"/>
                                             <outlet property="foodNameLabel" destination="MWh-fj-CPU" id="KWc-6d-6xV"/>
                                         </connections>
                                     </collectionViewCell>
@@ -290,6 +291,19 @@
                         <viewLayoutGuide key="safeArea" id="gAU-cs-WDk"/>
                     </view>
                     <navigationItem key="navigationItem" title="식사기록" id="Hv3-gG-ueM"/>
+                    <connections>
+                        <outlet property="calendarView" destination="gRb-PQ-YSh" id="w3q-2V-PuO"/>
+                        <outlet property="calorieProgressView" destination="7Oz-az-gqg" id="sY6-9m-zac"/>
+                        <outlet property="carboProgressView" destination="5Pj-Nb-HKC" id="INz-bi-UAn"/>
+                        <outlet property="fatProgressView" destination="uOu-CR-aBO" id="gLT-qO-MI0"/>
+                        <outlet property="foodCollectionView" destination="meu-F8-8jw" id="9at-oQ-Wqr"/>
+                        <outlet property="protProgressView" destination="qS1-Qy-gZx" id="jvP-0E-QK5"/>
+                        <outlet property="recommendedCalorieLabel" destination="sur-26-61M" id="3zn-oj-9Wb"/>
+                        <outlet property="recommendedCarboLabel" destination="Ohh-0m-D0j" id="hk6-0b-pav"/>
+                        <outlet property="recommendedFatLabel" destination="JGl-Be-BUb" id="tys-Ud-kTD"/>
+                        <outlet property="recommendedProtLabel" destination="iz2-zE-Rh0" id="mk8-MC-56A"/>
+                        <outlet property="selectedDateLabel" destination="K6e-MU-PEi" id="gJE-hk-xDb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOD-mq-uae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -114,6 +114,36 @@ class APIService: APIServiceProtocol {
             }
         }
     }
+    
+    func fetchMeals(of date: Date, completion: @escaping (Array<FoodInfo>?, Error?) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("users").child(uid).child("meals")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let startDate = dateFormatter.date(from: dateFormatter.string(from: date))!
+        let startDateTimeInterval = startDate.timeIntervalSince1970
+        let endDateTimeInterval = startDateTimeInterval + 86400
+        
+        ref.queryOrdered(byChild: "createdTime").queryStarting(atValue: startDateTimeInterval).queryEnding(atValue: endDateTimeInterval).observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let values = snapshot.value as? [String: Any] else {
+                completion([], nil)
+                return
+            }
+            
+            var list: Array<FoodInfo> = []
+            for value in values {
+                if let meal = value.value as? [String: Any] {
+                    let nutrient = NutrientInfo(dictionary: meal["nutrientInfo"] as! [String: Any])
+                    let food = FoodInfo(fid: value.key, dictionary: meal, nutrient: nutrient)
+                    list.append(food)
+                }
+            }
+            completion(list, nil)
+        }) { (error) in
+            completion(nil, error)
+        }
+    }
 }
 
 protocol APIServiceProtocol {
@@ -123,4 +153,6 @@ protocol APIServiceProtocol {
     func fetchMealInformation(bld: Bld, completion: @escaping (Array<FoodInfo>?, Error?) -> Void)
     func deleteMealInformation(fid: String, completion: @escaping (Error?) -> Void)
     func uploadImageData(image: UIImage, completion: @escaping (String?, Error?) -> Void)
+    
+    func fetchMeals(of date: Date, completion: @escaping (Array<FoodInfo>?, Error?) -> Void)
 }
