@@ -35,12 +35,22 @@ class HistoryViewController: UIViewController {
         foodCollectionView.delegate = self
         foodCollectionView.dataSource = self
         
-        
-        
-        // Do any additional setup after loading the view.
+        setupCalendarView()
     }
     
-    
+    private func setupCalendarView() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 M월 dd일"
+        selectedDateLabel.text = dateFormatter.string(from: Date())
+        
+        service.fetchMeals(of: Date()) { (list, error) in
+            if error != nil {
+                return
+            }
+            self.mealList = list ?? []
+            self.foodCollectionView.reloadData()
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -60,6 +70,25 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCollectionViewCell", for: indexPath) as? FoodCollectionViewCell else { return UICollectionViewCell() }
+        let food = mealList[indexPath.item]
+        let nutrient = food.nutrientInfo
+        let percentage = Double(food.intake)/Double(food.defaultIntake)
+        cell.food = food
+        cell.foodNameLabel.text = food.name
+        cell.calorieLabel.text = "\(Int(round(Double(nutrient.calorie) * percentage)))kcal"
+        print(food.imageURL)
+        if food.imageURL != "" {
+            let url = URL(string: food.imageURL)
+            URLSession.shared.dataTask(with: url!) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                DispatchQueue.main.async {
+                    cell.foodImageView.image = UIImage(data: data!)
+                }
+                }.resume()
+        }
         return cell
     }
     
@@ -77,15 +106,16 @@ extension HistoryViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension HistoryViewController: FSCalendarDataSource, FSCalendarDelegate {
-    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 M월 dd일"
+        selectedDateLabel.text = dateFormatter.string(from: date)
+        
         service.fetchMeals(of: date) { (list, error) in
             if error != nil {
-                print(error)
                 return
             }
             self.mealList = list ?? []
-            print(self.mealList.count)
             self.foodCollectionView.reloadData()
         }
     }
