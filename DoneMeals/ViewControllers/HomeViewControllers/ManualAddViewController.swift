@@ -24,21 +24,28 @@ class ManualAddViewController: UIViewController {
     
     @IBOutlet weak var nutrientTableView: UITableView!
     
+    @IBOutlet weak var indicatorContainerView: UIView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
         let service = APIService()
         
         let timestamp = Int(self.date!.timeIntervalSince1970)
         if let image = self.image {
+            self.indicatorContainerView.isHidden = false
+            self.activityIndicatorView.startAnimating()
+            self.navigationController?.navigationBar.isUserInteractionEnabled = false
             service.uploadImageData(image: image) { (url, error) in
                 let values = ["name": self.foodNameLabel.text!, "intake": Int(self.foodIntakeTextField.text!) ?? 0, "defaultIntake": self.result?["defaultIntake"] ?? 0, "createdTime": timestamp, "imageURL": url!, "nutrientInfo": self.nutrient!.dictionary as NSDictionary, "bld": self.bld!.rawValue]
                 service.addMealInformation(values: values, timestamp: timestamp) { (error) in
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
-                    if self.image == nil {
-                        self.navigationController?.popToRootViewController(animated: true)
-                    } else {
-                        self.navigationController?.dismiss(animated: true, completion: nil)
-                    }
+                    
+                    self.navigationController?.dismiss(animated: true, completion: {
+                        self.indicatorContainerView.isHidden = true
+                        self.activityIndicatorView.stopAnimating()
+                        self.navigationController?.navigationBar.isUserInteractionEnabled = true
+                    })
                 }
             }
         } else {
@@ -46,11 +53,8 @@ class ManualAddViewController: UIViewController {
             service.addMealInformation(values: values, timestamp: timestamp) { (error) in
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteAddMeal"), object: nil)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CompleteCameraTask"), object: nil)
-                if self.image == nil {
-                    self.navigationController?.popToRootViewController(animated: true)
-                } else {
-                    self.navigationController?.dismiss(animated: true, completion: nil)
-                }
+                
+                self.navigationController?.popToRootViewController(animated: true)
             }
         }
     }

@@ -1879,9 +1879,23 @@
                                     <segue destination="Pgx-0F-rdN" kind="presentation" id="18H-pp-uGE"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s7X-WT-AO8">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SLN-bd-U2r">
+                                        <rect key="frame" x="177.66666666666666" y="310.66666666666669" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="SLN-bd-U2r" firstAttribute="centerY" secondItem="s7X-WT-AO8" secondAttribute="centerY" id="7Jw-mM-J4W"/>
+                                    <constraint firstItem="SLN-bd-U2r" firstAttribute="centerX" secondItem="s7X-WT-AO8" secondAttribute="centerX" id="pTI-D5-ELM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dxh-hz-m8H" firstAttribute="bottom" secondItem="s7X-WT-AO8" secondAttribute="bottom" id="0Ip-GR-h4v"/>
                             <constraint firstItem="dxh-hz-m8H" firstAttribute="trailing" secondItem="lwT-w5-sDY" secondAttribute="trailing" id="0sw-2x-oVI"/>
                             <constraint firstItem="dxh-hz-m8H" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yhf-Wi-Xgj" secondAttribute="trailing" constant="16" id="15g-HL-1Bq"/>
                             <constraint firstItem="LeO-dD-q2D" firstAttribute="centerY" secondItem="cba-Jd-YKo" secondAttribute="centerY" id="5t7-55-QG1"/>
@@ -1895,6 +1909,7 @@
                             <constraint firstItem="dxh-hz-m8H" firstAttribute="bottom" secondItem="WnJ-rJ-4qM" secondAttribute="bottom" id="Bqr-uO-PuH"/>
                             <constraint firstItem="dxh-hz-m8H" firstAttribute="trailing" secondItem="WnJ-rJ-4qM" secondAttribute="trailing" id="CHH-Bl-ASs"/>
                             <constraint firstItem="b8U-KR-sBi" firstAttribute="leading" secondItem="dxh-hz-m8H" secondAttribute="leading" constant="16" id="EbS-Dy-cGS"/>
+                            <constraint firstItem="s7X-WT-AO8" firstAttribute="top" secondItem="dxh-hz-m8H" secondAttribute="top" id="G44-QJ-FBX"/>
                             <constraint firstItem="UcU-cO-TAO" firstAttribute="top" secondItem="cba-Jd-YKo" secondAttribute="bottom" constant="12" id="H4C-vc-htV"/>
                             <constraint firstItem="dxh-hz-m8H" firstAttribute="trailing" secondItem="LeO-dD-q2D" secondAttribute="trailing" constant="16" id="Kvp-82-h4d"/>
                             <constraint firstItem="8Ov-PM-gJ4" firstAttribute="trailing" secondItem="cba-Jd-YKo" secondAttribute="trailing" id="MsR-AA-c3e"/>
@@ -1902,6 +1917,7 @@
                             <constraint firstItem="S6L-Fd-eTo" firstAttribute="centerY" secondItem="8Ov-PM-gJ4" secondAttribute="centerY" id="QM4-ZX-v2d"/>
                             <constraint firstItem="S6L-Fd-eTo" firstAttribute="leading" secondItem="LeO-dD-q2D" secondAttribute="leading" id="X5s-0P-x18"/>
                             <constraint firstItem="dxh-hz-m8H" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="b8U-KR-sBi" secondAttribute="trailing" constant="16" id="Y6j-Lk-Cfm"/>
+                            <constraint firstItem="dxh-hz-m8H" firstAttribute="trailing" secondItem="s7X-WT-AO8" secondAttribute="trailing" id="brk-q3-GuY"/>
                             <constraint firstItem="8Ov-PM-gJ4" firstAttribute="top" secondItem="lwT-w5-sDY" secondAttribute="bottom" constant="8" id="eEn-pd-6rw"/>
                             <constraint firstItem="yhf-Wi-Xgj" firstAttribute="leading" secondItem="dxh-hz-m8H" secondAttribute="leading" constant="16" id="gSM-gQ-9tW"/>
                             <constraint firstItem="cba-Jd-YKo" firstAttribute="leading" secondItem="dxh-hz-m8H" secondAttribute="leading" constant="16" id="gTo-Y3-Q72"/>
@@ -1910,6 +1926,7 @@
                             <constraint firstItem="cba-Jd-YKo" firstAttribute="top" secondItem="8Ov-PM-gJ4" secondAttribute="bottom" id="iYh-qw-bZZ"/>
                             <constraint firstItem="lwT-w5-sDY" firstAttribute="leading" secondItem="dxh-hz-m8H" secondAttribute="leading" id="j1F-um-9na"/>
                             <constraint firstItem="vRe-ws-bN3" firstAttribute="top" secondItem="dxh-hz-m8H" secondAttribute="top" id="jJK-UN-oZ4"/>
+                            <constraint firstItem="s7X-WT-AO8" firstAttribute="leading" secondItem="dxh-hz-m8H" secondAttribute="leading" id="lnW-5v-m5V"/>
                             <constraint firstItem="OoB-BO-k33" firstAttribute="top" secondItem="vRe-ws-bN3" secondAttribute="bottom" constant="8" id="ppv-co-5zV"/>
                             <constraint firstItem="OoB-BO-k33" firstAttribute="leading" secondItem="b8U-KR-sBi" secondAttribute="leading" id="uDx-n5-7gY"/>
                             <constraint firstItem="vRe-ws-bN3" firstAttribute="leading" secondItem="dxh-hz-m8H" secondAttribute="leading" id="ujH-uu-cR3"/>
@@ -1925,9 +1942,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="SLN-bd-U2r" id="Vlb-KK-1U2"/>
                         <outlet property="foodImageView" destination="vRe-ws-bN3" id="oXv-f2-mPp"/>
                         <outlet property="foodIntakeTextField" destination="cba-Jd-YKo" id="NNc-HI-4M4"/>
                         <outlet property="foodNameLabel" destination="b8U-KR-sBi" id="8WA-jO-LcY"/>
+                        <outlet property="indicatorContainerView" destination="s7X-WT-AO8" id="zJ1-z4-an6"/>
                         <outlet property="intakeDateButton" destination="LeO-dD-q2D" id="ZXf-jx-hRm"/>
                         <outlet property="nutrientTableView" destination="WnJ-rJ-4qM" id="eEH-pj-E97"/>
                     </connections>
@@ -2210,6 +2229,19 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMw-cM-6PQ">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="QZP-83-l77">
+                                        <rect key="frame" x="177" y="357" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="QZP-83-l77" firstAttribute="centerY" secondItem="nMw-cM-6PQ" secondAttribute="centerY" id="3xa-3H-w8u"/>
+                                    <constraint firstItem="QZP-83-l77" firstAttribute="centerX" secondItem="nMw-cM-6PQ" secondAttribute="centerX" id="bZc-Ej-bbk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -2217,6 +2249,7 @@
                             <constraint firstItem="lbb-5b-1Eb" firstAttribute="centerY" secondItem="tpW-hg-4NH" secondAttribute="centerY" id="2NK-wY-t8F"/>
                             <constraint firstItem="tpW-hg-4NH" firstAttribute="top" secondItem="twv-9G-wAK" secondAttribute="bottom" id="3Qp-pi-u97"/>
                             <constraint firstItem="9HN-8h-h1V" firstAttribute="top" secondItem="uh9-8S-abq" secondAttribute="bottom" constant="8" id="3Qr-CJ-ugV"/>
+                            <constraint firstItem="hYn-lg-8b9" firstAttribute="trailing" secondItem="nMw-cM-6PQ" secondAttribute="trailing" id="5ka-C7-wfQ"/>
                             <constraint firstItem="hYn-lg-8b9" firstAttribute="trailing" secondItem="uh9-8S-abq" secondAttribute="trailing" id="5qk-N9-wsq"/>
                             <constraint firstItem="dOq-o6-Hbr" firstAttribute="leading" secondItem="hYn-lg-8b9" secondAttribute="leading" id="7WX-au-lJ9"/>
                             <constraint firstItem="hYn-lg-8b9" firstAttribute="trailing" secondItem="dOq-o6-Hbr" secondAttribute="trailing" id="8X4-iM-Yna"/>
@@ -2240,11 +2273,14 @@
                             <constraint firstItem="hYn-lg-8b9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rOe-eH-zcd" secondAttribute="trailing" constant="16" id="dCX-hR-8HV"/>
                             <constraint firstItem="adV-ZJ-u4l" firstAttribute="leading" secondItem="hYn-lg-8b9" secondAttribute="leading" constant="16" id="gpX-wz-BFX"/>
                             <constraint firstItem="hYn-lg-8b9" firstAttribute="trailing" secondItem="d9p-4W-rJL" secondAttribute="trailing" id="guc-Tg-7qe"/>
+                            <constraint firstItem="hYn-lg-8b9" firstAttribute="bottom" secondItem="nMw-cM-6PQ" secondAttribute="bottom" id="o3S-xD-pyg"/>
                             <constraint firstItem="d9p-4W-rJL" firstAttribute="top" secondItem="tpW-hg-4NH" secondAttribute="bottom" constant="12" id="oUI-va-ajk"/>
                             <constraint firstItem="tBf-S2-ght" firstAttribute="top" secondItem="adV-ZJ-u4l" secondAttribute="bottom" constant="12" id="rjJ-qf-SX5"/>
                             <constraint firstItem="tpW-hg-4NH" firstAttribute="leading" secondItem="hYn-lg-8b9" secondAttribute="leading" constant="16" id="sif-rs-jRk"/>
+                            <constraint firstItem="nMw-cM-6PQ" firstAttribute="top" secondItem="hYn-lg-8b9" secondAttribute="top" id="tEh-gu-wDP"/>
                             <constraint firstItem="hYn-lg-8b9" firstAttribute="trailing" secondItem="THh-nh-pyn" secondAttribute="trailing" id="tOe-kU-95M"/>
                             <constraint firstItem="rOe-eH-zcd" firstAttribute="top" secondItem="d9p-4W-rJL" secondAttribute="bottom" constant="8" id="wGG-p1-741"/>
+                            <constraint firstItem="nMw-cM-6PQ" firstAttribute="leading" secondItem="hYn-lg-8b9" secondAttribute="leading" id="x9b-je-xmL"/>
                             <constraint firstItem="9HN-8h-h1V" firstAttribute="leading" secondItem="adV-ZJ-u4l" secondAttribute="leading" id="yGq-Aq-9Oo"/>
                             <constraint firstItem="hYn-lg-8b9" firstAttribute="top" secondItem="THh-nh-pyn" secondAttribute="top" id="zDk-1b-O1I"/>
                             <constraint firstItem="adV-ZJ-u4l" firstAttribute="top" secondItem="9HN-8h-h1V" secondAttribute="bottom" id="zMB-zE-OSE"/>
@@ -2255,9 +2291,11 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="svF-uH-F5Z"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="QZP-83-l77" id="NkM-PV-3B7"/>
                         <outlet property="foodImageView" destination="uh9-8S-abq" id="cUY-bQ-3Bq"/>
                         <outlet property="foodIntakeTextField" destination="tpW-hg-4NH" id="tBH-dj-PP4"/>
                         <outlet property="foodNameLabel" destination="adV-ZJ-u4l" id="Ikl-gR-uW2"/>
+                        <outlet property="indicatorContainerView" destination="nMw-cM-6PQ" id="TzU-uw-3FF"/>
                         <outlet property="intakeDateButton" destination="lbb-5b-1Eb" id="Qas-b0-aPn"/>
                         <outlet property="nutrientTableView" destination="dOq-o6-Hbr" id="h8N-wy-msP"/>
                     </connections>
@@ -2271,7 +2309,7 @@
         <image name="sample" width="595" height="375"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7uU-nV-Ucd"/>
+        <segue reference="18H-pp-uGE"/>
         <segue reference="OnK-Yi-XeT"/>
         <segue reference="F0G-dQ-0Pp"/>
     </inferredMetricsTieBreakers>

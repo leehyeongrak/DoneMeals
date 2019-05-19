@@ -94,7 +94,7 @@ class APIService: APIServiceProtocol {
         let result = formatter.string(from: date)
         
         let storageRef = Storage.storage().reference().child(uid).child("meal_images").child("\(result).jpg")
-        if let data = image.jpegData(compressionQuality: 1) {
+        if let data = image.jpegData(compressionQuality: 0.8) {
             storageRef.putData(data, metadata: nil) { (metaData, error) in
                 if error != nil {
                     completion(nil, error!)
