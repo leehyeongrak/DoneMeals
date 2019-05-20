@@ -63,6 +63,8 @@ class HistoryViewController: UIViewController {
             self.foodCollectionView.reloadData()
             self.updateRecommendedIntake()
         }
+        
+        self.calendarView.select(Date())
     }
     
     /*
