@@ -59,8 +59,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J49-h4-i9Y">
                                 <rect key="frame" x="0.0" y="400.33333333333331" width="375" height="32"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019년 5월 1일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-MU-PEi">
-                                        <rect key="frame" x="133" y="11.666666666666684" width="109" height="20.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-MU-PEi">
+                                        <rect key="frame" x="183.66666666666666" y="11.666666666666684" width="7.6666666666666572" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -290,7 +290,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gAU-cs-WDk"/>
                     </view>
-                    <navigationItem key="navigationItem" title="식사기록" id="Hv3-gG-ueM"/>
+                    <navigationItem key="navigationItem" title="식사기록" id="Hv3-gG-ueM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="1ZX-AG-OE6">
+                            <connections>
+                                <action selector="tappedRefreshButton:" destination="usX-52-X3H" id="k8N-o0-qAm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="gRb-PQ-YSh" id="w3q-2V-PuO"/>
                         <outlet property="calorieProgressView" destination="7Oz-az-gqg" id="sY6-9m-zac"/>

@@ -14,6 +14,8 @@ class HistoryViewController: UIViewController {
     var mealList: Array<FoodInfo> = []
     let service = APIService()
     
+    var user: UserInfo?
+    
     @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var selectedDateLabel: UILabel!
     
@@ -27,6 +29,9 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var protProgressView: UIProgressView!
     @IBOutlet weak var fatProgressView: UIProgressView!
     
+    @IBAction func tappedRefreshButton(_ sender: UIBarButtonItem) {
+        setupCalendarView()
+    }
     @IBOutlet weak var foodCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -35,12 +40,19 @@ class HistoryViewController: UIViewController {
         foodCollectionView.delegate = self
         foodCollectionView.dataSource = self
         
-        setupCalendarView()
+        fetchUserInfo()
+    }
+    
+    private func fetchUserInfo() {
+        service.fetchUserInformation { (user, error) in
+            self.user = user
+            self.setupCalendarView()
+        }
     }
     
     private func setupCalendarView() {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 M월 dd일"
+        dateFormatter.dateFormat = "M월 dd일"
         selectedDateLabel.text = dateFormatter.string(from: Date())
         
         service.fetchMeals(of: Date()) { (list, error) in
@@ -49,8 +61,10 @@ class HistoryViewController: UIViewController {
             }
             self.mealList = list ?? []
             self.foodCollectionView.reloadData()
+            self.updateRecommendedIntake()
         }
     }
+    
     /*
     // MARK: - Navigation
 
@@ -92,7 +106,53 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     
-    
+    private func setupRecommendedIntake() {
+        var calorie = 0
+        var carbo = 0
+        var prot = 0
+        var fat = 0
+        
+        for meal in mealList {
+            let percentage = Double(meal.intake) / Double(meal.defaultIntake)
+            calorie += Int(round(Double(meal.nutrientInfo.calorie) * percentage))
+            carbo += Int(round(Double(meal.nutrientInfo.carbo) * percentage))
+            prot += Int(round(Double(meal.nutrientInfo.prot) * percentage))
+            fat += Int(round(Double(meal.nutrientInfo.fat) * percentage))
+        }
+        
+        if let user = self.user {
+            self.recommendedCalorieLabel.text = "\(calorie)kcal/\(Int(round(user.recommendedIntake.calorie)))kcal"
+            self.recommendedCarboLabel.text = "\(carbo)g/\(Int(round(user.recommendedIntake.carbo)))g"
+            self.recommendedProtLabel.text = "\(prot)g/\(Int(round(user.recommendedIntake.prot)))g"
+            self.recommendedFatLabel.text = "\(fat)g/\(Int(round(user.recommendedIntake.fat)))g"
+            
+            self.calorieProgressView.setProgress(Float(Double(calorie)/user.recommendedIntake.calorie), animated: true)
+            self.carboProgressView.setProgress(Float(Double(carbo)/user.recommendedIntake.carbo), animated: true)
+            self.protProgressView.setProgress(Float(Double(prot)/user.recommendedIntake.prot), animated: true)
+            self.fatProgressView.setProgress(Float(Double(fat)/user.recommendedIntake.fat), animated: true)
+            
+            if self.calorieProgressView.progress == 1 {
+                calorieProgressView.tintColor = UIColor.red
+            } else {
+                calorieProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+            if self.carboProgressView.progress == 1 {
+                carboProgressView.tintColor = UIColor.red
+            } else {
+                carboProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+            if self.protProgressView.progress == 1 {
+                protProgressView.tintColor = UIColor.red
+            } else {
+                protProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+            if self.fatProgressView.progress == 1 {
+                fatProgressView.tintColor = UIColor.red
+            } else {
+                fatProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+        }
+    }
 }
 
 extension HistoryViewController: UICollectionViewDelegateFlowLayout {
@@ -108,7 +168,7 @@ extension HistoryViewController: UICollectionViewDelegateFlowLayout {
 extension HistoryViewController: FSCalendarDataSource, FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 M월 dd일"
+        dateFormatter.dateFormat = "M월 dd일"
         selectedDateLabel.text = dateFormatter.string(from: date)
         
         service.fetchMeals(of: date) { (list, error) in
@@ -117,6 +177,57 @@ extension HistoryViewController: FSCalendarDataSource, FSCalendarDelegate {
             }
             self.mealList = list ?? []
             self.foodCollectionView.reloadData()
+            
+            self.updateRecommendedIntake()
         }
     }
+    
+    func updateRecommendedIntake() {
+        var calorie = 0
+        var carbo = 0
+        var prot = 0
+        var fat = 0
+        
+        for meal in mealList {
+            let percentage = Double(meal.intake) / Double(meal.defaultIntake)
+            calorie += Int(round(Double(meal.nutrientInfo.calorie) * percentage))
+            carbo += Int(round(Double(meal.nutrientInfo.carbo) * percentage))
+            prot += Int(round(Double(meal.nutrientInfo.prot) * percentage))
+            fat += Int(round(Double(meal.nutrientInfo.fat) * percentage))
+        }
+        
+        if let user = self.user {
+            self.recommendedCalorieLabel.text = "\(calorie)kcal/\(Int(round(user.recommendedIntake.calorie)))kcal"
+            self.recommendedCarboLabel.text = "\(carbo)g/\(Int(round(user.recommendedIntake.carbo)))g"
+            self.recommendedProtLabel.text = "\(prot)g/\(Int(round(user.recommendedIntake.prot)))g"
+            self.recommendedFatLabel.text = "\(fat)g/\(Int(round(user.recommendedIntake.fat)))g"
+            
+            self.calorieProgressView.setProgress(Float(Double(calorie)/user.recommendedIntake.calorie), animated: true)
+            self.carboProgressView.setProgress(Float(Double(carbo)/user.recommendedIntake.carbo), animated: true)
+            self.protProgressView.setProgress(Float(Double(prot)/user.recommendedIntake.prot), animated: true)
+            self.fatProgressView.setProgress(Float(Double(fat)/user.recommendedIntake.fat), animated: true)
+            
+            if self.calorieProgressView.progress == 1 {
+                calorieProgressView.tintColor = UIColor.red
+            } else {
+                calorieProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+            if self.carboProgressView.progress == 1 {
+                carboProgressView.tintColor = UIColor.red
+            } else {
+                carboProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+            if self.protProgressView.progress == 1 {
+                protProgressView.tintColor = UIColor.red
+            } else {
+                protProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+            if self.fatProgressView.progress == 1 {
+                fatProgressView.tintColor = UIColor.red
+            } else {
+                fatProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+            }
+        }
+    }
+    
 }
