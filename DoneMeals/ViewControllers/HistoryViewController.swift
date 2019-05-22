@@ -52,7 +52,7 @@ class HistoryViewController: UIViewController {
     
     private func setupCalendarView() {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M월 dd일"
+        dateFormatter.dateFormat = "M월 d일"
         selectedDateLabel.text = dateFormatter.string(from: Date())
         
         service.fetchMeals(of: Date()) { (list, error) in
@@ -66,16 +66,6 @@ class HistoryViewController: UIViewController {
         
         self.calendarView.select(Date())
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -170,7 +160,7 @@ extension HistoryViewController: UICollectionViewDelegateFlowLayout {
 extension HistoryViewController: FSCalendarDataSource, FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M월 dd일"
+        dateFormatter.dateFormat = "M월 d일"
         selectedDateLabel.text = dateFormatter.string(from: date)
         
         service.fetchMeals(of: date) { (list, error) in
@@ -231,5 +221,4 @@ extension HistoryViewController: FSCalendarDataSource, FSCalendarDelegate {
             }
         }
     }
-    
 }
