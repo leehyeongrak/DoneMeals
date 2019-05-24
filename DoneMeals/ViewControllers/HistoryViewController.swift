@@ -36,6 +36,14 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = .white
+        
+        let transform = calorieProgressView.transform.scaledBy(x: 1, y: 3)
+        calorieProgressView.transform = transform
+        carboProgressView.transform = transform
+        protProgressView.transform = transform
+        fatProgressView.transform = transform
+        
         
         foodCollectionView.delegate = self
         foodCollectionView.dataSource = self
@@ -52,7 +60,7 @@ class HistoryViewController: UIViewController {
     
     private func setupCalendarView() {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M월 d일"
+        dateFormatter.dateFormat = "yy년 M월 d일"
         selectedDateLabel.text = dateFormatter.string(from: Date())
         
         service.fetchMeals(of: Date()) { (list, error) in
@@ -124,24 +132,24 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
             self.fatProgressView.setProgress(Float(Double(fat)/user.recommendedIntake.fat), animated: true)
             
             if self.calorieProgressView.progress == 1 {
-                calorieProgressView.tintColor = UIColor.red
+                calorieProgressView.tintColor = UIColor.darkGray
             } else {
-                calorieProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                calorieProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
             if self.carboProgressView.progress == 1 {
-                carboProgressView.tintColor = UIColor.red
+                carboProgressView.tintColor = UIColor.darkGray
             } else {
-                carboProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                carboProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
             if self.protProgressView.progress == 1 {
-                protProgressView.tintColor = UIColor.red
+                protProgressView.tintColor = UIColor.darkGray
             } else {
-                protProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                protProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
             if self.fatProgressView.progress == 1 {
-                fatProgressView.tintColor = UIColor.red
+                fatProgressView.tintColor = UIColor.darkGray
             } else {
-                fatProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                fatProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
         }
     }
@@ -160,7 +168,7 @@ extension HistoryViewController: UICollectionViewDelegateFlowLayout {
 extension HistoryViewController: FSCalendarDataSource, FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M월 d일"
+        dateFormatter.dateFormat = "yy년 M월 d일"
         selectedDateLabel.text = dateFormatter.string(from: date)
         
         service.fetchMeals(of: date) { (list, error) in
@@ -200,24 +208,24 @@ extension HistoryViewController: FSCalendarDataSource, FSCalendarDelegate {
             self.fatProgressView.setProgress(Float(Double(fat)/user.recommendedIntake.fat), animated: true)
             
             if self.calorieProgressView.progress == 1 {
-                calorieProgressView.tintColor = UIColor.red
+                calorieProgressView.tintColor = UIColor.darkGray
             } else {
-                calorieProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                calorieProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
             if self.carboProgressView.progress == 1 {
-                carboProgressView.tintColor = UIColor.red
+                carboProgressView.tintColor = UIColor.darkGray
             } else {
-                carboProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                carboProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
             if self.protProgressView.progress == 1 {
-                protProgressView.tintColor = UIColor.red
+                protProgressView.tintColor = UIColor.darkGray
             } else {
-                protProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                protProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
             if self.fatProgressView.progress == 1 {
-                fatProgressView.tintColor = UIColor.red
+                fatProgressView.tintColor = UIColor.darkGray
             } else {
-                fatProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                fatProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
         }
     }
