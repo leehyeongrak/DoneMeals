@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UEU-qN-OGs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="추천" id="MzV-IT-0kX"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="추천" image="RecommendIcon" id="MzV-IT-0kX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EI7-L2-va7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1318,6 +1318,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.5607843137254902" green="0.76470588235294112" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="FVN-9y-Qxj" kind="relationship" relationship="viewControllers" id="UVs-ly-K1B"/>
@@ -1331,7 +1340,7 @@
             </objects>
             <point key="canvasLocation" x="289" y="1487"/>
         </scene>
-        <!--카메라-->
+        <!--Predict View Controller-->
         <scene sceneID="zkK-ou-Kt4">
             <objects>
                 <viewController id="lbs-fP-gh2" customClass="PredictViewController" customModule="DoneMeals" customModuleProvider="target" sceneMemberID="viewController">
@@ -1383,7 +1392,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8dZ-Yv-yxE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="카메라" id="eTf-1F-vnu"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="CameraColorIcon" id="eTf-1F-vnu"/>
                     <connections>
                         <outlet property="mealImageView" destination="Ydl-39-R7w" id="A4w-8Q-NtT"/>
                         <outlet property="predictionContainerView" destination="x4I-VK-re8" id="3Nf-Ck-Zjp"/>
@@ -1753,7 +1762,7 @@
         <scene sceneID="A7t-Ih-nSo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yQv-MD-zEg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="4" title="더보기" id="qPO-wX-ZJs"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="더보기" image="MoreIcon" id="qPO-wX-ZJs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pSN-UZ-X4u">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -2022,7 +2031,7 @@
         <scene sceneID="xOH-jz-gTW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FVN-9y-Qxj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="홈" id="ea0-iE-lk3"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="HomeIcon" id="ea0-iE-lk3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iSj-TF-6oE">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -2581,7 +2590,7 @@
         <scene sceneID="gBG-cx-W1S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qCh-HS-3YW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="기록" id="0xk-rx-aVK"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="기록" image="HistoryIcon" id="0xk-rx-aVK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jdt-9U-Yl7">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -2598,6 +2607,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CameraColorIcon" width="25" height="19"/>
+        <image name="HistoryIcon" width="24" height="25"/>
+        <image name="HomeIcon" width="20" height="25"/>
+        <image name="MoreIcon" width="25" height="8"/>
+        <image name="RecommendIcon" width="25" height="21"/>
         <image name="sample" width="595" height="375"/>
     </resources>
     <inferredMetricsTieBreakers>
