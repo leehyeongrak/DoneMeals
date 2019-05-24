@@ -35,8 +35,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = .white
+        
+        let transform = calorieProgressView.transform.scaledBy(x: 1, y: 3)
+        calorieProgressView.transform = transform
+        carboProgressView.transform = transform
+        protProgressView.transform = transform
+        fatProgressView.transform = transform
         
         NotificationCenter.default.addObserver(self, selector: #selector(completeAddMeal), name: NSNotification.Name("CompleteAddMeal"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(editedBodyInfo), name: NSNotification.Name("EditBodyInfo"), object: nil)
@@ -143,24 +149,24 @@ class ViewController: UIViewController {
             self.fatProgressView.setProgress(Float(Double(fat)/user.recommendedIntake.fat), animated: true)
             
             if self.calorieProgressView.progress == 1 {
-                calorieProgressView.tintColor = UIColor.red
+                calorieProgressView.tintColor = UIColor.darkGray
             } else {
-                calorieProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                calorieProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
             if self.carboProgressView.progress == 1 {
-                carboProgressView.tintColor = UIColor.red
+                carboProgressView.tintColor = UIColor.darkGray
             } else {
-                carboProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                carboProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
             if self.protProgressView.progress == 1 {
-                protProgressView.tintColor = UIColor.red
+                protProgressView.tintColor = UIColor.darkGray
             } else {
-                protProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                protProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
             if self.fatProgressView.progress == 1 {
-                fatProgressView.tintColor = UIColor.red
+                fatProgressView.tintColor = UIColor.darkGray
             } else {
-                fatProgressView.tintColor = UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 1)
+                fatProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
             }
         }
     }
