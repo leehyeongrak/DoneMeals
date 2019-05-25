@@ -16,6 +16,7 @@
 		394CEDB2226EBCD000C23D66 /* DateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394CEDB1226EBCD000C23D66 /* DateSelectViewController.swift */; };
 		396E4416226C9D4A002D936D /* SearchFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396E4415226C9D4A002D936D /* SearchFoodViewController.swift */; };
 		397408CB226375FB0057A478 /* SetNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397408CA226375FB0057A478 /* SetNotificationViewController.swift */; };
+		397560292299404700523B97 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397560282299404700523B97 /* Colors.swift */; };
 		3984488B228E75E6005C07CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3984488A228E75E6005C07CE /* GoogleService-Info.plist */; };
 		39874E3822707D28007732D2 /* FoodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39874E3722707D28007732D2 /* FoodInfo.swift */; };
 		39874E3A22707E45007732D2 /* NutrientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39874E3922707E45007732D2 /* NutrientInfo.swift */; };
@@ -54,6 +55,7 @@
 		394CEDB1226EBCD000C23D66 /* DateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectViewController.swift; sourceTree = "<group>"; };
 		396E4415226C9D4A002D936D /* SearchFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodViewController.swift; sourceTree = "<group>"; };
 		397408CA226375FB0057A478 /* SetNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationViewController.swift; sourceTree = "<group>"; };
+		397560282299404700523B97 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3984488A228E75E6005C07CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		39874E3722707D28007732D2 /* FoodInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfo.swift; sourceTree = "<group>"; };
 		39874E3922707E45007732D2 /* NutrientInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientInfo.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				39A8D2B62268838C00FF3654 /* APIService.swift */,
 				39F63AA42297A62200735C08 /* FoodModel.mlmodel */,
 				39C3F2562283DA32005198FE /* UIImage+PixelBuffer.swift */,
+				397560282299404700523B97 /* Colors.swift */,
 				395C68A6226AE63700373480 /* CustomCells */,
 				39A8D2B3226880C400FF3654 /* Models */,
 				390A1DB522588591008537DD /* ViewControllers */,
@@ -350,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A644ED226C48C30005FB73 /* FoodInfoViewController.swift in Sources */,
+				397560292299404700523B97 /* Colors.swift in Sources */,
 				391C79A12281883C00EDE700 /* TabBarController.swift in Sources */,
 				39C3F2582283DA32005198FE /* UIImage+PixelBuffer.swift in Sources */,
 				39D53AB922522ACE00D2C4E0 /* ViewController.swift in Sources */,

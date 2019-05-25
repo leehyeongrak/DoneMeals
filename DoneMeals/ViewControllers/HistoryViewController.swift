@@ -134,22 +134,22 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
             if self.calorieProgressView.progress == 1 {
                 calorieProgressView.tintColor = UIColor.darkGray
             } else {
-                calorieProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
+                calorieProgressView.tintColor = UIColor.themeColor
             }
             if self.carboProgressView.progress == 1 {
                 carboProgressView.tintColor = UIColor.darkGray
             } else {
-                carboProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
+                carboProgressView.tintColor = UIColor.themeColor
             }
             if self.protProgressView.progress == 1 {
                 protProgressView.tintColor = UIColor.darkGray
             } else {
-                protProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
+                protProgressView.tintColor = UIColor.themeColor
             }
             if self.fatProgressView.progress == 1 {
                 fatProgressView.tintColor = UIColor.darkGray
             } else {
-                fatProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
+                fatProgressView.tintColor = UIColor.themeColor
             }
         }
     }
@@ -210,22 +210,22 @@ extension HistoryViewController: FSCalendarDataSource, FSCalendarDelegate {
             if self.calorieProgressView.progress == 1 {
                 calorieProgressView.tintColor = UIColor.darkGray
             } else {
-                calorieProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
+                calorieProgressView.tintColor = UIColor.themeColor
             }
             if self.carboProgressView.progress == 1 {
                 carboProgressView.tintColor = UIColor.darkGray
             } else {
-                carboProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
+                carboProgressView.tintColor = UIColor.themeColor
             }
             if self.protProgressView.progress == 1 {
                 protProgressView.tintColor = UIColor.darkGray
             } else {
-                protProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
+                protProgressView.tintColor = UIColor.themeColor
             }
             if self.fatProgressView.progress == 1 {
                 fatProgressView.tintColor = UIColor.darkGray
             } else {
-                fatProgressView.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
+                fatProgressView.tintColor = UIColor.themeColor
             }
         }
     }
