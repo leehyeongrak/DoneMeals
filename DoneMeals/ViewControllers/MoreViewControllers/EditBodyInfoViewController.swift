@@ -59,6 +59,8 @@ class EditBodyInfoViewController: UIViewController {
         coverView.frame = view.bounds
         coverView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        nameTextField.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -128,5 +130,13 @@ extension EditBodyInfoViewController: DismissViewControllerDelegate {
         }) { (bool) in
             self.coverView.removeFromSuperview()
         }
+    }
+}
+
+extension EditBodyInfoViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        
+        return true
     }
 }

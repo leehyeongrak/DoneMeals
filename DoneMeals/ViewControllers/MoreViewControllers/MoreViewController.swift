@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import MessageUI
 
-class MoreViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+class MoreViewController: UITableViewController {
     
     var userInfo: UserInfo?
     
@@ -18,6 +18,7 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = .white
         
         fetchData()
     }
@@ -68,21 +69,6 @@ class MoreViewController: UITableViewController, MFMailComposeViewControllerDele
         return indexPath
     }
     
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
-        let mailComposeViewController = MFMailComposeViewController()
-        mailComposeViewController.mailComposeDelegate = self
-        mailComposeViewController.setToRecipients(["leehrak@gmail.com"])
-        mailComposeViewController.setSubject("FOODOC 문의하기")
-        mailComposeViewController.setMessageBody("소중한 의견을 주셔서 감사합니다.", isHTML: false)
-        
-        return mailComposeViewController
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-    
     func signOutFirebaseAuth() {
         do {
             if let navigationController = self.tabBarController?.viewControllers![0] as? UINavigationController {
@@ -130,4 +116,23 @@ extension MoreViewController: UpdateDataDelegate {
     func updateData() {
         fetchData()
     }
+}
+
+extension MoreViewController: MFMailComposeViewControllerDelegate {
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposeViewController = MFMailComposeViewController()
+        mailComposeViewController.mailComposeDelegate = self
+        mailComposeViewController.setToRecipients(["leehrak@gmail.com"])
+        mailComposeViewController.setSubject("FOODOC 문의하기")
+        mailComposeViewController.setMessageBody("소중한 의견을 주셔서 감사합니다.", isHTML: false)
+//        mailComposeViewController.navigationBar.tintColor = .white
+//        mailComposeViewController.navigationBar.barTintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
+//        
+        return mailComposeViewController
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
 }
