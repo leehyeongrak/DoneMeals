@@ -63,7 +63,7 @@ class PickerViewController: UIViewController {
             pickerView.selectRow(19, inComponent: 0, animated: false)
             selectedValue = 20
         case "SelectHeightSegue":
-            titleLabel.text = "키"
+            titleLabel.text = "신장"
             unitLabel.text = "센티미터"
             pickerView.selectRow(130, inComponent: 0, animated: false)
             selectedValue = 180

@@ -47,7 +47,7 @@ class BodyInfoViewController: UIViewController {
     @IBAction func tappedStartButton(_ sender: UIButton) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        if nameTextField.text == "" || ageButton.titleLabel?.text == "나이를 선택해주세요" || heightButton.titleLabel?.text == "키를 선택해주세요" || weightButton.titleLabel?.text == "체중을 선택해주세요" {
+        if nameTextField.text == "" || ageButton.titleLabel?.text == "나이를 선택해주세요" || heightButton.titleLabel?.text == "신장을 선택해주세요" || weightButton.titleLabel?.text == "체중을 선택해주세요" {
             let alert = UIAlertController(title: "시작하기 실패", message: "항목을 전부 입력해주세요", preferredStyle: .alert)
             present(alert, animated: true) {
                 self.dismiss(animated: true, completion: nil)
