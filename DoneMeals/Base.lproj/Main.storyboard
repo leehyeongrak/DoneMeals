@@ -1072,6 +1072,7 @@
                         <outlet property="fatProgressView" destination="ZDH-Zk-l5g" id="4Nx-ug-7wA"/>
                         <outlet property="mealTableView" destination="Hr7-F5-Ocm" id="8w3-bz-GqE"/>
                         <outlet property="protProgressView" destination="h8Q-fA-end" id="UJz-7h-QaX"/>
+                        <outlet property="recommendContainerView" destination="Iyc-v0-hUb" id="YL9-3h-8Yx"/>
                         <outlet property="recommendedCalorieLabel" destination="hoB-51-kvt" id="JT9-Nj-pFX"/>
                         <outlet property="recommendedCarboLabel" destination="Rvn-nT-Sbi" id="Her-Mv-VVF"/>
                         <outlet property="recommendedFatLabel" destination="73N-tA-JSn" id="bMZ-1x-Enk"/>

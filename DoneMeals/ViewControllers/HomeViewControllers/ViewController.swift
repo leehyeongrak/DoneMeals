@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     var existUID: String?
     var user: UserInfo?
     
+    @IBOutlet weak var recommendContainerView: UIView!
+    
     @IBOutlet weak var recommendedCalorieLabel: UILabel!
     @IBOutlet weak var recommendedCarboLabel: UILabel!
     @IBOutlet weak var recommendedProtLabel: UILabel!
@@ -37,6 +39,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.tintColor = .white
+        
+        recommendContainerView.layer.cornerRadius = 10
+        recommendContainerView.layer.masksToBounds = true
         
         let transform = calorieProgressView.transform.scaledBy(x: 1, y: 3)
         calorieProgressView.transform = transform
