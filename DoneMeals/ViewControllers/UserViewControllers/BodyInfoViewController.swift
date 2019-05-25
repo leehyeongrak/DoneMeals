@@ -22,6 +22,9 @@ class BodyInfoViewController: UIViewController {
     @IBOutlet weak var heightButton: UIButton!
     @IBOutlet weak var weightButton: UIButton!
     
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
+    
     @IBAction func tappedMaleButton(_ sender: UIButton) {
         maleButton.isSelected = !maleButton.isSelected
         femaleButton.isSelected = !femaleButton.isSelected
@@ -71,6 +74,11 @@ class BodyInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        startButton.layer.cornerRadius = 30
+        startButton.layer.masksToBounds = true
+        logoutButton.layer.cornerRadius = 30
+        logoutButton.layer.masksToBounds = true
+        
         coverView.backgroundColor = .black
         coverView.alpha = 0
         coverView.frame = view.bounds

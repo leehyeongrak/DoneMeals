@@ -606,7 +606,7 @@
             </objects>
             <point key="canvasLocation" x="2956" y="3601"/>
         </scene>
-        <!--Welcome View Controller-->
+        <!-- -->
         <scene sceneID="6S4-h7-Ndi">
             <objects>
                 <viewController storyboardIdentifier="WelcomeViewController" id="Iji-CM-LD2" customClass="WelcomeViewController" customModule="DoneMeals" customModuleProvider="target" sceneMemberID="viewController">
@@ -673,9 +673,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aRj-C7-gzY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ExN-DK-8Th"/>
+                    <navigationItem key="navigationItem" title=" " id="ExN-DK-8Th">
+                        <barButtonItem key="backBarButtonItem" title=" " id="2il-OD-9w4"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="loginButton" destination="PMT-IS-aiu" id="b8T-Xh-pJB"/>
                         <outlet property="logoImageView" destination="HfA-I1-OE9" id="o4L-Jq-iCk"/>
+                        <outlet property="signUpButton" destination="ZYN-12-SA9" id="H6y-eF-Qbn"/>
                         <outlet property="welcomeLabel" destination="Hm0-1a-KvK" id="0NZ-bA-IBL"/>
                     </connections>
                 </viewController>
@@ -768,11 +772,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J3C-1U-hbh"/>
                     </view>
-                    <navigationItem key="navigationItem" title="로그인" leftItemsSupplementBackButton="YES" id="pLK-zT-F5L">
-                        <barButtonItem key="backBarButtonItem" title=" " id="e8f-24-Upl"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="로그인" id="pLK-zT-F5L"/>
                     <connections>
                         <outlet property="emailTextField" destination="G16-7a-cv7" id="64p-lq-U84"/>
+                        <outlet property="kakaoLoginButton" destination="c2t-6V-CIu" id="Kzf-3X-p9C"/>
+                        <outlet property="loginButton" destination="2eC-52-5RY" id="Aw8-9Q-nR3"/>
                         <outlet property="passwordTextField" destination="IEG-iJ-C6t" id="0YD-7l-26H"/>
                     </connections>
                 </viewController>
@@ -1561,6 +1565,7 @@
                         <outlet property="emailTextField" destination="h0S-rK-3wL" id="lX5-fj-dna"/>
                         <outlet property="passwordConfirmTextField" destination="cKO-wG-DQ7" id="zjd-a5-PHc"/>
                         <outlet property="passwordTextField" destination="3aJ-5v-JzA" id="11q-VG-JTm"/>
+                        <outlet property="signUpButton" destination="R4H-fP-pPR" id="i9g-B9-ffJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jF0-D8-sro" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1724,8 +1729,10 @@
                         <outlet property="ageButton" destination="St1-Wj-MzQ" id="ckc-mm-8g6"/>
                         <outlet property="femaleButton" destination="Vfh-M3-hPf" id="zwe-Vj-G4d"/>
                         <outlet property="heightButton" destination="UQ0-HZ-Wrh" id="WzQ-g4-MzO"/>
+                        <outlet property="logoutButton" destination="Wvt-Qm-zjy" id="wC5-kV-n6c"/>
                         <outlet property="maleButton" destination="A6B-Un-yAM" id="nsi-Lw-kka"/>
                         <outlet property="nameTextField" destination="d6E-Yj-c1K" id="bET-SI-6HR"/>
+                        <outlet property="startButton" destination="in4-AW-lBI" id="x1s-Ih-fvx"/>
                         <outlet property="weightButton" destination="jav-Jp-tuk" id="pUk-3F-K7B"/>
                     </connections>
                 </viewController>
@@ -2718,6 +2725,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="18H-pp-uGE"/>
         <segue reference="OnK-Yi-XeT"/>
-        <segue reference="F0G-dQ-0Pp"/>
+        <segue reference="gaB-75-Ykn"/>
     </inferredMetricsTieBreakers>
 </document>

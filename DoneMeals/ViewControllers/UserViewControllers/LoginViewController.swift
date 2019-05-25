@@ -16,13 +16,22 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var kakaoLoginButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    
     @IBAction func tappedLoginButton(_ sender: UIButton) {
         loginFirebaseAuth()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.backItem?.title = ""
+        
+        kakaoLoginButton.layer.cornerRadius = 30
+        kakaoLoginButton.layer.masksToBounds = true
+        loginButton.layer.cornerRadius = 30
+        loginButton.layer.masksToBounds = true
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }

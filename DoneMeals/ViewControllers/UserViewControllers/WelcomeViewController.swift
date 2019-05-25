@@ -14,13 +14,22 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var welcomeLabel: UILabel!
     
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
         animateViews()
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = .darkGray
+        
+        signUpButton.layer.cornerRadius = 30
+        signUpButton.layer.masksToBounds = true
+        loginButton.layer.cornerRadius = 30
+        loginButton.layer.masksToBounds = true
+        
         // Do any additional setup after loading the view.
     }
     

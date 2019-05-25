@@ -15,12 +15,16 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmTextField: UITextField!
     
+    @IBOutlet weak var signUpButton: UIButton!
     @IBAction func tappedSignUpButton(_ sender: UIButton) {
         createUserInfo()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        signUpButton.layer.cornerRadius = 30
+        signUpButton.layer.masksToBounds = true
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
