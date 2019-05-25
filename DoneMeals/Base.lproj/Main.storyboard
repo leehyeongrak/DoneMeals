@@ -451,12 +451,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="1mT-AE-w5S">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="1mT-AE-w5S">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잊지 않고 식사를 기록하실 수 있도록 알림을 드립니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqC-F5-IGj">
-                                    <rect key="frame" x="16" y="-7.3333333333333321" width="256" height="14.666666666666666"/>
+                                    <rect key="frame" x="16" y="14.666666666666668" width="256" height="14.666666666666668"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -469,7 +469,7 @@
                                 <constraint firstItem="fqC-F5-IGj" firstAttribute="centerY" secondItem="1mT-AE-w5S" secondAttribute="centerY" id="f6O-0e-8FE"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="TC7-uw-SKw">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="TC7-uw-SKw">
                             <rect key="frame" x="0.0" y="176" width="375" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.98420697450000005" green="0.98437517880000003" blue="0.98419648410000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -614,6 +614,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="HfA-I1-OE9" userLabel="backgroundImage">
+                                <rect key="frame" x="56.333333333333343" y="265.33333333333331" width="262.33333333333326" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="059-fX-DqO"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-3I-hTH">
                                 <rect key="frame" x="32" y="634" width="311" height="128"/>
                                 <subviews>
@@ -647,24 +653,31 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="환영합니다 ^.^" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-TD-baA">
-                                <rect key="frame" x="54" y="318.33333333333331" width="267" height="56.333333333333314"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="47"/>
-                                <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 시작하세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm0-1a-KvK">
+                                <rect key="frame" x="131.33333333333334" y="465.33333333333331" width="112.33333333333334" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="k4R-3I-hTH" firstAttribute="leading" secondItem="aRj-C7-gzY" secondAttribute="leading" constant="32" id="18d-7q-7Mj"/>
+                            <constraint firstItem="HfA-I1-OE9" firstAttribute="centerX" secondItem="aRj-C7-gzY" secondAttribute="centerX" id="2lL-oP-2jC"/>
+                            <constraint firstItem="HfA-I1-OE9" firstAttribute="centerY" secondItem="Tog-nu-H70" secondAttribute="centerY" multiplier="0.9" id="AAU-kJ-9MF"/>
+                            <constraint firstItem="HfA-I1-OE9" firstAttribute="width" secondItem="Tog-nu-H70" secondAttribute="width" multiplier="0.7" id="DgR-8J-94X"/>
                             <constraint firstItem="aRj-C7-gzY" firstAttribute="bottom" secondItem="k4R-3I-hTH" secondAttribute="bottom" constant="16" id="QwT-gW-i9x"/>
-                            <constraint firstItem="Jmf-TD-baA" firstAttribute="centerX" secondItem="aRj-C7-gzY" secondAttribute="centerX" id="fyK-Dn-Jkl"/>
-                            <constraint firstItem="Jmf-TD-baA" firstAttribute="centerY" secondItem="aRj-C7-gzY" secondAttribute="centerY" multiplier="0.8" id="t97-E6-6SK"/>
+                            <constraint firstItem="Hm0-1a-KvK" firstAttribute="top" secondItem="HfA-I1-OE9" secondAttribute="bottom" id="WnT-DY-zcy"/>
+                            <constraint firstItem="Hm0-1a-KvK" firstAttribute="centerX" secondItem="aRj-C7-gzY" secondAttribute="centerX" id="nl0-nI-PE6"/>
                             <constraint firstItem="aRj-C7-gzY" firstAttribute="trailing" secondItem="k4R-3I-hTH" secondAttribute="trailing" constant="32" id="xHf-UT-y8I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aRj-C7-gzY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ExN-DK-8Th"/>
+                    <connections>
+                        <outlet property="logoImageView" destination="HfA-I1-OE9" id="o4L-Jq-iCk"/>
+                        <outlet property="welcomeLabel" destination="Hm0-1a-KvK" id="0NZ-bA-IBL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtO-7A-CLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2697,6 +2710,7 @@
         <image name="CameraColorIcon" width="25" height="19"/>
         <image name="HistoryIcon" width="24" height="25"/>
         <image name="HomeIcon" width="20" height="25"/>
+        <image name="LaunchImage" width="734" height="500"/>
         <image name="MoreIcon" width="25" height="8"/>
         <image name="RecommendIcon" width="25" height="21"/>
         <image name="sample" width="595" height="375"/>

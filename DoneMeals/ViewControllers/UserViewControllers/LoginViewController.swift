@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.backItem?.title = ""
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
