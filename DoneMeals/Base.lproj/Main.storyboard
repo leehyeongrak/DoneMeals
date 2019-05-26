@@ -17,7 +17,19 @@
                     <view key="view" contentMode="scaleToFill" id="RNU-ju-u43">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 준비중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXs-mw-7JO">
+                                <rect key="frame" x="79.666666666666686" y="382" width="216" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jXs-mw-7JO" firstAttribute="centerY" secondItem="RNU-ju-u43" secondAttribute="centerY" id="9mt-RD-WWb"/>
+                            <constraint firstItem="jXs-mw-7JO" firstAttribute="centerX" secondItem="UEU-qN-OGs" secondAttribute="centerX" id="ezV-LH-s1x"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UEU-qN-OGs"/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="추천" image="RecommendIcon" id="MzV-IT-0kX"/>
@@ -62,7 +74,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-MU-PEi">
                                         <rect key="frame" x="184.66666666666666" y="9.6666666666666856" width="5.6666666666666572" height="14.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -324,7 +336,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="yHU-tu-WrB">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="yHU-tu-WrB">
                             <rect key="frame" x="0.0" y="176" width="375" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -452,12 +464,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="1mT-AE-w5S">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="1mT-AE-w5S">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잊지 않고 식사를 기록하실 수 있도록 알림을 드립니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqC-F5-IGj">
-                                    <rect key="frame" x="16" y="14.666666666666668" width="256" height="14.666666666666668"/>
+                                    <rect key="frame" x="16" y="-7.333333333333333" width="256" height="14.666666666666666"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -470,7 +482,7 @@
                                 <constraint firstItem="fqC-F5-IGj" firstAttribute="centerY" secondItem="1mT-AE-w5S" secondAttribute="centerY" id="f6O-0e-8FE"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="TC7-uw-SKw">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="TC7-uw-SKw">
                             <rect key="frame" x="0.0" y="176" width="375" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -927,7 +939,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.55977606773376465" green="0.76343506574630737" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.56078431370000004" green="0.76470588240000004" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="112" id="2GG-d2-iyE"/>
                                     <constraint firstAttribute="bottom" secondItem="Iyc-v0-hUb" secondAttribute="bottom" constant="12" id="8Bs-1h-rqv"/>
@@ -1042,8 +1054,8 @@
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYk-yc-Yjc">
                                                     <rect key="frame" x="0.0" y="37" width="375" height="173"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식사 정보를 추가해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jml-Vx-tim">
-                                                            <rect key="frame" x="68" y="72.666666666666671" width="239" height="27.666666666666671"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식사를 추가해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jml-Vx-tim">
+                                                            <rect key="frame" x="91.666666666666686" y="72.666666666666671" width="192" height="27.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                             <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1121,6 +1133,7 @@
                         <outlet property="recommendedCarboLabel" destination="Rvn-nT-Sbi" id="Her-Mv-VVF"/>
                         <outlet property="recommendedFatLabel" destination="73N-tA-JSn" id="bMZ-1x-Enk"/>
                         <outlet property="recommendedProtLabel" destination="C5z-jw-h1m" id="JTo-As-HnQ"/>
+                        <outlet property="superContainerView" destination="GyP-df-WxB" id="MoE-Kj-e7v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1410,8 +1423,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음식을 촬영해주세요 ^.^" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLA-p0-aFv">
-                                <rect key="frame" x="51.666666666666657" y="369.33333333333331" width="272" height="34.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진으로 식사를 등록합니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLA-p0-aFv">
+                                <rect key="frame" x="31" y="388.66666666666669" width="313.33333333333331" height="34.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                 <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1448,7 +1461,7 @@
                             <constraint firstItem="8dZ-Yv-yxE" firstAttribute="trailing" secondItem="x4I-VK-re8" secondAttribute="trailing" id="0vB-2q-Mgn"/>
                             <constraint firstItem="x4I-VK-re8" firstAttribute="top" secondItem="8dZ-Yv-yxE" secondAttribute="top" constant="19" id="KMK-t3-Gx9"/>
                             <constraint firstItem="YLA-p0-aFv" firstAttribute="centerX" secondItem="8dZ-Yv-yxE" secondAttribute="centerX" id="aeZ-O5-FZX"/>
-                            <constraint firstItem="YLA-p0-aFv" firstAttribute="centerY" secondItem="8dZ-Yv-yxE" secondAttribute="centerY" id="axT-A4-qFZ"/>
+                            <constraint firstItem="YLA-p0-aFv" firstAttribute="centerY" secondItem="gt8-qB-LGt" secondAttribute="centerY" id="axT-A4-qFZ"/>
                             <constraint firstItem="8dZ-Yv-yxE" firstAttribute="bottom" secondItem="x4I-VK-re8" secondAttribute="bottom" constant="30" id="bGY-ys-bWo"/>
                             <constraint firstItem="x4I-VK-re8" firstAttribute="leading" secondItem="8dZ-Yv-yxE" secondAttribute="leading" id="gzA-Ua-Uho"/>
                         </constraints>
@@ -2142,7 +2155,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="iSj-TF-6oE">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.5607843137254902" green="0.76470588235294112" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.56078431370000004" green="0.76470588240000004" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
