@@ -18,15 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="DwG-yD-y4c">
-                                <rect key="frame" x="56.5" y="59" width="262.5" height="500"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="DwG-yD-y4c">
+                                <rect key="frame" x="140.5" y="74" width="94" height="470"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="DwG-yD-y4c" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.7" id="N9f-n0-bbc"/>
-                            <constraint firstItem="DwG-yD-y4c" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.9" id="ipC-cO-hDj"/>
-                            <constraint firstItem="DwG-yD-y4c" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ugA-B7-hce"/>
+                            <constraint firstItem="DwG-yD-y4c" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7KE-pD-h5M"/>
+                            <constraint firstItem="DwG-yD-y4c" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.9" id="ANt-OB-txt"/>
+                            <constraint firstItem="DwG-yD-y4c" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.25" id="hIP-6m-naF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImage" width="734" height="500"/>
+        <image name="LaunchScreenImage" width="344" height="470"/>
     </resources>
 </document>

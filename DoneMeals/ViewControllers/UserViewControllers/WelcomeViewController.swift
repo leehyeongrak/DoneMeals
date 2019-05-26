@@ -12,7 +12,6 @@ class WelcomeViewController: UIViewController {
     
     var userLoggedInDelegate: UserLoggedInDelegate?
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var welcomeLabel: UILabel!
     
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
@@ -35,18 +34,33 @@ class WelcomeViewController: UIViewController {
     
     func animateViews() {
         let originalTransform = logoImageView.transform
-        let originalLabelTransfrom = welcomeLabel.transform
+        let signUpButtonOriginalTransfrom = signUpButton.transform
+        let loginButtonOriginalTransform = loginButton.transform
+        
         let scaledTransform = originalTransform.scaledBy(x: 0.1, y: 0.1)
-        let translatedTransform = originalLabelTransfrom.translatedBy(x: 1000, y: 0)
+        let signUpbButtonTranslatedTransform = signUpButtonOriginalTransfrom.translatedBy(x: 0.0, y: 300.0)
+        let loginButtonTranslateTransform = loginButtonOriginalTransform.translatedBy(x: 0.0, y: 200.0)
+        
         logoImageView.transform = scaledTransform
-        welcomeLabel.transform = translatedTransform
+        signUpButton.transform = signUpbButtonTranslatedTransform
+        loginButton.transform = loginButtonTranslateTransform
+        
         UIView.animate(withDuration: 0.7, animations: {
-            self.logoImageView.transform = originalTransform
+            self.logoImageView.transform = originalTransform.scaledBy(x: 1.1, y: 1.1)
+            self.signUpButton.transform = signUpButtonOriginalTransfrom.translatedBy(x: 0.0, y: -30.0)
+            self.loginButton.transform = loginButtonOriginalTransform.translatedBy(x: 0.0, y: -20.0)
         }) { (bool) in
             UIView.animate(withDuration: 0.2, animations: {
                 self.logoImageView.transform = self.logoImageView.transform.scaledBy(x: 0.9, y: 0.9)
-                self.welcomeLabel.transform = originalLabelTransfrom
-            })
+                self.signUpButton.transform = signUpButtonOriginalTransfrom.translatedBy(x: 0.0, y: 15.0)
+                self.loginButton.transform = loginButtonOriginalTransform.translatedBy(x: 0.0, y: 10.0)
+            }) { (bool) in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.logoImageView.transform = originalTransform
+                    self.signUpButton.transform = signUpButtonOriginalTransfrom
+                    self.loginButton.transform = loginButtonOriginalTransform
+                })
+            }
         }
     }
     
