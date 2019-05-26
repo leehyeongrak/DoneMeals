@@ -28,6 +28,7 @@ class PredictViewController: UIViewController {
     @objc func completeCameraTask() {
         if let tbc = self.tabBarController as? TabBarController {
             tbc.tabBar.isHidden = false
+            tbc.button.isHidden = false
             tbc.selectedIndex = tbc.index
             self.predictionContainerView.isHidden = true
         }
@@ -71,6 +72,7 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
             let cancel = UIAlertAction(title: "취소", style: .cancel) { (action) in
                 if let tbc = self.tabBarController as? TabBarController {
                     tbc.tabBar.isHidden = false
+                    tbc.button.isHidden = false
                     tbc.selectedIndex = tbc.index
                     self.predictionContainerView.isHidden = true
                 }
@@ -87,6 +89,7 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
     @objc func dismissSearchFood() {
         if let tbc = self.tabBarController as? TabBarController {
             tbc.tabBar.isHidden = false
+            tbc.button.isHidden = false
             tbc.selectedIndex = tbc.index
         }
         self.dismiss(animated: true, completion: nil)
@@ -95,6 +98,7 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         if let tbc = self.tabBarController as? TabBarController {
             tbc.tabBar.isHidden = false
+            tbc.button.isHidden = false
             tbc.selectedIndex = tbc.index
         }
         self.dismiss(animated: true, completion: nil)
