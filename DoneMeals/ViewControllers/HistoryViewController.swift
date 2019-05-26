@@ -38,6 +38,19 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = .white
         
+        let gradientLayer = CAGradientLayer()
+        var updatedFrame = self.navigationController!.navigationBar.bounds
+        updatedFrame.size.height += UIApplication.shared.statusBarFrame.size.height
+        gradientLayer.frame = updatedFrame
+        gradientLayer.colors = [UIColor.themeColor.cgColor, UIColor.gradientGreen.cgColor] // start color and end color
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0) // Horizontal gradient start
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.0) // Horizontal gradient end
+        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+        
         let transform = calorieProgressView.transform.scaledBy(x: 1, y: 3)
         calorieProgressView.transform = transform
         carboProgressView.transform = transform

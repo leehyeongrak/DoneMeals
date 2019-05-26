@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         var updatedFrame = self.navigationController!.navigationBar.bounds
         updatedFrame.size.height += UIApplication.shared.statusBarFrame.size.height
         gradientLayer.frame = updatedFrame
-        gradientLayer.colors = [UIColor.gradientGreen.cgColor, UIColor.themeColor.cgColor] // start color and end color
+        gradientLayer.colors = [UIColor.themeColor.cgColor, UIColor.gradientGreen.cgColor] // start color and end color
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0) // Horizontal gradient start
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.0) // Horizontal gradient end
         UIGraphicsBeginImageContext(gradientLayer.bounds.size)
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         recommendContainerView.layer.cornerRadius = 10
         recommendContainerView.layer.masksToBounds = true
         
-        superContainerView.setGradientBackground(colorTop: UIColor.themeColor, colorBottom: UIColor.gradientGreen)
+        superContainerView.setGradientBackground(colorTop: UIColor.gradientGreen, colorBottom: UIColor.themeColor)
         
         let transform = calorieProgressView.transform.scaledBy(x: 1, y: 3)
         calorieProgressView.transform = transform
