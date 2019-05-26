@@ -39,7 +39,7 @@
 		39D53ABE22522ACF00D2C4E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39D53ABD22522ACF00D2C4E0 /* Assets.xcassets */; };
 		39D53AC122522ACF00D2C4E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D53ABF22522ACF00D2C4E0 /* LaunchScreen.storyboard */; };
 		39E502E62264B0D100F5F5EA /* TimeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */; };
-		39F63AA52297A62200735C08 /* FoodModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 39F63AA42297A62200735C08 /* FoodModel.mlmodel */; };
+		39E91A4E229AEFDA006C738F /* FoodModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 39E91A4D229AEFDA006C738F /* FoodModel.mlmodel */; };
 		39F942C02286B0CA00D43463 /* PredictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F942BF2286B0CA00D43463 /* PredictViewController.swift */; };
 		B2124A28F487671A2314669E /* Pods_DoneMeals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620AD9890C8CEACBA11BADB7 /* Pods_DoneMeals.framework */; };
 /* End PBXBuildFile section */
@@ -80,7 +80,7 @@
 		39D53AC022522ACF00D2C4E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39D53AC222522ACF00D2C4E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39E502E52264B0D100F5F5EA /* TimeSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectViewController.swift; sourceTree = "<group>"; };
-		39F63AA42297A62200735C08 /* FoodModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = FoodModel.mlmodel; path = ../../../Downloads/FoodModel.mlmodel; sourceTree = "<group>"; };
+		39E91A4D229AEFDA006C738F /* FoodModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = FoodModel.mlmodel; path = "../../../Project/던밀스(미디어프로젝트)/FoodModel.mlmodel"; sourceTree = "<group>"; };
 		39F942BF2286B0CA00D43463 /* PredictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictViewController.swift; sourceTree = "<group>"; };
 		620AD9890C8CEACBA11BADB7 /* Pods_DoneMeals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoneMeals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47C49600579098F350956EC /* Pods-DoneMeals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoneMeals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoneMeals/Pods-DoneMeals.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 			children = (
 				39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */,
 				39A8D2B62268838C00FF3654 /* APIService.swift */,
-				39F63AA42297A62200735C08 /* FoodModel.mlmodel */,
+				39E91A4D229AEFDA006C738F /* FoodModel.mlmodel */,
 				39C3F2562283DA32005198FE /* UIImage+PixelBuffer.swift */,
 				397560282299404700523B97 /* Colors.swift */,
 				395C68A6226AE63700373480 /* CustomCells */,
@@ -354,6 +354,7 @@
 			files = (
 				39A644ED226C48C30005FB73 /* FoodInfoViewController.swift in Sources */,
 				397560292299404700523B97 /* Colors.swift in Sources */,
+				39E91A4E229AEFDA006C738F /* FoodModel.mlmodel in Sources */,
 				391C79A12281883C00EDE700 /* TabBarController.swift in Sources */,
 				39C3F2582283DA32005198FE /* UIImage+PixelBuffer.swift in Sources */,
 				39D53AB922522ACE00D2C4E0 /* ViewController.swift in Sources */,
@@ -372,7 +373,6 @@
 				39874E3822707D28007732D2 /* FoodInfo.swift in Sources */,
 				39CFFA78225DBD2A000572F8 /* EditBodyInfoViewController.swift in Sources */,
 				39A94AD022589E0A007D6DFE /* SignUpViewController.swift in Sources */,
-				39F63AA52297A62200735C08 /* FoodModel.mlmodel in Sources */,
 				39A644F1226C53850005FB73 /* NutrientTableViewCell.swift in Sources */,
 				39F942C02286B0CA00D43463 /* PredictViewController.swift in Sources */,
 				390A1DAE225884F5008537DD /* RecommendViewController.swift in Sources */,
