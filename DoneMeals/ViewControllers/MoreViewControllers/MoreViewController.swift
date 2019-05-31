@@ -136,8 +136,8 @@ extension MoreViewController: MFMailComposeViewControllerDelegate {
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposeViewController = MFMailComposeViewController()
         mailComposeViewController.mailComposeDelegate = self
-        mailComposeViewController.setToRecipients(["leehrak@gmail.com"])
-        mailComposeViewController.setSubject("FOODOC 문의하기")
+        mailComposeViewController.setToRecipients(["leehrak@ajou.ac.kr"])
+        mailComposeViewController.setSubject("DoneMeals 문의하기")
         mailComposeViewController.setMessageBody("소중한 의견을 주셔서 감사합니다.", isHTML: false)
 //        mailComposeViewController.navigationBar.tintColor = .white
 //        mailComposeViewController.navigationBar.barTintColor = UIColor(red: 143/255, green: 195/255, blue: 31/255, alpha: 1)

@@ -79,6 +79,8 @@
 		390A1DB12258851A008537DD /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		391C79A02281883C00EDE700 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		392EADA02265A38F000841F3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		394BE8E722A0F52E003E4CBE /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		394BE8E922A0F52E003E4CBE /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		394CEDAF226EB4DB00C23D66 /* ManualAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAddViewController.swift; sourceTree = "<group>"; };
 		394CEDB1226EBCD000C23D66 /* DateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectViewController.swift; sourceTree = "<group>"; };
 		396E4415226C9D4A002D936D /* SearchFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +264,8 @@
 		4D39A5F9700BB77B6BFA6BB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				394BE8E722A0F52E003E4CBE /* FirebaseCore.framework */,
+				394BE8E922A0F52E003E4CBE /* FirebaseDatabase.framework */,
 				620AD9890C8CEACBA11BADB7 /* Pods_DoneMeals.framework */,
 				39E91A54229AF085006C738F /* NotificationCenter.framework */,
 			);
