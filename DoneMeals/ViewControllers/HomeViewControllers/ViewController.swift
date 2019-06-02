@@ -171,6 +171,18 @@ class ViewController: UIViewController {
             self.protProgressView.setProgress(Float(Double(prot)/user.recommendedIntake.prot), animated: true)
             self.fatProgressView.setProgress(Float(Double(fat)/user.recommendedIntake.fat), animated: true)
             
+            if let groupUserDefaults = UserDefaults(suiteName: "group.com.rak.DoneMeals") {
+                groupUserDefaults.set(user.name, forKey: "user")
+                groupUserDefaults.set(calorie, forKey: "calorie")
+                groupUserDefaults.set(carbo, forKey: "carbo")
+                groupUserDefaults.set(prot, forKey: "prot")
+                groupUserDefaults.set(fat, forKey: "fat")
+                groupUserDefaults.set(user.recommendedIntake.calorie, forKey: "recommendedCalorie")
+                groupUserDefaults.set(user.recommendedIntake.carbo, forKey: "recommendedCarbo")
+                groupUserDefaults.set(user.recommendedIntake.prot, forKey: "recommendedProt")
+                groupUserDefaults.set(user.recommendedIntake.fat, forKey: "recommendedFat")
+            }
+            
             if self.calorieProgressView.progress == 1 {
                 calorieProgressView.tintColor = UIColor.darkGray
             } else {

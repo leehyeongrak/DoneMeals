@@ -99,6 +99,8 @@
 		39C34647226AE71200057751 /* MealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		39C34649226AEDED00057751 /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		39C3F2562283DA32005198FE /* UIImage+PixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+PixelBuffer.swift"; path = "../../../Downloads/Food101-CoreML-master/Food101Prediction/UIImage+PixelBuffer.swift"; sourceTree = "<group>"; };
+		39CC74F922A10A1800CC4AA9 /* DoneMeals.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DoneMeals.entitlements; sourceTree = "<group>"; };
+		39CC74FA22A10A4400CC4AA9 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
 		39CFFA75225DB88E000572F8 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		39CFFA77225DBD2A000572F8 /* EditBodyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBodyInfoViewController.swift; sourceTree = "<group>"; };
 		39D0899B225B319D008AC99A /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		39D53AB522522ACE00D2C4E0 /* DoneMeals */ = {
 			isa = PBXGroup;
 			children = (
+				39CC74F922A10A1800CC4AA9 /* DoneMeals.entitlements */,
 				39D53AB622522ACE00D2C4E0 /* AppDelegate.swift */,
 				39A8D2B62268838C00FF3654 /* APIService.swift */,
 				39E91A4D229AEFDA006C738F /* FoodModel.mlmodel */,
@@ -254,6 +257,7 @@
 		39E91A56229AF085006C738F /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				39CC74FA22A10A4400CC4AA9 /* Widget.entitlements */,
 				39E91A57229AF085006C738F /* TodayViewController.swift */,
 				39E91A59229AF085006C738F /* MainInterface.storyboard */,
 				39E91A5C229AF085006C738F /* Info.plist */,
@@ -334,9 +338,19 @@
 				TargetAttributes = {
 					39D53AB222522ACE00D2C4E0 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					39E91A52229AF085006C738F = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -642,6 +656,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DoneMeals/DoneMeals.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6843LQ44V6;
 				INFOPLIST_FILE = DoneMeals/Info.plist;
@@ -662,6 +677,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DoneMeals/DoneMeals.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6843LQ44V6;
 				INFOPLIST_FILE = DoneMeals/Info.plist;
@@ -679,6 +695,7 @@
 		39E91A61229AF085006C738F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6843LQ44V6;
 				INFOPLIST_FILE = Widget/Info.plist;
@@ -698,6 +715,7 @@
 		39E91A62229AF085006C738F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6843LQ44V6;
 				INFOPLIST_FILE = Widget/Info.plist;
