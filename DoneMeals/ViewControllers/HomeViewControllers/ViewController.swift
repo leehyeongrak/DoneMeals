@@ -46,7 +46,6 @@ class ViewController: UIViewController {
                 return
             }
         }
-        NotificationManager.addTimeNotification()
         
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.tintColor = .white

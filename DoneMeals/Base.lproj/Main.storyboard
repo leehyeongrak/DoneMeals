@@ -511,6 +511,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHr-mn-Crn">
                                                     <rect key="frame" x="310" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <connections>
+                                                        <action selector="changedBreakfastSwitch:" destination="e08-mC-o4T" eventType="valueChanged" id="0XY-yZ-5Gy"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -548,6 +551,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ykj-8E-Mq6">
                                                     <rect key="frame" x="310" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <connections>
+                                                        <action selector="changedLunchSwitch:" destination="e08-mC-o4T" eventType="valueChanged" id="P8Y-b3-pKR"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -585,6 +591,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZVu-1N-zva">
                                                     <rect key="frame" x="310" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <connections>
+                                                        <action selector="changedDinnerSwitch:" destination="e08-mC-o4T" eventType="valueChanged" id="yJA-8o-jh0"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -610,8 +619,11 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="breakfastSwitch" destination="sHr-mn-Crn" id="x7R-MH-Z8D"/>
                         <outlet property="breakfastTimeLabel" destination="We9-9V-GtR" id="oCc-8c-cXY"/>
+                        <outlet property="dinnerSwitch" destination="ZVu-1N-zva" id="Dic-UH-wzr"/>
                         <outlet property="dinnerTimeLabel" destination="plF-ng-c6b" id="PtG-dC-839"/>
+                        <outlet property="lunchSwitch" destination="Ykj-8E-Mq6" id="9US-D3-l36"/>
                         <outlet property="lunchTimeLabel" destination="6mj-ga-TDJ" id="eVU-xR-sDY"/>
                     </connections>
                 </tableViewController>

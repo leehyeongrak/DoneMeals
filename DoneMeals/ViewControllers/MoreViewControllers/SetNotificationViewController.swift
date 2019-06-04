@@ -16,6 +16,40 @@ class SetNotificationViewController: UITableViewController {
     @IBOutlet weak var lunchTimeLabel: UILabel!
     @IBOutlet weak var dinnerTimeLabel: UILabel!
     
+    @IBOutlet weak var breakfastSwitch: UISwitch!
+    @IBOutlet weak var lunchSwitch: UISwitch!
+    @IBOutlet weak var dinnerSwitch: UISwitch!
+    
+    @IBAction func changedBreakfastSwitch(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "breakfastSwitch")
+        if let breakfastTime = UserDefaults.standard.object(forKey: "breakfastTime") as? Date {
+            if sender.isOn {
+                NotificationManager.addTimeNotification(bld: .Breakfast, date: breakfastTime)
+            } else {
+                NotificationManager.removeTimeNotification(bld: .Breakfast)
+            }
+        }
+    }
+    @IBAction func changedLunchSwitch(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "lunchSwitch")
+        if let lunchTime = UserDefaults.standard.object(forKey: "lunchTime") as? Date {
+            if sender.isOn {
+                NotificationManager.addTimeNotification(bld: .Lunch, date: lunchTime)
+            } else {
+                NotificationManager.removeTimeNotification(bld: .Lunch)
+            }
+        }
+    }
+    @IBAction func changedDinnerSwitch(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "dinnerSwitch")
+        if let dinnerTime = UserDefaults.standard.object(forKey: "dinnerTime") as? Date {
+            if sender.isOn {
+                NotificationManager.addTimeNotification(bld: .Dinner, date: dinnerTime)
+            } else {
+                NotificationManager.removeTimeNotification(bld: .Dinner)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +84,10 @@ class SetNotificationViewController: UITableViewController {
         if let dinnerTime = UserDefaults.standard.object(forKey: "dinnerTime") as? Date {
             dinnerTimeLabel.text = dateFormatter.string(from: dinnerTime)
         }
+        
+        breakfastSwitch.setOn(UserDefaults.standard.bool(forKey: "breakfastSwitch"), animated: true)
+        lunchSwitch.setOn(UserDefaults.standard.bool(forKey: "lunchSwitch"), animated: true)
+        dinnerSwitch.setOn(UserDefaults.standard.bool(forKey: "dinnerSwitch"), animated: true)
     }
     
     
@@ -68,41 +106,6 @@ class SetNotificationViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let timeSelectViewController = segue.destination as? TimeSelectViewController
@@ -137,14 +140,26 @@ extension SetNotificationViewController: ValueSelectedDelegate {
         case "SetBreakfastSegue":
             if let breakfastTime = UserDefaults.standard.object(forKey: "breakfastTime") as? Date {
                 breakfastTimeLabel.text = dateFormatter.string(from: breakfastTime)
+                if breakfastSwitch.isOn {
+                    NotificationManager.removeTimeNotification(bld: .Breakfast)
+                    NotificationManager.addTimeNotification(bld: .Breakfast, date: breakfastTime)
+                }
             }
         case "SetLunchSegue":
             if let lunchTime = UserDefaults.standard.object(forKey: "lunchTime") as? Date {
                 lunchTimeLabel.text = dateFormatter.string(from: lunchTime)
+                if lunchSwitch.isOn {
+                    NotificationManager.removeTimeNotification(bld: .Lunch)
+                    NotificationManager.addTimeNotification(bld: .Lunch, date: lunchTime)
+                }
             }
         case "SetDinnerSegue":
             if let dinnerTime = UserDefaults.standard.object(forKey: "dinnerTime") as? Date {
                 dinnerTimeLabel.text = dateFormatter.string(from: dinnerTime)
+                if dinnerSwitch.isOn {
+                    NotificationManager.removeTimeNotification(bld: .Dinner)
+                    NotificationManager.addTimeNotification(bld: .Dinner, date: dinnerTime)
+                }
             }
         default:
             return
