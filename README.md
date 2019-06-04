@@ -1,4 +1,4 @@
-# 푸닥(FOODOC)
+# 던밀스(DoneMeals)
 
 인공지능 식습관 관리 앱 (iOS 모바일 애플리케이션)
 
@@ -15,12 +15,12 @@
 
 ### 주요기능
 
-* 로그인(이메일로 로그인, 카카오톡 로그인)
+* 로그인(이메일로 로그인, 카카오톡 로그인(예정))
 * 촬영한 이미지에 대한 머신러닝 분석
-* 당일 섭취한 음식 기록(테이블뷰) 및 이전 기록 열람 기능(캘린더뷰)
+* 당일 섭취한 음식 기록(TableView&CollectionView) 및 이전 기록 열람 기능(FSCalendar)
 * 유저 섭취 칼로리 및 영양분 수치 제공
-* 과부족 영양분 섭취를 위한 음식 추천 피드백
-* pushNotification 기능
+* 과부족 영양분 섭취를 위한 음식 추천 피드백(예정)
+* 알림 기능
 * 위젯 제공
 
 ---
@@ -36,15 +36,18 @@
 * Model
 
   1. 사용자정보(UserInfo)
-     * uid, email, name, gender, age, height, weight
-  2. 음식정보(FoodInfo)
-     * fid, name, imageURL, createdTime, nutrientInfo(NutrientInfo)
+     * uid, email, name, gender, age, height, weight, recommendedIntake
+     * 권장섭취량(RecommendedIntake)
+       calorie, carbo, prot, fat
+  2. 식사정보(FoodInfo)
+     * fid, name, intake, defaultIntake, createdTime, imageURL, nutrientInfo, bld
+     * 식사시간(Bld)
+       case Breakfast, case Lunch, case Dinner
   3. 영양소정보(NutrientInfo)
-     * nid, carbo, prot, fat, sugars, sodium, cholesterol, satFat, transFat
+     * calorie, carbo, prot, fat, sugars, sodium, cholesterol, satFat, transFat
+  4. 인공지능모델(FoodModel.mlmodel) 
 
-* View
-
-* Controller
+* ViewController
 
   1. 최초화면(WelcomeViewController)
 
@@ -53,6 +56,8 @@
   3. 회원가입(SignUpViewController)
 
   4. 신체정보(BodyInfoViewController)
+
+     4-1. 신체정보선택(PickerViewController)
 
   5. 홈(ViewController)
 
@@ -66,9 +71,9 @@
 
   6. 음식추천(RecommendViewController)
 
-  7. 카메라 촬영(AddViewController)
+  7. 음식분석(PredictViewController)
 
-     7-1. 정보입력(WriteInfoViewController)
+     7-1. 등록(AddViewController)
 
      7-2. 음식검색(SearchInfoViewController)
 
@@ -76,9 +81,7 @@
 
   8. 기록(HistoryViewController)
 
-     8-1. 음식정보(FoodInfoViewController)
-
-  9. 마이페이지(MypageViewController)
+  9. 더보기(MoreViewController)
 
      9-1. 신체정보수정(EditBodyInfoViewController)
 
@@ -86,18 +89,21 @@
 
      9-3. 시간선택(TimeSelectViewController)
 
+  10. 탭바(TabBarController)
+
 * TodayExtension
 
-  1. 위젯(WidgetViewController)
+  1. 위젯(TodayViewController)
+
+* APIService
 
 ---
 
 ### View 상세기능
 
-* 비로그인 시 기능 사용 불가(YAIZO 레퍼런스)
-* 이메일 로그인, 카카오톡 로그인 제공
-* 최초 로그인 시 성별, 연령, 키, 체중 입력
-* 최초 로그인 시 튜토리얼 모달뷰 제공(추후)
+* 비로그인 및 신체정보 미입력 시 기능 사용 불가
+* 이메일 로그인, 카카오톡 로그인(예정) 제공
+* 최초 로그인 시 성별, 연령, 신장, 체중 입력
 * 탭1: 금일 섭취한 음식 정보 표시, 과부족 영양소 및 칼로리 시각적으로 표시
 * 탭2: 균형잡힌 영양소를 섭취하기 위한 추천 음식정보 제공
 * 탭3: 카메라 촬영(모달뷰로 띄우기, 앱델리게이트 수정)
@@ -107,15 +113,14 @@
 
 ---
 
-### 라이브러리 및 프레임워크(예정)
+### 외부 라이브러리 및 프레임워크
 
-* KakaoSDK(카카오톡 로그인)
+* KakaoSDK(카카오톡 로그인)(예정)
 * FirebaseAuth(사용자 인증, 연락처 로그인)
 * FirebaseDatabase(사용자, 음식 데이터 저장)
-* UserNotifications
-* Vision
-* CoreML
-* FSCalendar
+* FirebaseStorage(이미지 데이터 저장)
+* CoreML(이미지 분석)
+* FSCalendar(이전 기록 열람)
 
 ---
 
