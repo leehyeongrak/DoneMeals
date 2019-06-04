@@ -10,7 +10,7 @@ import UIKit
 
 class SearchFoodViewController: UIViewController {
 
-    let samples: Array<String> = ["김치찌개", "된장찌개", "육개장"]
+    var samples: Array<String> = []
     var image: UIImage?
     var results: Array<String> = []
     
@@ -23,6 +23,14 @@ class SearchFoodViewController: UIViewController {
         resultsTableView.dataSource = self
         searchBar.delegate = self
         
+        let service = APIService()
+        service.fetchFoodList { (list, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+                return
+            }
+            self.samples = list!
+        }
     }
     
     private func searchFood(keyword: String) -> Array<String> {
@@ -34,24 +42,6 @@ class SearchFoodViewController: UIViewController {
             }
         }
         return results
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let manualAddViewController = segue.destination as? ManualAddViewController else {
-            return
-        }
-        guard let cell = sender as? UITableViewCell else {
-            return
-        }
-        
-        let nutrient = NutrientInfo(dictionary: ["calorie": 200, "carbo": 12, "prot": 23, "fat": 11 ,"sugars": 12.4, "sodium": 7.2, "cholesterol": 3.2, "satFat": 15.2, "transFat": 5.4])
-        
-        let result: [String: Any] = ["name": "김치찌개", "defaultIntake": 200, "nutrient": nutrient]
-        
-        if let image = self.image {
-            manualAddViewController.image = image
-        }
-        manualAddViewController.result = result
     }
     
 }
@@ -66,6 +56,32 @@ extension SearchFoodViewController: UITableViewDelegate, UITableViewDataSource {
         let result = results[indexPath.row]
         cell.textLabel?.text = result
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let manualAddViewController = storyboard?.instantiateViewController(withIdentifier: "ManualAddViewController") as? ManualAddViewController else { return }
+        
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        let keyword = cell?.textLabel?.text ?? ""
+        
+        let service = APIService()
+        service.searchFood(keyword: keyword) { (dictionary, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+                return
+            }
+            let nutrient = NutrientInfo(dictionary: dictionary!["nutrientInfo"] as! [String : Any])
+
+            let result: [String: Any] = ["name": keyword, "defaultIntake": dictionary!["defaultIntake"] as! Int, "nutrient": nutrient]
+
+            if let image = self.image {
+                manualAddViewController.image = image
+            }
+            
+            manualAddViewController.result = result
+            self.navigationController?.pushViewController(manualAddViewController, animated: true)
+        }
     }
     
     

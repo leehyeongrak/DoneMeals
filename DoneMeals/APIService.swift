@@ -144,6 +144,33 @@ class APIService: APIServiceProtocol {
             completion(nil, error)
         }
     }
+    
+    func searchFood(keyword: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
+        let ref = Database.database().reference().child("foods").child(keyword)
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let values = snapshot.value as? [String: Any] {
+                completion(values, nil)
+            }
+        }) { (error) in
+            completion(nil, error)
+        }
+    }
+    
+    func fetchFoodList(completion: @escaping (Array<String>?, Error?) -> Void) {
+        let ref = Database.database().reference().child("foods")
+        var list: Array<String> = []
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let values = snapshot.value as? [String: Any] {
+                for v in values {
+                    list.append(v.key)
+                }
+                completion(list, nil)
+            }
+        }) { (error) in
+            completion(nil, error)
+        }
+    }
 }
 
 protocol APIServiceProtocol {
@@ -155,4 +182,8 @@ protocol APIServiceProtocol {
     func uploadImageData(image: UIImage, completion: @escaping (String?, Error?) -> Void)
     
     func fetchMeals(of date: Date, completion: @escaping (Array<FoodInfo>?, Error?) -> Void)
+    
+    func searchFood(keyword: String, completion: @escaping ([String: Any]?, Error?) -> Void)
+    
+    func fetchFoodList(completion: @escaping (Array<String>?, Error?) -> Void)
 }

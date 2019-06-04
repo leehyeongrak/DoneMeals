@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import NotificationCenter
+import UserNotifications
 
 class ViewController: UIViewController {
     
@@ -38,6 +39,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (didAllow, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+        }
+        NotificationManager.addTimeNotification()
+        
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.tintColor = .white
 

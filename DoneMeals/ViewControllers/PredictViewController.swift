@@ -48,14 +48,24 @@ extension PredictViewController: UIImagePickerControllerDelegate, UINavigationCo
             let alert = UIAlertController(title: nil, message: "\(food)(이)가 맞습니까?", preferredStyle: .actionSheet)
             let continueAdd = UIAlertAction(title: "네", style: .default) { (action) in
                 if let addViewController = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController") as? AddViewController {
-                    let nutrient = NutrientInfo(dictionary: ["calorie": 200, "carbo": 12, "prot": 23, "fat": 11 ,"sugars": 12.4, "sodium": 7.2, "cholesterol": 3.2, "satFat": 15.2, "transFat": 5.4])
                     
-                    let result: [String: Any] = ["name": "김치찌개", "defaultIntake": 200, "nutrient": nutrient]
-                    addViewController.image = image
-                    addViewController.result = result
-                    self.present(addViewController, animated: true, completion: nil)
+                    let service = APIService()
+                    service.searchFood(keyword: food) { (dictionary, error) in
+                        if error != nil {
+                            print(error?.localizedDescription)
+                            return
+                        }
+                        let nutrient = NutrientInfo(dictionary: dictionary!["nutrientInfo"] as! [String : Any])
+                        
+                        let result: [String: Any] = ["name": food, "defaultIntake": dictionary!["defaultIntake"] as! Int, "nutrient": nutrient]
+                        
+                        addViewController.image = image
+                        addViewController.result = result
+                        self.present(addViewController, animated: true, completion: nil)
+                    }
                 }
             }
+            
             let searchFood = UIAlertAction(title: "다른음식 검색하기", style: .default) { (action) in
                 if let searchFoodViewController = self.storyboard?.instantiateViewController(withIdentifier: "SearchFoodViewController") as? SearchFoodViewController {
                     let navigationController = UINavigationController(rootViewController: searchFoodViewController)
